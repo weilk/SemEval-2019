@@ -18,95 +18,63 @@
 <h1><a name="Requirements_Analysis_Document_T"> Requirements Analysis Document </a></h1>
 <p />
 <h2><a name="Purpose"> Purpose </a></h2>
-<p />
+This document describes the current system in terms of functional and nonfunctional requirements,
+serving as a basis between the "client"(the conference analysis committee) and the developer. 
 
-The results of the requirements elicitation and the analysis activities are
-documented in the Requirements Analysis Document (RAD). This document completely
-describes the system in terms of functional and nonfunctional requirements and
-serves as a contractual basis between the customer and the developer. The RAD
-must be written in the language of the customer's domain of business/expertise.
-Under no circumstances should any "computerese" terminology creep into this document.
-
-<p />
 <h2><a name="Audience"> Audience </a></h2>
-<p />
+The audience for the RAD includes the conference analysis committee, the subsequent readers and the developers who participate in the system design.<br><br>
 
-The audience for the RAD includes the customer, the users, the project
-management, the system analysts (i.e., the developers who participate in the
-requirements), and the system designers (i.e., the developers who participate in
-the system design). The first part of the document, including use cases and
-nonfunctional requirements, is written during requirements elicitation. The
-formalization of the specification in terms of object models is written during
-analysis. We use an example template for a RAD introduced in the book.
-
-<p />
-<h2><a name="Template"> Template </a></h2>
-<p />
-
-<table border="0" width="90%">
-  <tr>
-      <td width="50%">
-<b><i>Section/Topic</i></b>
-      </td>
-      <td width="50%">
-<b><i>Description</i></b>
-      </td>
-   </tr>
-<p />
-  <tr>
-      <td width="50%" valign="top">
 <b>1. Introduction</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.1 Purpose of the system<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.2 Scope of the system<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.3 Objectives and success criteria of the project<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.4 Definitions, acronyms, and abbreviations<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.5 References<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.6 Overview      
-      </td>
-      <td width="50%" valign="top">
-      <i>The first section of the RAD is an Introduction. Its purpose is to
-      provide a brief overview of the function of the system and the reasons for
-      its development, its scope, and references to the development context
-      (e.g., reference to the problem statement written by the client, references
-      to existing systems, feasibility studies). The introduction also includes
-      the objectives and success criteria of the project.</i>
-      </td>
-   </tr>
-<p />
-<tr><td colspan="2">&nbsp;</td></tr>
-<p />
-   <tr>
-      <td width="50%" valign="top">
-<b>2. Current system</b>
-      </td>
-      <td width="50%" valign="top">
-      <i>The second section, Current system, describes the current state of
-      affairs. If the new system will replace an existing system, this section
-      describes the functionality and the problems of the current
-      system. Otherwise, this section describes how the tasks supported by the
-      new system are accomplished now.</i>
-      </td>
-   </tr>
-<p />
-<tr><td colspan="2">&nbsp;</td></tr>
-<p />
-   <tr>
-      <td width="50%" valign="top">
+While a lot of research does exist in the field of NLP sentiment analysis, this type of contextual sentiment analysis  applied to conversation has reduced quantity and quality of related work.<br> 
+Despite this, we are confident that applying results and insight from the general field of sentiment analysis will prove to yield good results.
+<br><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;1.1 Purpose of the system</b><br>
+We consider using the Mixture of Experts model with a view to classifying the last reply of a three replies dialogue into one of the following categories: Happy, Sad, Angry, Others.
+<br>
+We intend to use comittee machines, taking into account especially boosting algorithms, which proved to have the best results in the field recently.
+<br>
+<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;1.2 Scope of the system</b>
+<br>
+The system should be able to clasify the last reply of a three replies dialogue into one of the following categories: Happy, Sad, Angry or Others. 
+<br>
+<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;1.3 Objectives and success criteria of the project</b><br>
+    - Having the best accuracy out of the all related researches in terms of correctly classifying sentences, which are part of conversations;
+<br>
+    - Respecting the deadline specified on the site of SemEval;
+<br>
+    - Decent training time and optimized time in terms of classification;
+<br>
+    - Scalability of the project;
+<br>
+<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;1.4 Definitions, acronyms, and abbreviations</b><br>
+1. NLP - Natural Language Processing <br>
+2. MoE - Mixture of experts <br>
+3. NN - Neural Networks <br>
+4. CNN - Convolutional Neural Networks <br>
+5. RNN - Recurrent Neural Networks <br>
+6. ANN - Artificial Neural Networks <br>
+7. CANN - Collaborative Artificial Neural Network <br>
+<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;1.5 References</b><br>
+1. Jan Deriu, Maurice Gonzenbach, Fatih Uzdilli, Aurelien Lucchi, Valeria De Luca, Martin Jaggi “SwissCheese at SemEval-2016 Task 4: Sentiment Classification Using an Ensemble of Convolutional Neural Networks with Distant Supervision” <br>
+2. Birgitta Ojamaa Päivi Kristiina Jokinen Kadri Muischnek, “Sentiment analysis on conversational texts” <br>
+3. C. Danescu, M. Sudhof, D. Jurafsky, J. Leskovec, C. Potts. “A computational approach to politeness with application to social factors”, in Proc. of ACL 2013. <br>
+4. T. De Smedt and W. Daelemans, "Pattern for Python," The Journal of Machine Learning Research, vol. 13, no. 1, pp.2063-2067, 2012. <br>
+5. C. Strapparava and A. Valitutti. WordNet-Affect: an affective extension of WordNet. In Proc. of LREC, 1083–1086, 2004. <br>
+6. P. Basile, V. Basile, M. Nissim, N. Novielli, V. Patti. “Sentiment Analysis of Microblogging Data”. To appear in Encyclopedia of Social Network Analysis and Mining, Springer. In press. <br>
+7. D. Gachechiladze, F. Lanubile, N. Novielli, and A. Serebrenik. “Anger and its direction in collaborative software development”. In Proceedings of the 39th International Conference on Software Engineering: New Ideas and Emerging Results Track. IEEE Press, 11-14, 2017. <br>
+<br>
+<b><b>
+
 <b>3. Proposed system</b>
-      </td>
-      <td width="50%" valign="top">
-      <i>The third section documents the requirements elicitation and the analysis model of the new system.</i>
-      </td>
-   </tr>
-<p />
 <tr><td colspan="2">&nbsp;</td></tr>
 <p />
    <tr>
       <td width="50%" valign="top">
 &nbsp;&nbsp;&nbsp;&nbsp;<b>3.1 Overview</b>
-      </td>
-      <td width="50%" valign="top">
-      <i>The overview presents a functional overview of the system.</i>
       </td>
    </tr>
 <p />
@@ -119,9 +87,6 @@ analysis. We use an example template for a RAD introduced in the book.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.3 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.4 <br>
-      </td>
-      <td width="50%" valign="top">
-<i>Functional requirements describes the high-level functionality of the system.</i>
       </td>
    </tr>
 <p />
@@ -139,12 +104,6 @@ analysis. We use an example template for a RAD introduced in the book.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.7 Packaging<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.8 Legal
       </td>
-      <td width="50%" valign="top">
-      <i>Nonfunctional requirements describes user-level requirements that are
-      not directly related to functionality. This includes usability,
-      reliability, performance, supportability, implementation, interface,
-      operational, packaging, and legal requirements.</i>
-      </td>
    </tr>
 <p />
 <tr><td colspan="2">&nbsp;</td></tr>
@@ -158,14 +117,6 @@ analysis. We use an example template for a RAD introduced in the book.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.4 Dynamic model<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.5 User interface—navigational paths and screen mock-ups
       </td>
-      <td width="50%" valign="top">
-      <i>System models describes the scenarios, use cases, object model, and
-      dynamic models for the system. This section contains the complete
-      functional specification, including mock-ups illustrating the user
-      interface of the system and navigational paths representing the sequence
-      of screens. The subsections Object model and Dynamic model are written
-      during the Analysis activity.</i>
-      </td>
    </tr>
 <p />
 <tr><td colspan="2">&nbsp;</td></tr>
@@ -173,12 +124,6 @@ analysis. We use an example template for a RAD introduced in the book.
    <tr>
       <td width="50%" valign="top">
 <b>4. Glossary</b>
-      </td>
-      <td width="50%" valign="top">
-
-      <i>A glossary of important terms, to ensure consistency in the
-      specification and to ensure that we use the client’s terms.  A
-      precurser to the <b>Data Dictionary</b></i>
       </td>
     </tr>
  <p />
