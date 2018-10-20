@@ -1,0 +1,17 @@
+/* RCLstyle.css */
+
+/* colors: garnet = 990000, gold = #FFCC00, grey = #808080 */
+
+  pre {font-family:Courier New, Fixedsys; font-size:10pt}
+  tt {font-family:Courier New, Fixedsys; font-size: 10pt}
+  p  {font-family:Verdana, sans-serif; font-size: 10pt}
+  h1 {font-family:Verdana, sans-serif; font-size: 12pt; font-weight: bold}
+  h2 {font-family:Verdana, sans-serif; font-size: 10pt; font-weight: bold}
+  h3 {font-family:Verdana, sans-serif; font-size: 10pt; font-weight: bold}
+  ul {font-family:Verdana, sans-serif; font-size: 10pt}
+  li {font-family:Verdana, sans-serif; font-size: 10pt}
+  dl {font-family:Verdana, sans-serif; font-size: 10pt}
+  dt {font-family:Verdana, sans-serif; font-size: 10pt}
+  dd {font-family:Verdana, sans-serif; font-size: 10pt}
+  em {font-family:Verdana, sans-serif; font-size: 10 pt; font-style:italic; color: #990000}
+  td {font-family:Verdana, sans-serif; font-size: 10pt}
