@@ -13,5 +13,20 @@
   dl {font-family:Verdana, sans-serif; font-size: 10pt}
   dt {font-family:Verdana, sans-serif; font-size: 10pt}
   dd {font-family:Verdana, sans-serif; font-size: 10pt}
-  em {font-family:Verdana, sans-serif; font-size: 10 pt; font-style:italic; color: #990000}
+  em {font-family:Verdana, sans-serif; font-size: 10pt; font-style:italic; color: #990000}
   td {font-family:Verdana, sans-serif; font-size: 10pt}
+
+  ul.dashed {
+    list-style-type: none;
+  }
+  ul.dashed > li {
+    text-indent: -10px;
+  }
+  ul.dashed > li:before {
+    content: " - ";
+  }
+
+  ol#ordered-list { counter-reset: item }
+  ol#ordered-list > li{ display: block;  font-weight: bold }
+  ol#ordered-list > li > div{ display: inline;  font-weight: normal }
+  ol#ordered-list > li:before { content: counters(item, ".") "."; counter-increment: item }
