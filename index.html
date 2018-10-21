@@ -74,6 +74,15 @@ The system should be able to clasify the last reply of a three replies dialogue 
    <tr>
       <td width="50%" valign="top">
 &nbsp;&nbsp;&nbsp;&nbsp;<b>3.1 Overview</b>
+<br>
+Our system should correctly classify replies as belonging to one of the following categories: 'happy', angry', 'sad', 'others'. 
+Each of the entries from the training dataset should consist in a conversation, composed of three replies, with the flow as it follows: User1 -> User2 -> User1.
+There are 15k entries in the dataset labeled as 'happy', 'angry', 'sad' and 15k entries labeled as 'others'.<br>
+For each entry, the system would apply a preprocessing algorithm, made up of more components, as described in the 'Implementation' section.<br>
+Afterwards, the features which are set for that particular entries would be evaluated.
+In the following, the network would be fed with the information.<br> 
+From this point of view, there is applied the 'Mixture of Experts' technique, through which we combine neural networks and boosting algorithms, with particular weights for each of them.<br>
+Multiple experiments will be conducted, with multiple algorithms, in order to see which of these combinations provides us with a model having the best accuracy. At the implementation level, we would have an abstract class entitled 'Model', so that each of the experiments involving different algorithms would implement the above class.  
       </td>
    </tr>
 <p>
@@ -82,10 +91,7 @@ The system should be able to clasify the last reply of a three replies dialogue 
    <tr>
       <td width="50%" valign="top">
 &nbsp;&nbsp;&nbsp;&nbsp;<b>3.2 Functional requirements ("shall lists")</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.3 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.4 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 The system shall clasify the third reply from each entry of the dataset into one of the following categories: 'happy', 'angry', 'sad', 'others'.<br>
       </td>
    </tr>
 <p>
@@ -93,17 +99,58 @@ The system should be able to clasify the last reply of a three replies dialogue 
 </p>
    <tr>
       <td width="50%" valign="top">
-&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3 Nonfunctional requirements</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3 Nonfunctional requirements</b><br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.1 Usability</b><br>
-1. The classification system could be integrated in the applications meant to evaluate human mental health. For example, through one of these particular applications, the psychologist could have access to a set of conversations, where the replies would be labeled as 'happy', 'sad', 'angry' or 'others'. Consequently, by analysing this logs, it would me much easier for him to understand the causes of particular behaviours. 
+1. The classification system could be integrated in the applications meant to evaluate human mental health. For example, through one of these particular applications, the psychologist could have access to a set of conversations, where the replies would be labeled as 'happy', 'sad', 'angry' or 'others'. Consequently, by analysing these logs, it would be much easier for him to understand the causes of particular behaviours. Therapy sessions could therefore take place in a virtual environment.
 <br>
+2. Secondly, this module could also be integrated into a social networking service, with a view to providing real-time emoticon suggestions for the conversations in the chats.  
+<br>
+3. Thirdly, when it comes to social networking applications, our classification system could be used in order to dynamically change the background of the chat window, according to the atmosphere implied by the conversation. This way,
+the application in question would respond to the people's general need for empathy.
+<br>
+4. Moreover, having the replies in conversations labeled at the level of suggested emotions would facilitate providing suggestions for chat partners. For example, if there is logged a conversation with a high number of 'angry' and 'sad' labeled replies, the corresponding person would not be suggested anymore as a partner in chat. That would be a more appropriate system as compared to the virtual social networks, where there are highly suggested the persons with whom the users talks the most.
+<br>
+5. The classification system could also be used to improve the efficiency of ads. For example, if according to the most recent conversations, the person is happy, there would be a bigger chance that she/he would buy a particular product.
+Also, if the replies show the person is sad or angry, there could be various products that could respond to the needs of that particular user. 
+<br>
+6. Another option would consist in using the results with a view to identifying false accounts. More exactly, if there is a new account, from which there are recorded many conversations labeled as angry and sad, this could represent a strong indicator that the account is false. 
+<br>
+7. Finally, for the dating apps, such as Tinder, there could be increased the level of safeness by using this classification system. For example, if most of the conversations of a user are offensive, there should be provided a negative score to that particular used, which would decrease his chances of being recommended to other users and eventually, if the context persists, the account might get to be blocked. 
+<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.2 Reliability</b><br>
+The reliability of the system proposed by us directly dependes on the performance of the final model. 
+As we intend to conduct various experiments, with a view to choosing the best mathematical model for data classification, it is difficult
+to approximate in advance the final accuracy of the system.<br>
+We therefore take into account various <b>risks</b>:<br>
+For example, if the texts on which the classification system will be tested in the future are very different from the ones provided in the training stage, it is possible
+that the results will not be as good as expected. However, in order to counter this problem, we intend to make constant trainings with new sets of data, in order to keep the model updated, with high availability.<br>
+Furthermore, if the future jargons will be different from the ones which are currently used, the accuracy of the model might decrease. However, in the preprocessing stage we will use a spelling correction algorithm and as mentioned above, the trainings will be done constantly, in order to to ensure an accuracy as high as possible.   
+<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.3 Performance</b><br>
+The time required for classification is low, as the model is already trained in advance. 
+The preprocessing stage, as well as the training one shall be conducted in a decent amount of time.
+<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.4 Supportability</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.5 Implementation</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.6 Interface</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.7 Packaging</b><br>
+The classification system is not dependent on a particular format, so it shall be highly available in the future.
+The need for maintenance is related to the evolution of the natural language. However, we counteract the corresponding risk by conducting constant trainings, in order to generalize the model.
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.5 Implementation</b>
+As mentioned above, each entry in the dataset consists in a sequance of a conversation, made up of three replies, with the following flow: User1->User2->User1. Our classification system should correctly classify each of the entries into one of the following categories: 'happy', 'sad', 'angry', 'others'.<br>
+The dataset consists in 15k entries labeled as 'happy', 'sad', 'angry' and 15k entries labeled as 'others'.<br>
+The first component of the system consists in the preprocessing module, which involves the following:<br>
+1. A spelling correction algorithm, which identifies the standard spelling of the words which have been mis-spelled;<br>
+2. The use of a booster word list ('very', 'really', 'some'). These would be used in order to adjust the score of the words, with a positive boost.<br>
+3. The use of a negating word list (inverting subsequent emotion words). These words would be used in order to decrease the score of the words.<br>
+4. The use of a list of repeated letters and emoticons, which would be used in prder to boost the score.<br>
+5. Furthermore, there would be applied a score boost for exclamation marks and repeated punctuation.<br>
+6. As an observation, negating words would be ignored in the questions.<br>
+7. For initially scoring the words, we will use a dataset such as 'WordNet Affect'.<br>
+Following, using the feature extraction component, we will evaluate which of the features are set for each of the entries in the dataset.<br>
+The model itself will be represented by an abstract class, which will be subsequently implemented after each of our experiments. In terms of training approaches, we will use boosting algorithms and neural networks, applying the 'Mixture of Experts' technique. 
+<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.3.8 Legal</b><br>
+The single legal issue consists in the fact that in order to use this model in any of the projects specified in the 'Usability' part, there is needed confidential data, which is illegal to use without the user consent.
+Therefore, the information will be collected only from the users who give their consent for the usage of their personal data.  
       </td>
    </tr>
 <p>
@@ -114,9 +161,7 @@ The system should be able to clasify the last reply of a three replies dialogue 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>3.4 System models</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.1 Scenarios<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.2 Use case model<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.3 Analysis object model<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.4 Dynamic model<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.5 User interface—navigational paths and screen mock-ups
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.3 Model analysis<br>
       </td>
    </tr>
 <p>
