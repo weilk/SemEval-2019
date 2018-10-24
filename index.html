@@ -175,6 +175,53 @@
                                                 <li>
                                                       Usability
                                                       <div>
+                                                            Our system's usability can easily be described as being very effective. The users of our service (software developers) can very easily send HTTP requests in order to get their data classified. We specificaly chose our final trained model to be served through a web service in order to make the integration of our system as streamlined as possible for possible clients.
+                                                            In terms of ease to learn, the user does not require additional training or learning in order to use our system, other than prior experience of working with web served API's, which are very commonly used in the industry. 
+                                                      </div>
+                                                </li>
+                                                <li>
+                                                      Reliability
+                                                      <div>
+                                                            In terms of reliability, our solution will not have any vulnerabilities or error prone features/components. The only scenario which has a chance of making our system experience problems is if new web communication standards will arise or new text encoding's start to be used, a team will have to update the web service in order to make it compatible with our trained model. 
+                                                      </div>
+                                                </li>
+                                                <li>
+                                                      Performance
+                                                      <div>
+                                                            The performance of our system is hard to predict at such an incipient stage since it will depend entirely on machine learning model we end up using as well as the computational power demanded by our text preprocessing and feature extraction.
+                                                            Our solution's perfor has to be measured in two parts: classification accuracy and computational requirements. Both of these metrics can't be reliably predicted as of now. The goal of our project however is to maximize the classification accuracy even in detriment of time/memory performance. However we expect that whatever preprocessing we end up using, the time per classification will still keep it near real-time efficiency. 
+                                                      </div>
+                                                </li>
+                                                <li>
+                                                      Supportability
+                                                      <div>
+                                                            We are developing our system inside a Docker container, which will inherintly make our solution have near effortless instalation, configuration and monitoring of our software. Also, the end product will be served by a web API which will also make the use of it by other clients easy, not requiring them to install or monitor anything, they will only have to configure their authentification login to our service.
+                                                      </div>
+                                                </li>
+                                                <li>
+                                                      Implementation
+                                                      <div>
+                                                            Our solution will be implemented using python and various other ML ANN frameworks inside a docker container. We found a very complete docker image which contains builds for both CPU and GPU deployed enviorements that contains all modern and wildly used ML frameworks/tools.
+                                                            After developing a final trained model, we will move that model inside a web service which will classify incoming texts from clients.
+                                                      </div>
+                                                </li>
+                                                <li>
+                                                      Legal
+                                                      <div>
+                                                            The only legal aspect we could identify is end user data privacy issues. Which will have to be resolved along side potential clients in order for them to potentially update their GDPR compliant terms of service.
+                                                            We would also have to write a GDPR report and compliant terms of service document when we will move our solution inside a web service.
+                                                      </div>
+                                                </li>
+                                          </ol>
+                                    </div>
+                                    
+                              <li>
+                                    System models
+                                    <div>
+                                          <ol id="ordered-list">
+                                                <li>
+                                                      Scenarios
+                                                      <div>
                                                             <ol>
                                                                   <li>
                                                                         The classification system could be integrated in the applications meant to evaluate human mental health. For example, through one of these particular applications, the psychologist could have access to a set of conversations, where the replies would be labeled as 'happy', 'sad', 'angry' or 'others'. Consequently, by analysing these logs, it would be much easier for him to understand the causes of particular behaviours. Therapy sessions could therefore take place in a virtual environment.
@@ -201,58 +248,20 @@
                                                       </div>
                                                 </li>
                                                 <li>
-                                                      Reliability
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                                <li>
-                                                      Performance
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                                <li>
-                                                      Supportability
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                                <li>
-                                                      Implementation
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                                <li>
-                                                      Legal
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                          </ol>
-                                    </div>
-                                    
-                              <li>
-                                    System models
-                                    <div>
-                                          <ol id="ordered-list">
-                                                <li>
-                                                      Scenarios
-                                                      <div>
-
-                                                      </div>
-                                                </li>
-                                                <li>
                                                       Use case model
                                                       <div>
-
+                                                            The users of our resulting API service will be able to authenticate to our system and send classification requests through the use of the API itself.
                                                       </div>
                                                 </li>
                                                 <li>
                                                       Model analysis
                                                       <div>
-
+                                                            The web service will firstly authenticate the client in order to see for how many requests the client has payed for in order to reject unuthenticated and unpayed requests.
+                                                            <br>
+                                                            After the client is authenticated, it will recieve requests and send it to our ML system.
+                                                            Our system takes input in the form of a text. It then applies the preprocessing, feature extraction and potential postprocessing operations which we found to be the most effective for increasing accuracy.
+                                                            The resulting procced data, will be an array of numeric data representing the extracted features. This data is then send to the model itself which has a feature selection algorithm and actual ML model. It will apply its feature selection algorithm and then do a forward pass through our model and output the classification.
+                                                            This classification is then sent back to the client which requested it.
                                                       </div>
                                                 </li>
                                           </ol>
