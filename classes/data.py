@@ -9,26 +9,26 @@ class data(object):
         self.D = raw
         self._filename = filename
 
-        self._pp.sort(key=lambda x: x._importance,reverse=True)
-        self._fe.sort(key=lambda x: x._importance,reverse=True) 
+        self._pp.sort(key=lambda x: x[0]._importance,reverse=True)
+        self._fe.sort(key=lambda x: x[0]._importance,reverse=True) 
 
         if filename == "": 
-            for p in self._pp:
+            for p,c in self._pp:
                 self._filename+=p._name
-            for f in self._fe:
+            for f,c in self._fe:
                 self._filename+=f._name
 
         if self.load() == True:
             return
 
-        for p in self._pp:
-            self.D = p.run(self.D)
+        for p,c in self._pp:
+            p.run(self.D["x"],c)
         
         aux = []
-        for f in self._fe:
-            aux.append(f.run(self.D))
-        self.D = aux
-        
+        for f,c in self._fe:
+            aux.append(f.run(self.D["x"],c))
+        self.D["x"] = aux         
+
         self.save()
 
 

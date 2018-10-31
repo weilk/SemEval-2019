@@ -9,5 +9,5 @@ class preprocess(ABC):
 
     @staticmethod
     @abstractmethod
-    def run(self,D):
+    def run(self,D,columns):
         pass
