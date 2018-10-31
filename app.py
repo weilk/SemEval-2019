@@ -18,8 +18,9 @@ with open('raw_data/EmoContext/train.txt',"rb") as tsvfile:
             raw_emocontext["x"][i][x_columns_emocontext[j]]=column.decode("utf-8")
         raw_emocontext["y"].append({"label":row[-1].decode("utf-8")})     
 
-raw =  pd.DataFrame(raw)["x"]
-
+raw =  pd.DataFrame(raw_emocontext)
+print() 
+exit()
 features = []
 pp=[(make_lower_case,["turn1","turn2","turn3"])]
 fe=[(number_of_words,["turn1","turn2","turn3"])]
