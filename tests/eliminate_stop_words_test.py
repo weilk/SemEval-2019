@@ -9,7 +9,7 @@ class TestEliminateStopWords(unittest.TestCase):
     def test_run(self):
         D = pd.DataFrame({'x':["","their result was good and bad"],"y":["","result good bad"]})
         eliminate_stop_words.run(D,["x"])
-        self.assertCountEqual(D["x"], D["y"])
+        pd.testing.assert_series_equal(D["x"],D["y"])
 
 if __name__ == '__main__':
     unittest.main()
