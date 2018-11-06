@@ -22,14 +22,13 @@ class data(object):
             return
 
         for p,c in self._pp:
-            p.run(self.D["x"],c)
+            p.run(self.D,c)
         
-        aux = []
         for f,c in self._fe:
-            aux.append(f.run(self.D["x"],c))
-        self.D["x"] = aux         
-
-        self.save()
+            f.run(self.D,c)
+        
+        
+#        self.save()
 
 
     def save(self):
