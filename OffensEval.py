@@ -8,7 +8,7 @@ from utils import *
 import pandas as pd
 import csv
 
-offenseval_DataFrame = functions.parse_file(r"D:\Facultate_Master\TAIP\SemEval-2019\raw_data\OffensEval\offenseval-trial.txt", "OffensEval")
+offenseval_DataFrame = functions.parse_file(r"raw_data\OffensEval\offenseval-trial.txt", "OffensEval")
 
 """
 features = []
