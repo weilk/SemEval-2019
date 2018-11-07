@@ -11,7 +11,7 @@ class TestEliminateStopWords(unittest.TestCase):
         expected = pd.DataFrame({"x":["","result good bad"]})
 
         eliminate_stop_words.run(D,["x"])
-        pd.testing.assert_frame_equal(D,expected)
+        pd.testing.assert_frame_equal(D, expected)
 
 if __name__ == '__main__':
     unittest.main()
