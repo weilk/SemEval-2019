@@ -22,10 +22,14 @@ class data(object):
             return
 
         for p,c in self._pp:
-            p.run(self.D,c)
-        
+            result = p.run(self.D,c)
+            if result is not None:
+                self.D = result
+
         for f,c in self._fe:
-            f.run(self.D,c)
+            result = f.run(self.D,c)
+            if result is not None:
+                self.D = result
         
         
 #        self.save()

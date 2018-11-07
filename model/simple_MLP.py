@@ -14,11 +14,11 @@ class simple_MLP(model):
 
     def train(self,D):
         self.data = D.drop(output_emocontext,axis=1).values
-        self.labels = pd.get_dummies(D[output_emocontext]).values
+        self.labels = D[output_emocontext].values
 
         self.model = Sequential()
         self.model.add(Dense(32, activation='relu', input_dim=self.data.shape[1]))
-        self.model.add(Dense(4, activation='softmax'))
+        self.model.add(Dense(len(output_emocontext), activation='softmax'))
         
         self.model.compile(optimizer='rmsprop',loss='binary_crossentropy',metrics=['accuracy'])
 
