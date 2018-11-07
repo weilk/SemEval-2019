@@ -1,4 +1,4 @@
-from classes import preprocess
+from classes import feature_extraction
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 
-class number_negation_words(preprocess):
+class number_negation_words(feature_extraction):
 
     def run(self,D,columns):
         for column in columns:

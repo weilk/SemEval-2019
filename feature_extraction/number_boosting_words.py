@@ -1,4 +1,4 @@
-from classes import preprocess
+from classes import feature_extraction
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -11,7 +11,7 @@ list_boosting = ['almost', 'absolutely', 'awfully', 'badly', 'barely', 'complete
 'perfectly', 'positively', 'practically', 'pretty', 'purely', 'quite', 'rather', 'really', 'scarcely', 'simply', 'so', 'somewhat', 'strongly', 'terribly', 'thoroughly'
 'too', 'totally', 'utterly', 'very', 'virtually', 'well']
 
-class number_boosting_words(preprocess):
+class number_boosting_words(feature_extraction):
 
     def run(self,D,columns):
         for column in columns:

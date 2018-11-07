@@ -14,8 +14,6 @@ class TestOneHotEncode(unittest.TestCase):
         result = one_hot_encode.run(D,["A"])
         if result is not None:
             D = result
-        print(D)
-        print(expected)
         pd.testing.assert_frame_equal(D, expected)
 
 if __name__ == '__main__':

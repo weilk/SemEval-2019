@@ -13,4 +13,5 @@ number_of_elongated_words = number_of_elongated_words(0, "number_of_elongated_wo
 number_negation_words = number_negation_words(0, "number_negation_words")
 number_boosting_words = number_boosting_words(0, "number_boosting_words")
 number_exclamation_marks = number_exclamation_marks(0, "number_exclamation_marks")
+number_question_marks = number_question_marks(0, "number_question_marks")
 percentage_capitalized = percentage_capitalized(-20, "percentage_capitalized")
