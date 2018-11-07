@@ -9,5 +9,4 @@ from nltk.tokenize.treebank import TreebankWordDetokenizer
 class tokenization(preprocess):
 
     def run(self,D,columns):
-    	for column in columns:
-            D["tokenize_" + column] = D[column].apply(word_tokenize)
+    	pass
