@@ -122,5 +122,7 @@ RUN pip3 install notebook --upgrade
 
 #COPY jupyter_notebook_config.py /root/.jupyter/
 
+RUN pip3 install nltk
+
 WORKDIR "/root"
 CMD ["/bin/bash"]

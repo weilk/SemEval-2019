@@ -8,7 +8,7 @@ from utils import *
 import pandas as pd
 import csv
 
-emocontext_DataFrame = functions.parse_file(r"raw_data\EmoContext\train.txt", "EmoContext")
+emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "EmoContext")
 
 features = []
 pp=[(make_lower_case,["turn1","turn2","turn3"])]
