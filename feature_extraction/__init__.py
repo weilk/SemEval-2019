@@ -6,6 +6,7 @@ from feature_extraction.number_boosting_words import *
 from feature_extraction.number_question_marks import *
 from feature_extraction.number_negation_words import *
 from feature_extraction.percentage_capitalized import *
+from feature_extraction.frequency_of_last_chars import *
 
 number_of_words = number_of_words(5,"number_of_words")
 number_of_capitalized_words = number_of_capitalized_words(5, "number_of_capitalized_words")
@@ -15,3 +16,4 @@ number_boosting_words = number_boosting_words(0, "number_boosting_words")
 number_exclamation_marks = number_exclamation_marks(0, "number_exclamation_marks")
 number_question_marks = number_question_marks(0, "number_question_marks")
 percentage_capitalized = percentage_capitalized(-20, "percentage_capitalized")
+frequency_of_last_chars = frequency_of_last_chars(0, "frequency_of_last_chars")
