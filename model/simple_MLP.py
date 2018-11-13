@@ -1,6 +1,7 @@
 from classes import model
 import pandas as pd
 import numpy as np
+from keras.models import load_model
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.preprocessing.text import one_hot
@@ -11,7 +12,6 @@ class simple_MLP(model):
     def forward_pass(self,D):
         return D 
     
-
     def train(self,D):
         self.data = D.drop(output_emocontext,axis=1).values
         self.labels = D[output_emocontext].values
@@ -25,9 +25,17 @@ class simple_MLP(model):
         self.model.fit(self.data, self.labels, epochs=5, batch_size=32)
         print("Done training")
 
-
     def test(self,D):
         self.data = D.drop(output_emocontext,axis=1).values
         self.labels = pd.get_dummies(D[output_emocontext])
         print(self.model.evaluate(self.data, self.labels, batch_size=128))
         print("Done testing")
+
+    def save(self):
+        self.model.save(self.model_file_name)
+        print("Saved model to disk")
+
+    def load(self):
+        print("loading")
+        self.model = load_model(self.model_file_name)
+        print("Loaded model from disk")
