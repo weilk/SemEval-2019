@@ -13,8 +13,8 @@ class simple_MLP(model):
         return D 
     
     def train(self,D):
-        self.data = D.drop(output_emocontext,axis=1).values
-        self.labels = D[output_emocontext].values
+        self.data = D["data"]
+        self.labels = D["labels"]
 
         self.model = Sequential()
         self.model.add(Dense(32, activation='relu', input_dim=self.data.shape[1]))
@@ -28,8 +28,14 @@ class simple_MLP(model):
     def test(self,D):
         self.data = D.drop(output_emocontext,axis=1).values
         self.labels = pd.get_dummies(D[output_emocontext])
-        print(self.model.evaluate(self.data, self.labels, batch_size=128))
+        results = self.model.evaluate(self.data, self.labels, batch_size=128)
         print("Done testing")
+        return results
+
+    def test_diff(self,data, labels):
+        results = self.model.evaluate(data, labels, batch_size=128)
+        print("Done testing")
+        return results
 
     def save(self):
         self.model.save(self.model_file_name)
