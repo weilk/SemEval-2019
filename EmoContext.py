@@ -11,8 +11,8 @@ import csv
 emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "EmoContext")
 
 features = []
-pp=[(make_lower_case,["turn1","turn2","turn3"]),(one_hot_encode,["label"])]
-fe=[(number_of_words,["turn1","turn2","turn3"]),(number_of_capitalized_words,["turn1","turn2","turn3"]),(number_of_elongated_words,["turn1","turn2","turn3"]),(number_negation_words,["turn1","turn2","turn3"]),(frequency_of_last_chars,["turn1", "turn2", "turn3"])]
+pp=[(one_hot_encode,["label"])]
+fe=[(number_of_punctuation_in_words,["turn1", "turn2", "turn3"])]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
 msk = np.random.rand(len(data_object.D)) < 0.8
