@@ -31,9 +31,24 @@ fe=[
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
 msk = np.random.rand(len(data_object.D)) < 0.8
+
+
+
+print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
+
+trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
+aux = pd.DataFrame()
+for x in trimping:
+    aux = aux.append(data_object.D[(data_object.D['label'] == x[0])].sample(frac = x[1]))
+data_object.D = aux.sample(frac=1.0)
+
+print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
+
 data_object.D = data_object.D.drop(["label","id"],axis=1)
 output_emocontext.remove("label")
 #data_object.D = data_object.D.drop(["turn1","turn2","turn3","id"],axis=1)
+
+
 
 model = simple_MLP("simple_MLP")
 model.train(data_object.D)
