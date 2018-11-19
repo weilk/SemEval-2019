@@ -1,9 +1,11 @@
 import pickle
+import os
+from copy import deepcopy
 
 class data(object):
 
     def __init__(self,raw,pp,fe,filename=""):
-        self._raw = raw
+        self._raw = deepcopy(raw)
         self._pp = pp 
         self._fe = fe 
         self.D = raw
@@ -32,14 +34,18 @@ class data(object):
                 self.D = result
         
         
-#        self.save()
+        #self.save()
 
 
     def save(self):
-        fd = open("processed_data/" + self._filename + ".data", 'wb')
-        pickle.dump(self.__dict__, fd)
-        fd.close() 
-    
+        try:
+            fd = open("processed_data/" + self._filename + ".data", 'wb')
+            pickle.dump(self.__dict__, fd)
+            fd.close() 
+        except IOError:
+            os.makedirs("processed_data")
+            return False
+        
     
     def load(self):
         try:
