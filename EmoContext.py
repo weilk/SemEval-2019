@@ -30,6 +30,8 @@ fe=[
     (keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
+    (number_happy_emoticons_count,["turn1","turn2","turn3"]),
+    (number_sad_emoticons_count,["turn1","turn2","turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
@@ -73,6 +75,8 @@ fe=[
     (keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
+    (number_happy_emoticons_count,["turn1","turn2","turn3"]),
+    (number_sad_emoticons_count,["turn1","turn2","turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe)

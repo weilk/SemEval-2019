@@ -9,6 +9,8 @@ from feature_extraction.percentage_capitalized import *
 from feature_extraction.keras_embedings import *
 from feature_extraction.number_happy_emoticons import *
 from feature_extraction.number_sad_emoticons import *
+from feature_extraction.number_happy_emoticons_count import *
+from feature_extraction.number_sad_emoticons_count import *
 
 number_of_words = number_of_words(5,"number_of_words")
 number_of_capitalized_words = number_of_capitalized_words(5, "number_of_capitalized_words")
@@ -21,3 +23,5 @@ percentage_capitalized = percentage_capitalized(-20, "percentage_capitalized")
 keras_embedings = keras_embedings(-30, "keras_embedings")
 number_happy_emoticons = number_happy_emoticons(0, "number_happy_emoticons")
 number_sad_emoticons = number_sad_emoticons(0, "number_sad_emoticons")
+number_happy_emoticons_count = number_happy_emoticons_count(0, "number_happy_emoticons_count")
+number_sad_emoticons_count = number_sad_emoticons_count(0, "number_sad_emoticons_count")
