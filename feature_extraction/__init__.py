@@ -10,6 +10,7 @@ from feature_extraction.frequency_of_last_chars import *
 from feature_extraction.number_of_vowels_in_words import *
 from feature_extraction.number_of_punctuation_in_words import *
 from feature_extraction.keras_embedings import *
+from feature_extraction.number_of_capitals_in_words import *
 
 
 number_of_words = number_of_words(5,"number_of_words")
@@ -24,4 +25,5 @@ frequency_of_last_chars = frequency_of_last_chars(0, "frequency_of_last_chars")
 number_of_vowels_in_words = number_of_vowels_in_words(0, "number_of_vowels_in_words")
 number_of_punctuation_in_words = number_of_punctuation_in_words(0, "number_of_punctuation_in_words")
 keras_embedings = keras_embedings(-30, "keras_embedings")
+number_of_capitals_in_words = number_of_capitals_in_words(100,"number_of_capitals_in_words")
 

@@ -6,6 +6,8 @@ from collections import Counter
 
 encoded_output = ["label_angry","label_happy","label_others","label_sad"]
 
+list_boosting = []
+
 output_emocontext = ["label"]
 output_offenseval = ["suba", "subb", "subc"]
 

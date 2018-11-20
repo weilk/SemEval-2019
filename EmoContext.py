@@ -29,6 +29,9 @@ fe=[
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
+    #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
+    (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
+    (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
@@ -48,7 +51,6 @@ print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happ
 
 data_object.D = data_object.D.drop(["label","id"],axis=1)
 output_emocontext.remove("label")
-#data_object.D = data_object.D.drop(["turn1","turn2","turn3","id"],axis=1)
 
 
 
@@ -70,6 +72,9 @@ fe=[
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
+    #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
+    (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
+    (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe)

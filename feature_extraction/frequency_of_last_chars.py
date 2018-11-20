@@ -4,7 +4,7 @@ import json
 
 class frequency_of_last_chars(feature_extraction):
 
-    def custom_function(entry):
+    def custom_function(self,entry):
         frequency_vector = dict()
         for prop in entry:
             tokenized_words = word_tokenize(prop)
@@ -14,7 +14,6 @@ class frequency_of_last_chars(feature_extraction):
                     continue
                 for char in word[-3:]:
                     frequency_vector[char] = frequency_vector.setdefault(char, 0) + 1
-        #print(frequency_vector, entry)
         return frequency_vector
     
     def run(self,D,columns):
@@ -25,14 +24,8 @@ class frequency_of_last_chars(feature_extraction):
             list = []
             for index_column in range(len(columns)):
                 list += [D[columns[index_column]][index_row]]
-            #words = word_tokenize(' '.join(list))
-            #words = [w for w in words if len(w)>=3]
-            #words = [w[-3:] for w in words]
-            #words = ''.join(words)
-            #words = ''.join(sorted(words))
-            #print(words)
-            #print(custom_function(list))
-            freq = custom_function(list)
+
+            freq = self.custom_function(list)
             for ch in freq:
                 D['freq_of_last_chr_'+ch][index_row] = freq[ch]
             
