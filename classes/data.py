@@ -34,16 +34,17 @@ class data(object):
                 self.D = result
         
         
-        #self.save()
+        self.save()
 
 
     def save(self):
         try:
+            if not os.path.exists("processed_data"):
+                os.makedirs("processed_data")
             fd = open("processed_data/" + self._filename + ".data", 'wb')
             pickle.dump(self.__dict__, fd)
             fd.close() 
         except IOError:
-            os.makedirs("processed_data")
             return False
         
     
