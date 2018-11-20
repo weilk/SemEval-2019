@@ -37,6 +37,8 @@ fe=[
     #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
+    (char_stats1,["turn1", "turn2", "turn3"]),
+    (char_stats2,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
 ]
@@ -87,6 +89,8 @@ fe=[
     #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
+    (char_stats1,["turn1", "turn2", "turn3"]),
+    (char_stats2,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
 ]
