@@ -1,11 +1,13 @@
 from classes import model
 import pandas as pd
 import numpy as np
+from keras.models import load_model
 from keras.models import Sequential, Model
 from keras.layers import Dense, Activation, Dropout, InputLayer, Embedding, Input, LSTM, Concatenate, concatenate
 from keras.optimizers import SGD, Adam, Adagrad, Adadelta 
 from keras.preprocessing import sequence 
 from keras.preprocessing.text import one_hot 
+
 from utils import *
 
 class simple_MLP(model):
@@ -22,10 +24,9 @@ class simple_MLP(model):
         D = D.drop(['turn1','turn2','turn3'],axis=1).values
         return self.model.predict([D,emb_turn1,emb_turn2,emb_turn3])
     
-
     def train(self,D):
-        self.labels = D[output_emocontext].values
-        D = D.drop(output_emocontext,axis=1)
+        self.labels = D[output_emocontext].values # labels
+        D = D.drop(output_emocontext,axis=1) # data 
         vocab_size = 300
         max_length = 200
         embedding_vector_length = 64
@@ -82,7 +83,6 @@ class simple_MLP(model):
         })
         print("Done training")
 
-
     def test(self,D):
         self.labels = pd.get_dummies(D[output_emocontext])
         D = D.drop(output_emocontext,axis=1)
@@ -97,5 +97,26 @@ class simple_MLP(model):
         
         D = D.drop(['turn1','turn2','turn3'],axis=1).values
 
-        print(self.model.evaluate([D,emb_turn1,emb_turn2,emb_turn3], self.labels, batch_size=32))
+        results = self.model.evaluate([D,emb_turn1,emb_turn2,emb_turn3], self.labels, batch_size=32)
+        print(results)
         print("Done testing")
+        return results
+
+    def test_diff(self,data, labels):
+        self.labels = labels
+        D = data
+        
+        vocab_size = 300
+        max_length = 200
+        embedding_vector_length = 32
+        
+        emb_turn1 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn1"]], maxlen=max_length)
+        emb_turn2 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn2"]], maxlen=max_length)
+        emb_turn3 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn3"]], maxlen=max_length)
+        
+        D = D.drop(['turn1','turn2','turn3'],axis=1).values
+
+        results = self.model.evaluate([D,emb_turn1,emb_turn2,emb_turn3], self.labels, batch_size=32)
+        print(results)
+        print("Done testing")
+        return results
