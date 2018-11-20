@@ -24,6 +24,7 @@ pp=[
     (one_hot_encode,["label"]),
 ]
 fe=[
+    (bad_words,["turn1", "turn2", "turn3"]),
     (number_of_words,["turn1","turn2","turn3"]),
     (number_of_capitalized_words,["turn1","turn2","turn3"]),
     (number_of_elongated_words,["turn1","turn2","turn3"]),
@@ -85,6 +86,7 @@ pp=[
     (replace_negation_words,["turn1","turn2","turn3"]),
 ]
 fe=[
+    (bad_words,["turn1", "turn2", "turn3"]),
     (number_of_words,["turn1","turn2","turn3"]),
     (number_of_capitalized_words,["turn1","turn2","turn3"]),
     (number_of_elongated_words,["turn1","turn2","turn3"]),
