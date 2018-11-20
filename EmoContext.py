@@ -12,6 +12,7 @@ emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "E
 emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithoutlabels.txt", "EmoContext")
 
 features = []
+
 pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
@@ -27,6 +28,7 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
@@ -67,6 +69,7 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe)
