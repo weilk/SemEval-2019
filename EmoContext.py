@@ -30,6 +30,8 @@ fe=[
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
+print(information_gain.run(data_object.D))
+exit()
 msk = np.random.rand(len(data_object.D)) < 0.8
 
 
