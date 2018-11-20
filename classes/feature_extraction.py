@@ -9,5 +9,5 @@ class feature_extraction(ABC):
 
     @staticmethod
     @abstractmethod
-    def run(self,D,columns):
+    def run(self, model, data, labels):
         pass

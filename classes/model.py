@@ -6,6 +6,7 @@ class model(ABC):
 
     def __init__(self,name="base"):        
         self._name = name
+        self.model_file_name = "%s.h5" % name
 
 
     @abstractmethod
