@@ -8,8 +8,8 @@ from utils import *
 import pandas as pd
 import csv
 
-emocontext_DataFrame = functions.parse_file(r"D:\Facultate_Master\TAIP\SemEval-2019\raw_data\EmoContext\train.txt", "EmoContext")
-offenseval_DataFrame = functions.parse_file(r"D:\Facultate_Master\TAIP\SemEval-2019\raw_data\OffensEval\offenseval-trial.txt", "OffensEval")
+emocontext_DataFrame = functions.parse_file(r"raw_data\EmoContext\train.txt", "EmoContext")
+offenseval_DataFrame = functions.parse_file(r"raw_data\OffensEval\offenseval-trial.txt", "OffensEval")
 
 """
 features = []

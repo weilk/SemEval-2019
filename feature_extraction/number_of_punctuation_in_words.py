@@ -16,4 +16,3 @@ class number_of_punctuation_in_words(feature_extraction):
         for column in columns:
             tokenized_words = D[column].apply(word_tokenize)
             D['number_of_punctuation_in_words_{}'.format(column)] = tokenized_words.apply(custom_function)
-            print(D['number_of_punctuation_in_words_{}'.format(column)])
