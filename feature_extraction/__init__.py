@@ -11,6 +11,7 @@ from feature_extraction.number_of_vowels_in_words import *
 from feature_extraction.number_of_punctuation_in_words import *
 from feature_extraction.keras_embedings import *
 from feature_extraction.number_of_capitals_in_words import *
+from feature_extraction.char_stats1 import *
 
 
 number_of_words = number_of_words(5,"number_of_words")
@@ -26,4 +27,5 @@ number_of_vowels_in_words = number_of_vowels_in_words(0, "number_of_vowels_in_wo
 number_of_punctuation_in_words = number_of_punctuation_in_words(0, "number_of_punctuation_in_words")
 keras_embedings = keras_embedings(-30, "keras_embedings")
 number_of_capitals_in_words = number_of_capitals_in_words(100,"number_of_capitals_in_words")
+char_stats1 = char_stats1(0,"char_stats1")
 
