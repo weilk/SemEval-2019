@@ -17,6 +17,7 @@ pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
@@ -27,6 +28,8 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_happy_emoticons,["turn1","turn2","turn3"]),
+    (number_sad_emoticons,["turn1","turn2","turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
@@ -57,6 +60,7 @@ pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
@@ -67,6 +71,8 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_happy_emoticons,["turn1","turn2","turn3"]),
+    (number_sad_emoticons,["turn1","turn2","turn3"]),
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe)
