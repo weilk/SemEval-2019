@@ -11,6 +11,10 @@ from feature_extraction.number_of_vowels_in_words import *
 from feature_extraction.number_of_consonants_in_words import *
 from feature_extraction.number_of_punctuation_in_words import *
 from feature_extraction.keras_embedings import *
+from feature_extraction.number_happy_emoticons import *
+from feature_extraction.number_sad_emoticons import *
+from feature_extraction.number_happy_emoticons_count import *
+from feature_extraction.number_sad_emoticons_count import *
 from feature_extraction.bad_words import *
 from feature_extraction.number_of_capitals_in_words import *
 
@@ -30,3 +34,7 @@ keras_embedings = keras_embedings(-30, "keras_embedings")
 number_of_consonants_in_words = number_of_consonants_in_words(0, "number_of_consonants_in_words")
 bad_words = bad_words(0, "bad_words")
 number_of_capitals_in_words = number_of_capitals_in_words(100,"number_of_capitals_in_words")
+number_happy_emoticons = number_happy_emoticons(0, "number_happy_emoticons")
+number_sad_emoticons = number_sad_emoticons(0, "number_sad_emoticons")
+number_happy_emoticons_count = number_happy_emoticons_count(0, "number_happy_emoticons_count")
+number_sad_emoticons_count = number_sad_emoticons_count(0, "number_sad_emoticons_count")

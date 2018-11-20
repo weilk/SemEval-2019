@@ -22,6 +22,7 @@ pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 fe=[
     (bad_words,["turn1", "turn2", "turn3"]),
@@ -33,6 +34,10 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_happy_emoticons,["turn1","turn2","turn3"]),
+    (number_sad_emoticons,["turn1","turn2","turn3"]),
+    (number_happy_emoticons_count,["turn1","turn2","turn3"]),
+    (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
     #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
@@ -84,6 +89,7 @@ pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 fe=[
     (bad_words,["turn1", "turn2", "turn3"]),
@@ -95,6 +101,10 @@ fe=[
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
     (keras_embedings,["turn1","turn2","turn3"]),
+    (number_happy_emoticons,["turn1","turn2","turn3"]),
+    (number_sad_emoticons,["turn1","turn2","turn3"]),
+    (number_happy_emoticons_count,["turn1","turn2","turn3"]),
+    (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
     #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
