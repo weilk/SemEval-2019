@@ -23,7 +23,6 @@ class spellingcheck(preprocess):
                all_props.append(TreebankWordDetokenizer().detokenize(temp))
                count = count + 1
             D[column] = pd.Series(all_props) 
-            #print(D[column])
                
 
 

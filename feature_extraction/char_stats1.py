@@ -13,8 +13,8 @@ class char_stats1(feature_extraction):
 	
 	def run(self,D,columns = []):
 		for column in columns:
-			tokenized_words = D[column].apply(word_tokenize)
-			stats = tokenized_words.apply(self.charstats1)
+			tokenized_words = D[column].apply(lambda x: word_tokenize(x))
+			stats = tokenized_words.apply(lambda x: self.charstats1(x))
 			for ordch in range(ord('a'), ord('z')+1):
 				ch = chr(ordch)
 				D['char_stats1_{}_{}'.format(column[-1:], ch)] = stats.apply(lambda x: x.setdefault(ch, 0))
