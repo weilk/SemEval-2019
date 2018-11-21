@@ -34,7 +34,7 @@ class embed_200(preprocess):
         return emb
 
     def run(self,D,columns):
-        # with codecs.open("words_not_found", "w", "utf-8") as nf: 
+        with codecs.open("words_not_found", "w", "utf-8") as nf: 
             tokenizer = TweetTokenizer()
             for column in columns:
                 embeddings = []
