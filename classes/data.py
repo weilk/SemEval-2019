@@ -1,5 +1,6 @@
 import pickle
 import os
+import time
 from copy import deepcopy
 
 class data(object):
@@ -22,17 +23,25 @@ class data(object):
 
         if self.load() == True:
             return
-
+        
+        big_start = time.time()
         for p,c in self._pp:
+            print("PP: {}, {}".format(p,c))
+            start = time.time()
             result = p.run(self.D,c)
             if result is not None:
                 self.D = result
+            print("Taken: {}".format(time.time() - start))
 
         for f,c in self._fe:
+            print("FE: {}, {}".format(f,c))
+            start = time.time()
             result = f.run(self.D,c)
             if result is not None:
                 self.D = result
+            print("Taken: {}".format(time.time() - start))
         
+        print("Total time for building the database: {}".format(time.time() - big_start))
         
         self.save()
 
