@@ -78,7 +78,7 @@ class simple_MLP(model):
             metrics=['accuracy']
         )
         total = len(np.where(self.labels[:,0]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,1]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,2]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,3]==1.0)[0])*(1.0-0.2)
-        self.model.fit([D,emb_turn1,emb_turn2,emb_turn3], self.labels, epochs=5, batch_size=128,validation_split=0.2, class_weight={
+        self.model.fit([D,emb_turn1,emb_turn2,emb_turn3], self.labels, epochs=10, batch_size=128,validation_split=0.2, class_weight={
             0: total / len(np.where(self.labels[:,0]==1.0)[0])*(1.0-0.2),
             1: total / len(np.where(self.labels[:,1]==1.0)[0])*(1.0-0.2),
             2: total / len(np.where(self.labels[:,2]==1.0)[0])*(1.0-0.2),

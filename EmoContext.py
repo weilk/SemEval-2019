@@ -6,20 +6,19 @@ from classes import data
 from feature_selection import *
 from model import *
 from utils import * 
+import numpy as np
 import pandas as pd
 import csv
 
 emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "EmoContext")
 emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithoutlabels.txt", "EmoContext")
 
-features = []
-
 pp=[
     #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
-    #(spellingcheck,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 
 fe=[
@@ -50,7 +49,7 @@ postp=[
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp)
 veganGains = information_gain.run(data_object.D)
-data_object.D = data_object.D[veganGains[1][2]]
+data_object.D = data_object.D[veganGains[1][2].tolist().extend(output_emocontext)]
 msk = np.random.rand(len(data_object.D)) < 0.7
 
 
@@ -77,7 +76,8 @@ pp=[
     #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
-    #(spellingcheck,["turn1","turn2","turn3"]),
+    (one_hot_encode,["label"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
 ]
 
 fe=[
@@ -107,7 +107,7 @@ postp=[
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp)
-data_object.D = data_object.D.drop(["id"],axis=1)
+data_object.D = data_object.D.drop(["id"],axis=1)[veganGains[1][2].extend(output_emocontext)]
 predicted = model.forward_pass(data_object.D)
 
 create_submision_file(data_object._raw,predicted)
