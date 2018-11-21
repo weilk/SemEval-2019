@@ -51,14 +51,17 @@ class simple_MLP(model):
 
         concat_emb = concatenate([word_emb_turn1, word_emb_turn2, word_emb_turn3],axis=-1)
         lstm = LSTM(64)(concat_emb)
+        #lstm = LSTM(2048)(concat_emb)
         concat_input = Concatenate()([features_input,lstm])
 
         layer1 = Dense(256)(concat_input)
+        #layer1 = Dense(1024)(concat_input)
         activation1 = Activation("relu")(layer1)
 
         layer2 = Dense(128)(activation1)
+        #layer2 = Dense(512)(activation1)
         activation2 = Activation("relu")(layer2)
-
+        #print("Output emocontext: {}".format(output_emocontext))
         layer3 = Dense(len(output_emocontext))(activation2)
         activation3 = Activation("softmax")(layer3)
 

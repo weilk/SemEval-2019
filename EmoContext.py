@@ -20,6 +20,8 @@ pp=[
     (one_hot_encode,["label"]),
     (spellingcheck,["turn1","turn2","turn3"]),
 ]
+#pp = [(one_hot_encode,["label"]),]
+
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
     (number_of_capitalized_words,["turn1","turn2","turn3"]),
@@ -42,6 +44,12 @@ fe=[
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
 ]
+"""
+fe=[
+    (char_stats2,["turn1", "turn2", "turn3"]),
+]
+"""
+
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
 msk = np.random.rand(len(data_object.D)) < 0.7
@@ -50,7 +58,7 @@ msk = np.random.rand(len(data_object.D)) < 0.7
 
 print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
-trimping = [("others",0.2),("angry",1.0),("happy",1.0),("sad",1.0)]
+trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
 aux = pd.DataFrame()
 for x in trimping:
     aux = aux.append(data_object.D[(data_object.D['label'] == x[0])].sample(frac = x[1]))
@@ -70,8 +78,9 @@ pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
-    (spellingcheck,["turn1","turn2","turn3"]),
+    #(spellingcheck,["turn1","turn2","turn3"]),
 ]
+#pp = []
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
     (number_of_capitalized_words,["turn1","turn2","turn3"]),
@@ -94,6 +103,12 @@ fe=[
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
 ]
+
+"""
+fe=[
+    (char_stats2,["turn1", "turn2", "turn3"]),
+]
+"""
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe)
 data_object.D = data_object.D.drop(["id"],axis=1)
