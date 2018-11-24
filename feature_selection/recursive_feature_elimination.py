@@ -7,7 +7,7 @@ import numpy as np
 import keras
 from utils import *
 
-from model.simple_MLP import simple_MLP
+from model import simple_MLP
 from keras.layers import Dense, Activation
 
 class recursive_feature_elimination(feature_selection):

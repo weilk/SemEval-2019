@@ -3,7 +3,7 @@ from preprocess import *
 from feature_extraction import *
 from classes import data
 from feature_selection import *
-from model.simple_MLP import simple_MLP
+from model import *
 from utils import * 
 import pandas as pd
 import csv
@@ -12,30 +12,29 @@ import numpy as np
 emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "EmoContext")
 emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithoutlabels.txt", "EmoContext")
 
-simple_MLP = simple_MLP("simple_MLP")
-
 features = []
 
 
 pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
-    (eliminate_stop_words,["turn1","turn2","turn3"]),
-    (replace_negation_words,["turn1","turn2","turn3"]),
+    # (eliminate_stop_words,["turn1","turn2","turn3"]),
+    # (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
+    (embed_200, ["turn1","turn2","turn3"]),
 ]
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
     (number_of_capitalized_words,["turn1","turn2","turn3"]),
     (number_of_elongated_words,["turn1","turn2","turn3"]),
-    (number_negation_words,["turn1","turn2","turn3"]),
-    (number_boosting_words,["turn1","turn2","turn3"]),
-    (number_exclamation_marks,["turn1","turn2","turn3"]),
-    (number_question_marks,["turn1","turn2","turn3"]),
-    (keras_embedings,["turn1","turn2","turn3"]),
-    (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
-    #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
-    (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
-    (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
+    # (number_negation_words,["turn1","turn2","turn3"]),
+    # (number_boosting_words,["turn1","turn2","turn3"]),
+    # (number_exclamation_marks,["turn1","turn2","turn3"]),
+    # (number_question_marks,["turn1","turn2","turn3"]),
+    # (keras_embedings,["turn1","turn2","turn3"]),
+    # (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
+    # #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
+    # (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
+    # (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
 ]
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe)
 
@@ -55,6 +54,7 @@ data_object.D = aux.sample(frac=1.0)
 print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
 data_object.D = data_object.D.drop(["label","id"],axis=1)
+data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
 
 
@@ -66,23 +66,29 @@ output_emocontext.remove("label")
 # 	simple_MLP.save()
   
 
-data = data_object.D[msk].drop( 
-  _emocontext,axis=1).values
-labels = data_object.D[msk][output_emocontext].values
-
+data = data_object.D.drop(output_emocontext,axis=1)[msk]
+labels = data_object.D[output_emocontext][msk]
+print("data columns:" )
+print(pd.DataFrame(data).columns.values)
 model = simple_MLP("simple_MLP")
 
-features = recursive_feature_elimination.run(model, data, labels)
-print(features)
+# features = recursive_feature_elimination.run(model, data, labels)
+# print(features)
 
 # TODO modify data - features (drop features)
-
+print("sending to train: ")
+print(data_object.D.columns.values)
+print("shapes")
+for column in data_object.D.columns.values:
+	print(data_object.D[column].shape)
+print(data_object.D)
 model.train(data_object.D)
 
 pp=[
     (make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
+    (embed_200, ["turn1","turn2","turn3"]),
 ]
 fe=[
     (number_of_words,["turn1","turn2","turn3"]),
