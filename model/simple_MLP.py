@@ -51,14 +51,17 @@ class simple_MLP(model):
 
         concat_emb = concatenate([word_emb_turn1, word_emb_turn2, word_emb_turn3],axis=-1)
         lstm = LSTM(64)(concat_emb)
+        #lstm = LSTM(2048)(concat_emb)
         concat_input = Concatenate()([features_input,lstm])
 
         layer1 = Dense(256)(concat_input)
+        #layer1 = Dense(1024)(concat_input)
         activation1 = Activation("relu")(layer1)
 
         layer2 = Dense(128)(activation1)
+        #layer2 = Dense(512)(activation1)
         activation2 = Activation("relu")(layer2)
-
+        #print("Output emocontext: {}".format(output_emocontext))
         layer3 = Dense(len(output_emocontext))(activation2)
         activation3 = Activation("softmax")(layer3)
 
@@ -75,7 +78,7 @@ class simple_MLP(model):
             metrics=['accuracy']
         )
         total = len(np.where(self.labels[:,0]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,1]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,2]==1.0)[0])*(1.0-0.2) + len(np.where(self.labels[:,3]==1.0)[0])*(1.0-0.2)
-        self.model.fit([D,emb_turn1,emb_turn2,emb_turn3], self.labels, epochs=5, batch_size=128,validation_split=0.2, class_weight={
+        self.model.fit([D,emb_turn1,emb_turn2,emb_turn3], self.labels, epochs=10, batch_size=128,validation_split=0.2, class_weight={
             0: total / len(np.where(self.labels[:,0]==1.0)[0])*(1.0-0.2),
             1: total / len(np.where(self.labels[:,1]==1.0)[0])*(1.0-0.2),
             2: total / len(np.where(self.labels[:,2]==1.0)[0])*(1.0-0.2),

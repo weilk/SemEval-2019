@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class preprocess(ABC):
+class postprocess(ABC):
     
     def __init__(self,importance=0,name="base",id=0):
         self._importance = importance
