@@ -27,7 +27,7 @@ class frequency_of_last_chars(feature_extraction):
 
             freq = self.custom_function(list)
             for ch in freq:
-                D['freq_of_last_chr_'+ch][index_row] = freq[ch]
+                D.loc['freq_of_last_chr_'+ch,index_row] = freq[ch]
             
         
 

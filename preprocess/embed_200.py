@@ -53,9 +53,9 @@ class embed_200(preprocess):
                 for word in words:
                     phrase_embedding = np.append(phrase_embedding,
                                                  self.embeddings.get(word,
-                                                                     np.random.randn(EMBEDDING_DIM)
+                                                                     np.random.randn(EMBEDDING_DIM)))
                                                                      # np.zeros(200)))
-                
+
                 if column == 'turn1':
                     phrase_embedding = self.pad_phrase_embedding(phrase_embedding, MAXLEN_TURN1)
                     # assert np.shape(phrase_embedding) == (MAXLEN_TURN1, EMBEDDING_DIM)
