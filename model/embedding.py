@@ -3,12 +3,12 @@ import pandas as pd
 import numpy as np
 from keras.models import load_model
 from keras.models import Sequential, Model
-# from keras.layers import Dense, Activation, Dropout, InputLayer, Embedding, Input, LSTM, Concatenate, concatenate
 from keras.layers import *
 from keras.optimizers import SGD, Adam, Adagrad, Adadelta 
 from keras.preprocessing import sequence 
 from keras.preprocessing.text import one_hot 
 from keras.initializers import Constant
+from keras.callbacks import EarlyStopping
 
 from utils import *
 
@@ -59,12 +59,10 @@ class embedding(model):
         input_turn2, lstm2_out = self.add_turn_layer("2")
         input_turn3, lstm3_out = self.add_turn_layer("3")
 
-        # features = Input(shape = )
-
-        x = concatenate([lstm1_out, lstm2_out, lstm3_out])
-        x = Dense(200, activation='relu')(x)
+        x = concatenate([features, lstm1_out, lstm2_out, lstm3_out])
+        x = Dense(256, activation='relu')(x)
         x = Dropout(0.2)(x)
-        x = Dense(64, activation='relu')(x)
+        x = Dense(128, activation='relu')(x)
 
         main_out = Dense(self.labels.shape[1], activation='softmax', name='output')(x)
         self.model = Model(inputs=[features, input_turn1, input_turn2, input_turn3], outputs=[main_out])
@@ -76,7 +74,11 @@ class embedding(model):
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics = ['accuracy'])
         print(self.model.summary())
 
-        self.model.fit([D, emb1_input, emb2_input, emb3_input], self.labels, epochs=10, batch_size=128)
+        self.model.fit([D, emb1_input, emb2_input, emb3_input],
+                       self.labels,
+                       epochs=10,
+                       batch_size=128,
+                       callbacks=[EarlyStopping(patience=2)])
         print("Done training")
 
     def test(self,D):
