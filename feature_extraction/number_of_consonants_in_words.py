@@ -2,8 +2,13 @@ from classes import feature_extraction
 from nltk.tokenize import word_tokenize
 
 class number_of_consonants_in_words(feature_extraction):
-    def run(self,D,columns):
-               
+
+    def run(self,D,columns,changes):
+    
+        if not changes and self.load() == True:
+            print("Loaded " + self._name + " from disk")
+            return self.saved_data
+                   
         def custom_function_consonants(prop):
             total_size = 0
             number_of_consonants = 0
@@ -19,4 +24,9 @@ class number_of_consonants_in_words(feature_extraction):
         
         for column in columns:
             tokenized_words = D[column].apply(word_tokenize)
-            D['number_of_consonants_in_words_{}'.format(column)] = tokenized_words.apply(custom_function_consonants)
+            self.saved_data['number_of_consonants_in_words_{}'.format(column)] = tokenized_words.apply(custom_function_consonants)
+
+
+        self.save()
+        
+        return self.saved_data 

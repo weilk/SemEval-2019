@@ -1,0 +1,136 @@
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+make_lower_case
+eliminate_stop_words
+replace_negation_words
+tokenization
+one_hot_encode
+spellingcheck
+embed_200
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\istoleru\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+number_of_words
+number_of_capitalized_words
+number_of_elongated_words
+number_negation_words
+number_boosting_words
+number_exclamation_marks
+number_question_marks
+percentage_capitalized
+frequency_of_last_chars
+number_of_vowels_in_words
+number_of_punctuation_in_words
+keras_embedings
+number_of_consonants_in_words
+bad_words
+number_of_capitals_in_words
+char_stats1
+char_stats2
+number_happy_emoticons
+number_sad_emoticons
+number_happy_emoticons_count
+number_sad_emoticons_count
+best_fit
+recursive_feature_elimination
+information_gain
+Loaded replace_negation_words from disk
+Loaded embed_200 from disk
+Loaded eliminate_stop_words from disk
+Loaded one_hot_encode from disk
+FE: <feature_extraction.number_of_capitals_in_words.number_of_capitals_in_words object at 0x000001A0C66E0198>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_capitals_in_words from disk
+Taken: 0.006054401397705078
+FE: <feature_extraction.number_of_words.number_of_words object at 0x000001A0C6488080>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_words from disk
+Taken: 0.006015777587890625
+FE: <feature_extraction.number_of_capitalized_words.number_of_capitalized_words object at 0x000001A0C66AE438>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_capitalized_words from disk
+Taken: 0.007489681243896484
+FE: <feature_extraction.number_of_elongated_words.number_of_elongated_words object at 0x000001A0C66AE5C0>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_elongated_words from disk
+Taken: 0.008515357971191406
+FE: <feature_extraction.number_negation_words.number_negation_words object at 0x000001A0C66AE6D8>, ['turn1', 'turn2', 'turn3']
+Loaded number_negation_words from disk
+Taken: 0.009024620056152344
+FE: <feature_extraction.number_boosting_words.number_boosting_words object at 0x000001A0C66AF8D0>, ['turn1', 'turn2', 'turn3']
+Loaded number_boosting_words from disk
+Taken: 0.01102900505065918
+FE: <feature_extraction.number_exclamation_marks.number_exclamation_marks object at 0x000001A0C66DA5C0>, ['turn1', 'turn2', 'turn3']
+Loaded number_exclamation_marks from disk
+Taken: 0.011530637741088867
+FE: <feature_extraction.number_question_marks.number_question_marks object at 0x000001A0C66DAC88>, ['turn1', 'turn2', 'turn3']
+Loaded number_question_marks from disk
+Taken: 0.013034343719482422
+FE: <feature_extraction.number_happy_emoticons.number_happy_emoticons object at 0x000001A0C66E26D8>, ['turn1', 'turn2', 'turn3']
+Loaded number_happy_emoticons from disk
+Taken: 0.012533903121948242
+FE: <feature_extraction.number_sad_emoticons.number_sad_emoticons object at 0x000001A0C66E2B00>, ['turn1', 'turn2', 'turn3']
+Loaded number_sad_emoticons from disk
+Taken: 0.007520198822021484
+FE: <feature_extraction.number_happy_emoticons_count.number_happy_emoticons_count object at 0x000001A0C66E3208>, ['turn1', 'turn2', 'turn3']
+Loaded number_happy_emoticons_count from disk
+Taken: 0.009024381637573242
+FE: <feature_extraction.number_sad_emoticons_count.number_sad_emoticons_count object at 0x000001A0C66E3E80>, ['turn1', 'turn2', 'turn3']
+Loaded number_sad_emoticons_count from disk
+Taken: 0.015039682388305664
+FE: <feature_extraction.number_of_punctuation_in_words.number_of_punctuation_in_words object at 0x000001A0C66DCC18>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_punctuation_in_words from disk
+Taken: 0.015539884567260742
+FE: <feature_extraction.number_of_vowels_in_words.number_of_vowels_in_words object at 0x000001A0C66DC8D0>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_vowels_in_words from disk
+Taken: 0.01704692840576172
+FE: <feature_extraction.char_stats1.char_stats1 object at 0x000001A0C66E0588>, ['turn1', 'turn2', 'turn3']
+Loaded char_stats1 from disk
+Taken: 0.05414462089538574
+FE: <feature_extraction.number_of_consonants_in_words.number_of_consonants_in_words object at 0x000001A0C66DDDA0>, ['turn1', 'turn2', 'turn3']
+Loaded number_of_consonants_in_words from disk
+Taken: 0.04261422157287598
+FE: <feature_extraction.bad_words.bad_words object at 0x000001A0C66DDF98>, ['turn1', 'turn2', 'turn3']
+Loaded bad_words from disk
+Taken: 0.07620382308959961
+FE: <feature_extraction.char_stats2.char_stats2 object at 0x000001A0C66E2160>, ['turn1', 'turn2', 'turn3']
+Loaded char_stats2 from disk
+Taken: 1.186168909072876
+Loaded extract_redundant_words from disk
+FS: <feature_selection.information_gain.information_gain object at 0x000001A0C6746EB8>
+['label', 'label_happy', 'label_angry', 'label_sad', 'label_others']
+(30160, 2229)
+(30160,)
