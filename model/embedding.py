@@ -15,16 +15,8 @@ from utils import *
 class embedding(model):
     
     def forward_pass(self,D):
-        vocab_size = 300
-        max_length = 200
-        embedding_vector_length = 32
-        
-        emb_turn1 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn1"]], maxlen=max_length)
-        emb_turn2 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn2"]], maxlen=max_length)
-        emb_turn3 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn3"]], maxlen=max_length)
-        
-        D = D.drop(['turn1','turn2','turn3'],axis=1).values
-        return self.model.predict([D,emb_turn1,emb_turn2,emb_turn3])
+        # TODO
+        pass
     
 
     def add_turn_layer(self, index):
@@ -85,20 +77,5 @@ class embedding(model):
         print("Done training")
 
     def test(self,D):
-        self.labels = pd.get_dummies(D[output_emocontext])
-        D = D.drop(output_emocontext,axis=1)
-        
-        vocab_size = 300
-        max_length = 200
-        embedding_vector_length = 32
-        
-        emb_turn1 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn1"]], maxlen=max_length)
-        emb_turn2 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn2"]], maxlen=max_length)
-        emb_turn3 = sequence.pad_sequences([one_hot(d, vocab_size) for d in D["turn3"]], maxlen=max_length)
-        
-        D = D.drop(['turn1','turn2','turn3'],axis=1).values
-
-        results = self.model.evaluate([D,emb_turn1,emb_turn2,emb_turn3], self.labels, batch_size=32)
-        print(results)
-        print("Done testing")
-        return results
+        #TODO
+        pass
