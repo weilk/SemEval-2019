@@ -12,16 +12,19 @@ MAXLEN_TURN3 = 143
 
 EMBEDDING_DIM = 200
 
+EMBEDDED_COLS = []
+
 class embed_200(preprocess):
 
     def run(self,D,columns):
-        # self.load_embeddings()
-        # print("Loaded %s embeddings" % str(len(self.embeddings.keys())))
+        global EMBEDDED_COLS
         tokenizer = Tokenizer()
         self.max_words_per_turn = max_no_words.get_no_words()
         print("Max no words: %s" % str(self.max_words_per_turn))
         for column in columns:
             tokenizer.fit_on_texts(D[column])
-            D['embedding_200_{}'.format(column)] = tokenizer.texts_to_sequences(D[column].values)
-            D['embedding_200_{}'.format(column)] = list(pad_sequences(D['embedding_200_{}'.format(column)], self.max_words_per_turn[column]))
+            embed_col = 'embedding_200_{}'.format(column) 
+            D[embed_col] = tokenizer.texts_to_sequences(D[column].values)
+            D[embed_col] = list(pad_sequences(D['embedding_200_{}'.format(column)], self.max_words_per_turn[column]))
+            EMBEDDED_COLS.append(embed_col)
         return D

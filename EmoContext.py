@@ -71,25 +71,16 @@ data_object.D = data_object.D.drop(["label","id"],axis=1)
 turns = data_object.D[['turn1','turn2','turn3']]
 data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
-
-
-
-# if os.path.exists(simple_MLP.model_file_name):
-# 	simple_MLP.load()
-# # else:
-# 	simple_MLP.train({"data": data, "labels":labels})
-# 	simple_MLP.save()
-  
+ 
 
 data = data_object.D.drop(output_emocontext,axis=1)[msk]
 labels = data_object.D[output_emocontext][msk]
 
 # model = simple_MLP("simple_MLP")
-print(data_object.D.columns)
 print(data_object.D.shape)
-# model = embedding("embedding")
-# model.train(data_object.D[["embedding_200_turn1"]+output_emocontext],
-#             embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
+model = embedding("embedding")
+model.train(data_object.D,
+            embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
 
 pp=[
     #(make_lower_case,["turn1","turn2","turn3"]),
