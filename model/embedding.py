@@ -15,8 +15,11 @@ from utils import *
 class embedding(model):
     
     def forward_pass(self,D):
-        # TODO
-        pass
+        emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
+        emb2_input = np.array([np.array(x) for x in D['embedding_200_turn2'].values])
+        emb3_input = np.array([np.array(x) for x in D['embedding_200_turn3'].values])
+        D = D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
+        return self.model.predict([D,emb1_input,emb2_input,emb3_input])
     
 
     def add_turn_layer(self, index):
@@ -73,7 +76,7 @@ class embedding(model):
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics = ['accuracy'])
         print(self.model.summary())
 
-        self.model.fit([D, emb1_input, emb2_input, emb3_input], self.labels, epochs=10, batch_size=128,validation_split=0.2)
+        self.model.fit([D, emb1_input, emb2_input, emb3_input], self.labels, epochs=10, batch_size=128)
         print("Done training")
 
     def test(self,D):

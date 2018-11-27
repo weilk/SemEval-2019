@@ -73,15 +73,14 @@ data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
  
 
-data = data_object.D.drop(output_emocontext,axis=1)[msk]
-labels = data_object.D[output_emocontext][msk]
+# data = data_object.D.drop(output_emocontext,axis=1)[msk]
+# labels = data_object.D[output_emocontext][msk]
 
 # model = simple_MLP("simple_MLP")
 print(data_object.D.shape)
 model = embedding("embedding")
 model.train(data_object.D,
             embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
-
 pp=[
     #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
@@ -117,10 +116,13 @@ postp=[
     (extract_redundant_words,["turn1", "turn2", "turn3"])
 ]
 
-data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp)
-data_object.D = data_object.D.drop(["id"],axis=1)[veganGains[1][2].extend(output_emocontext)]
-predicted = model.forward_pass(data_object.D)
+# data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp)
+# data_object.D = data_object.D.drop(["id"],axis=1)[veganGains[1][2].extend(output_emocontext)]
+data_object.D = data_object.D.drop(output_emocontext,axis=1)
 
+predicted = model.forward_pass(data_object.D)
+print("predicted")
+print(np.shape(predicted))
 create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
