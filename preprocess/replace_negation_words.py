@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 
-negations = ['no', 'none', 'no one', 'nobody', 'nothing', 'neither', 'nowhere', 'never']
+negations = ['no', 'none', 'no one', 'nobody', 'nothing', 'neither', 'nowhere', 'never', 'should not', 'shouldnt', 'nor', 'would not', 'wouldnt', 'could not', 'couldnt', 'must not', 'mustnt']
 
 class replace_negation_words(preprocess):
 
