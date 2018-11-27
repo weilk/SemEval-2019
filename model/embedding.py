@@ -36,23 +36,39 @@ class embedding(model):
 
 
         self.model = Sequential()
-        input_length = len(D['embedding_200_turn1'][0])
-        print(input_length)
-        input_turn1 = Input(shape=(input_length,), name='turn1_input')
-        self.model.add(Embedding(input_dim=np.shape(embedding_matrix)[0],
+        input_turn1_length = len(D['embedding_200_turn1'][0])
+        print(input_turn1_length)
+        input_turn1 = Input(shape=(input_turn1_length,), name='turn1_input')
+        emb1 = Embedding(input_dim=np.shape(embedding_matrix)[0],
                             output_dim=embedding_dim,
                             embeddings_initializer=Constant(embedding_matrix),
-                            input_length=input_length,
-                            trainable=True))
-        self.model.add(SpatialDropout1D(0.2))
-        self.model.add(Bidirectional(CuDNNLSTM(128, return_sequences=True)))
-        self.model.add(Bidirectional(CuDNNLSTM(64)))
-        self.model.add(Dropout(0.25))
-        self.model.add(Dense(units=5, activation='softmax'))
-        self.model.compile(loss = 'categorical_crossentropy', optimizer='adam',metrics = ['accuracy'])
+                            input_length=input_turn1_length,
+                            trainable=True)(input_turn1)
+        lstm1_out = LSTM(64)(emb1)
+        main_out = Dense(self.labels.shape[1], activation='softmax', name='output')(lstm1_out)
+        self.model = Model(inputs=[input_turn1], outputs=[main_out])
+        # self.model.add(SpatialDropout1D(0.2))
+        # self.model.add(Bidirectional(CuDNNLSTM(128, return_sequences=True)))
+        # self.model.add(Bidirectional(CuDNNLSTM(64)))
+        # self.model.add(Dropout(0.25))
+        # self.model.add(Dense(units=5, activation='softmax'))
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics = ['accuracy'])
         print(self.model.summary())
+        print(D.shape)
+        emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
+        print(np.shape(emb1_input))
+        # import ipdb
+        # ipdb.set_trace(context=10)
+        # print(D['embedding_200_turn1'])
+        # print(type(D['embedding_200_turn1']))
+        # D['embedding_200_turn1'] = D['embedding_200_turn1'].values
+        # print(type(D['embedding_200_turn1']))
+        # print(D.shape)
+        # print(D['embedding_200_turn1'][0])
+        # print(self.labels.shape)
+        # emb1_input = np.reshape(D['embedding_200_turn1'],(D.shape[0], input_turn1_length))
         
-        self.model.fit(D, self.labels, epochs=10, batch_size=128,validation_split=0.2)
+        self.model.fit(emb1_input, self.labels, epochs=10, batch_size=128,validation_split=0.2)
         print("Done training")
 
     def test(self,D):
