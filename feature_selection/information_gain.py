@@ -29,6 +29,7 @@ class information_gain(feature_selection):
         good = subset.columns.values[totalGains>epsilon]
         good = good.tolist()
         good.extend(output_emocontext)
+        good.extend(input_emocontext)
         good.extend(columns)
         return D[good]
 
