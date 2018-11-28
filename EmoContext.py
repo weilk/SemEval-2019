@@ -73,10 +73,6 @@ data_object.D = data_object.D.drop(["label","id"],axis=1)
 turns = data_object.D[['turn1','turn2','turn3']]
 data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
- 
-
-#data = data_object.D.drop(output_emocontext,axis=1)[msk]
-labels = data_object.D[output_emocontext][msk]
 
 # model = simple_MLP("simple_MLP")
 print(data_object.D.shape)
@@ -123,11 +119,12 @@ fs = [
 	(information_gain,)
 ]
 
-
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs)
 data_object.D = data_object.D.drop(["id"],axis=1)
 predicted = model.forward_pass(data_object.D)
 
+predicted = model.forward_pass(data_object.D)
+print("predicted")  
 create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
