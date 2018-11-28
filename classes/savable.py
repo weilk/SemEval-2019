@@ -11,14 +11,20 @@ class savable():
         dir_path = "processed_data"
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        fd = open("processed_data/" + self._name + ".data", 'wb')
+        k = ""
+        if self.test:
+            k = "t_"
+        fd = open("processed_data/"+ k + self._name + ".data", 'wb')
         pickle.dump(self.__dict__, fd)
         fd.close() 
     
     
     def load(self):
+        k = ""
+        if self.test:
+            k = "t_"
         try:
-            fd = open("processed_data/" + self._name + ".data", 'rb')
+            fd = open("processed_data/"+ k + self._name + ".data", 'rb')
             tmp_dict = pickle.load(fd)
             fd.close()
         except IOError:

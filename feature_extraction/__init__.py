@@ -10,7 +10,6 @@ from feature_extraction.frequency_of_last_chars import *
 from feature_extraction.number_of_vowels_in_words import *
 from feature_extraction.number_of_consonants_in_words import *
 from feature_extraction.number_of_punctuation_in_words import *
-from feature_extraction.keras_embedings import *
 from feature_extraction.number_happy_emoticons import *
 from feature_extraction.number_sad_emoticons import *
 from feature_extraction.number_happy_emoticons_count import *
@@ -32,7 +31,6 @@ percentage_capitalized = percentage_capitalized(-20, "percentage_capitalized",8)
 frequency_of_last_chars = frequency_of_last_chars(0, "frequency_of_last_chars",9)
 number_of_vowels_in_words = number_of_vowels_in_words(0, "number_of_vowels_in_words",10)
 number_of_punctuation_in_words = number_of_punctuation_in_words(0, "number_of_punctuation_in_words",11)
-keras_embedings = keras_embedings(-30, "keras_embedings",12)
 number_of_consonants_in_words = number_of_consonants_in_words(0, "number_of_consonants_in_words",13)
 bad_words = bad_words(0, "bad_words",14)
 number_of_capitals_in_words = number_of_capitals_in_words(100,"number_of_capitals_in_words",15)

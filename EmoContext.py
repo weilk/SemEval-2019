@@ -16,7 +16,6 @@ emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithou
 features = []
 
 pp=[
-    #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
@@ -32,7 +31,6 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    #(keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
@@ -44,20 +42,19 @@ fe=[
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
     (char_stats2,["turn1", "turn2", "turn3"]),
-    #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
 ]
 postp=[
     (extract_redundant_words,["turn1", "turn2", "turn3"])
 ]
 
 fs = [
-	(information_gain,)
+	(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)
 # veganGains = information_gain.run(data_object.D)
 # data_object.D = data_object.D[veganGains[1][2].tolist().extend(output_emocontext)]
-msk = np.random.rand(len(data_object.D)) < 0.7
+# msk = np.random.rand(len(data_object.D)) < 0.7
 
 # print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
@@ -81,7 +78,6 @@ model.train(data_object.D,
             embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
 
 pp=[
-    #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
@@ -97,7 +93,6 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    #(keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
@@ -109,17 +104,16 @@ fe=[
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
     (char_stats2,["turn1", "turn2", "turn3"]),
-    #(frequency_of_last_chars,["turn1", "turn2", "turn3"]),
 ]
 postp=[
     (extract_redundant_words,["turn1", "turn2", "turn3"])
 ]                      
 
 fs = [
-	(information_gain,)
+	#(information_gain,)
 ]
 
-data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs)
+data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
 data_object.D = data_object.D.drop(["id"],axis=1)
 predicted = model.forward_pass(data_object.D)
 

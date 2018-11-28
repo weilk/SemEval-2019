@@ -42,8 +42,8 @@ class embedding(model):
         self.embedding_dim = embedding_dim
 
         self.labels = D[output_emocontext].values
-        self.data = D
         D = D.drop(output_emocontext,axis=1) # data 
+        self.data = D
         emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
         emb2_input = np.array([np.array(x) for x in D['embedding_200_turn2'].values])
         emb3_input = np.array([np.array(x) for x in D['embedding_200_turn3'].values])
@@ -82,8 +82,9 @@ class embedding(model):
             checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
         
 
+        adadelta = Adadelta(lr=1.0, rho=0.985, epsilon=None, decay=0.0)
 
-        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics = ['accuracy'])
+        self.model.compile(loss='categorical_crossentropy', optimizer=adadelta, metrics = ['accuracy'])
         print(self.model.summary())
         if not loaded:
             self.model.fit([D, emb1_input, emb2_input, emb3_input],
