@@ -32,7 +32,7 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    (keras_embedings,["turn1","turn2","turn3"]),
+    #(keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
@@ -50,11 +50,14 @@ postp=[
     (extract_redundant_words,["turn1", "turn2", "turn3"])
 ]
 
-data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp)
+fs = [
+	(information_gain,)
+]
+
+data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)
 # veganGains = information_gain.run(data_object.D)
 # data_object.D = data_object.D[veganGains[1][2].tolist().extend(output_emocontext)]
 msk = np.random.rand(len(data_object.D)) < 0.7
-
 
 # print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
@@ -70,10 +73,6 @@ data_object.D = data_object.D.drop(["label","id"],axis=1)
 turns = data_object.D[['turn1','turn2','turn3']]
 data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
- 
-
-# data = data_object.D.drop(output_emocontext,axis=1)[msk]
-# labels = data_object.D[output_emocontext][msk]
 
 # model = simple_MLP("simple_MLP")
 print(data_object.D.shape)
@@ -98,7 +97,7 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    (keras_embedings,["turn1","turn2","turn3"]),
+    #(keras_embedings,["turn1","turn2","turn3"]),
     (number_happy_emoticons,["turn1","turn2","turn3"]),
     (number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
@@ -114,11 +113,15 @@ fe=[
 ]
 postp=[
     (extract_redundant_words,["turn1", "turn2", "turn3"])
+]                      
+
+fs = [
+	(information_gain,)
 ]
 
-# data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp)
-# data_object.D = data_object.D.drop(["id"],axis=1)[veganGains[1][2].extend(output_emocontext)]
-data_object.D = data_object.D.drop(output_emocontext,axis=1)
+data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs)
+data_object.D = data_object.D.drop(["id"],axis=1)
+predicted = model.forward_pass(data_object.D)
 
 predicted = model.forward_pass(data_object.D)
 print("predicted")  

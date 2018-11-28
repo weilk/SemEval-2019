@@ -2,6 +2,8 @@ from classes import feature_extraction
 from nltk.tokenize import word_tokenize
 import json
 
+alfabet = 'abcdefghijklmnopqrstuvwxyz'
+
 class frequency_of_last_chars(feature_extraction):
 
     def custom_function(self,entry):
@@ -16,9 +18,15 @@ class frequency_of_last_chars(feature_extraction):
                     frequency_vector[char] = frequency_vector.setdefault(char, 0) + 1
         return frequency_vector
     
-    def run(self,D,columns):
+    def run(self,D,columns,changes):
+    
+        if not changes and self.load() == True:
+            print("Loaded " + self._name + " from disk")
+            return self.saved_data
+
+
         for i in range(26):
-            D['freq_of_last_chr_'+chr(ord('a') + i)] = [0 for _ in range(len(D[columns[0]]))]
+            self.saved_data['freq_of_last_chr_'+ chr(ord('a') + i)] = [0 for _ in range(len(D[columns[0]]) - 1)]
 
         for index_row in range(len(D[columns[0]])):
             list = []
@@ -27,7 +35,12 @@ class frequency_of_last_chars(feature_extraction):
 
             freq = self.custom_function(list)
             for ch in freq:
-                D.loc['freq_of_last_chr_'+ch,index_row] = freq[ch]
+                self.saved_data.loc['freq_of_last_chr_'+ch,index_row] = freq[ch]
+
+
+        self.save()
+        
+        return self.saved_data
             
         
 
