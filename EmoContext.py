@@ -56,7 +56,6 @@ data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp)
 msk = np.random.rand(len(data_object.D)) < 0.7
 
 
-
 # print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
 trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
@@ -81,6 +80,7 @@ print(data_object.D.shape)
 model = embedding("embedding")
 model.train(data_object.D,
             embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
+
 pp=[
     #(make_lower_case,["turn1","turn2","turn3"]),
     (eliminate_stop_words,["turn1","turn2","turn3"]),
@@ -121,8 +121,7 @@ postp=[
 data_object.D = data_object.D.drop(output_emocontext,axis=1)
 
 predicted = model.forward_pass(data_object.D)
-print("predicted")
-print(np.shape(predicted))
+print("predicted")  
 create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
