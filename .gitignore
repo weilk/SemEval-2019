@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 #ignore processed_data
-processed_data/
+#processed_data/
 
 #ignore submission files
 predicted_data/
