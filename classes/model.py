@@ -28,6 +28,7 @@ class model(ABC):
         dir_path = "TAIP/SemEval-2019/trained_models/"
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
+        print("Saving model %s" % self._name)
         fd = open("TAIP/SemEval-2019/trained_models/" + self._name + ".model", 'wb')
         pickle.dump(self.__dict__, fd)
         fd.close() 

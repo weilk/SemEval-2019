@@ -8,8 +8,7 @@ from keras.optimizers import SGD, Adam, Adagrad, Adadelta
 from keras.preprocessing import sequence 
 from keras.preprocessing.text import one_hot 
 from keras.initializers import Constant
-from keras.callbacks import EarlyStopping
-
+from keras.callbacks import EarlyStopping, ModelCheckpoint
 from utils import *
 
 class embedding(model):
@@ -71,15 +70,29 @@ class embedding(model):
         # self.model.add(Bidirectional(CuDNNLSTM(64)))
         # self.model.add(Dropout(0.25))
         # self.model.add(Dense(units=5, activation='softmax'))
+        
+        # filepath="TAIP/SemEval-2019/trained_models/"+self._name+"weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+        loaded = False
+        filepath="TAIP/SemEval-2019/trained_models/" + self._name + ".model"
+        if os.path.isfile(filepath):
+            loaded = True
+            self.model.load_weights(filepath)
+            print("Loaded model")
+        else:
+            checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+        
+
+
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics = ['accuracy'])
         print(self.model.summary())
-
-        self.model.fit([D, emb1_input, emb2_input, emb3_input],
-                       self.labels,
-                       epochs=10,
-                       batch_size=128,
-                       callbacks=[EarlyStopping(patience=2)])
-        print("Done training")
+        if not loaded:
+            self.model.fit([D, emb1_input, emb2_input, emb3_input],
+                           self.labels,
+                           epochs=1,
+                           batch_size=1280,
+                           validation_split=0.2,
+                           callbacks=[EarlyStopping(patience=2), checkpoint])
+            print("Done training")
 
     def test(self,D):
         #TODO
