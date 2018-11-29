@@ -108,3 +108,6 @@ venv.bak/
 
 #ignore submission files
 predicted_data/
+
+#tensorboard logs
+logs/
