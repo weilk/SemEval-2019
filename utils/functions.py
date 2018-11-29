@@ -83,5 +83,5 @@ def specificity(y_true, y_pred):
 
 
 if __name__ == "__main__":
-	emocontext_DataFrame = parse_file(r"D:\Facultate_Master\TAIP\SemEval-2019\raw_data\EmoContext\train.txt", "EmoContext")
-	offenseval_DataFrame = parse_file(r"D:\Facultate_Master\TAIP\SemEval-2019\raw_data\OffensEval\offenseval-trial.txt", "OffensEval")
+	emocontext_DataFrame = parse_file(r"raw_data\\EmoContext\\train.txt", "EmoContext")
+	offenseval_DataFrame = parse_file(r"raw_data\\OffensEval\\offenseval-trial.txt", "OffensEval")

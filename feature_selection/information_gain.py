@@ -25,7 +25,7 @@ class information_gain(feature_selection):
             #good = subset.columns.values[ig>0.0]
             #veganGains.append((l,ig,good))
 
-        epsilon = np.median(totalGains)
+        epsilon = 0 #np.mean(totalGains)
         good = subset.columns.values[totalGains>epsilon]
         good = good.tolist()
         good.extend(output_emocontext)

@@ -10,6 +10,30 @@ import numpy as np
 import pandas as pd
 import csv
 
+def get_train_test_inds(y,train_proportion=0.8):
+    '''Generates indices, making random stratified split into training set and testing sets
+    with proportions train_proportion and (1-train_proportion) of initial sample.
+    y is any iterable indicating classes of each observation in the sample.
+    Initial proportions of classes inside training and 
+    testing sets are preserved (stratified sampling).
+    '''
+
+    y=np.array(y)
+    train_inds = np.zeros(len(y),dtype=bool)
+    test_inds = np.zeros(len(y),dtype=bool)
+    values = np.unique(y)
+    for value in values:
+        value_inds = np.nonzero(y==value)[0]
+        np.random.shuffle(value_inds)
+        n = int(train_proportion*len(value_inds))
+
+        train_inds[value_inds[:n]]=True
+        test_inds[value_inds[n:]]=True
+
+    return train_inds,test_inds
+
+
+
 emocontext_DataFrame = functions.parse_file(r"raw_data/EmoContext/train.txt", "EmoContext")
 emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithoutlabels.txt", "EmoContext")
 
@@ -19,7 +43,7 @@ pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
-    # (spellingcheck,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
 
@@ -48,15 +72,10 @@ postp=[
 ]
 
 fs = [
-	(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
+	#(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)
-# veganGains = information_gain.run(data_object.D)
-# data_object.D = data_object.D[veganGains[1][2].tolist().extend(output_emocontext)]
-# msk = np.random.rand(len(data_object.D)) < 0.7
-
-# print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
 trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
 aux = pd.DataFrame()
@@ -66,22 +85,27 @@ data_object.D = aux.sample(frac=1.0)
 
 print([{x:data_object.D[(data_object.D['label'] == x)].shape[0]} for x in ["happy","sad","angry","others"]])
 
+trainIdx, validationIdx = get_train_test_inds(data_object.D["label"],0.8)
+
 data_object.D = data_object.D.drop(["label","id"],axis=1)
 turns = data_object.D[['turn1','turn2','turn3']]
 data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
 
-# model = simple_MLP("simple_MLP")
+
+
 print(data_object.D.shape)
-model = embedding("embedding")
+model = embedding("embedding2")
 model.train(data_object.D,
-            embedding_matrix().build_matrix(turns, ["turn1", "turn2", "turn3"]))
+            trainIdx,
+            validationIdx,
+            embedding_matrix().build_matrix(turns[trainIdx], ["turn1", "turn2", "turn3"]))
 
 pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
-    # (spellingcheck,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
 

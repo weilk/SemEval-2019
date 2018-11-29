@@ -1,6 +1,7 @@
 from classes import model
 import pandas as pd
 import numpy as np
+from time import time
 from keras.models import load_model
 from keras.models import Sequential, Model
 from keras.layers import *
@@ -8,7 +9,7 @@ from keras.optimizers import SGD, Adam, Adagrad, Adadelta
 from keras.preprocessing import sequence 
 from keras.preprocessing.text import one_hot 
 from keras.initializers import Constant
-from keras.callbacks import EarlyStopping, ModelCheckpoint
+from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
 from utils import *
 
 class embedding(model):
@@ -29,7 +30,7 @@ class embedding(model):
                             embeddings_initializer=Constant(self.embedding_matrix),
                             input_length=input_turn_length,
                             trainable=True)(input_turn)
-        return input_turn, LSTM(128)(emb)
+        return input_turn, LSTM(64, activation='relu')(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(emb))))
 
     def _input_turn_embeddings(self, D):
         emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
@@ -37,7 +38,7 @@ class embedding(model):
         emb3_input = np.array([np.array(x) for x in D['embedding_200_turn3'].values])
         return [emb1_input, emb2_input, emb3_input]
 
-    def train(self, D, embedding_matrix, embedding_dim=200):
+    def train(self, D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200):
         self.embedding_matrix = embedding_matrix
         self.embedding_dim = embedding_dim
 
@@ -54,13 +55,24 @@ class embedding(model):
         self.model = Sequential()
 
         features = Input(shape=(D.shape[1],), name="features_input")
+        featuresL = Dense(64, activation='relu')(features)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(64, activation='relu')(featuresL)
+        
         input_turn1, lstm1_out = self.add_turn_layer("1")
         input_turn2, lstm2_out = self.add_turn_layer("2")
         input_turn3, lstm3_out = self.add_turn_layer("3")
 
-        x = concatenate([features, lstm1_out, lstm2_out, lstm3_out])
-        x = Dense(256, activation='relu')(x)
-        x = Dropout(0.2)(x)
+        x = concatenate([featuresL, lstm1_out, lstm2_out, lstm3_out])
+        x = Dense(128, activation='relu')(x)
+        x = Dense(128, activation='relu')(x)
+        x = Dense(128, activation='relu')(x)
+        x = Dense(128, activation='relu')(x)
         x = Dense(128, activation='relu')(x)
 
         main_out = Dense(self.labels.shape[1], activation='softmax', name='output')(x)
@@ -71,28 +83,34 @@ class embedding(model):
         # self.model.add(Dropout(0.25))
         # self.model.add(Dense(units=5, activation='softmax'))
         
-        # filepath="TAIP/SemEval-2019/trained_models/"+self._name+"weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+        # filepath="trained_models/"+self._name+"weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
         loaded = False
-        filepath="TAIP/SemEval-2019/trained_models/" + self._name + ".model"
+        filepath="trained_models/" + self._name + ".model"
         if os.path.isfile(filepath):
-            loaded = True
+        #    loaded = True
             self.model.load_weights(filepath)
             print("Loaded model")
-        else:
-            checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+        #else:
+        checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
         
 
-        adadelta = Adadelta(lr=1.0, rho=0.985, epsilon=None, decay=0.0)
+        adadelta = Adadelta(lr=1.0, rho=0.995, epsilon=None, decay=0.0)
 
         self.model.compile(loss='categorical_crossentropy', optimizer=adadelta, metrics = ['accuracy'])
         print(self.model.summary())
+        tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
+
         if not loaded:
-            self.model.fit([D, emb1_input, emb2_input, emb3_input],
-                           self.labels,
-                           epochs=1,
-                           batch_size=1280,
-                           validation_split=0.2,
-                           callbacks=[EarlyStopping(patience=2), checkpoint])
+            self.model.fit([D[trainIdx], emb1_input[trainIdx], emb2_input[trainIdx], emb3_input[trainIdx]],
+                            self.labels[trainIdx],
+                            epochs=200,
+                            batch_size=32,
+                            #shuffle=True,
+                            validation_data=([D[validationIdx], emb1_input[validationIdx], emb2_input[validationIdx], emb3_input[validationIdx]],self.labels[validationIdx]),
+                            callbacks=[EarlyStopping(patience=3),
+                                checkpoint,
+                                tensorboard
+                            ])
             print("Done training")
 
     def test(self,D):
