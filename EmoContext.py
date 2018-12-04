@@ -95,7 +95,7 @@ output_emocontext.remove("label")
 
 
 print(data_object.D.shape)
-model = embedding("embedding2")
+model = embedding("embedding4")
 model.train(data_object.D,
             trainIdx,
             validationIdx,
@@ -104,7 +104,6 @@ model.train(data_object.D,
 pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
-    (one_hot_encode,["label"]),
     (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
@@ -130,7 +129,7 @@ fe=[
     (char_stats2,["turn1", "turn2", "turn3"]),
 ]
 postp=[
-    (extract_redundant_words,["turn1", "turn2", "turn3"])
+    #(extract_redundant_words,["turn1", "turn2", "turn3"])
 ]                      
 
 fs = [
