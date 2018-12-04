@@ -89,16 +89,17 @@ trainIdx, validationIdx = get_train_test_inds(data_object.D["label"],0.8)
 
 print(data_object.D.columns)
 print(output_emocontext)
-data_object.D = data_object.D.drop(["label","id"],axis=1)
+# data_object.D = data_object.D.drop(["label","id"],axis=1)
 turns = data_object.D[['turn1','turn2','turn3']]
-data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
-output_emocontext.remove("label")
+data_object.D = data_object.D.drop(['turn1','turn2','turn3', 'id'],axis=1)
+# output_emocontext.remove("label")
 
 print(data_object.D.columns)
 
 
 
 print(data_object.D.shape)
+print(trainIdx)
 model = cnn_emb("cnn_emb")
 model.train(data_object.D,
             trainIdx,
@@ -112,6 +113,7 @@ model.train(data_object.D,
 
 predicted = model.forward_pass(data_object.D)
 print("predicted")  
+print(predicted)
 create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
