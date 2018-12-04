@@ -38,7 +38,7 @@ class cnn_emb(model):
                             trainable=True)(input_turn)
         return input_turn, LSTM(64, activation='relu')(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(emb))))
 
-    def _train_model(self, label,  D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200, load=True):
+    def _train_model(self, label,  D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200, load=False):
         print("training %s" % label)
         print(D.columns)
         # print(D.drop(output_emocontext))
@@ -53,23 +53,32 @@ class cnn_emb(model):
         self.val_labels = np.reshape(self.val_labels, (np.shape(self.val_labels)[0],))
 
         input_turn_length = len(D['embedding_200_turn1'][0]) + len(D['embedding_200_turn2'][0]) + len(D['embedding_200_turn3'][0])
-        num_filters = 10
 
         model = Sequential()
         model.add(Embedding(np.shape(embedding_matrix)[0], embedding_dim,
                   weights=[embedding_matrix], input_length=input_turn_length, trainable=True))
-        model.add(Conv1D(num_filters, 7, activation='relu', padding='same'))
+        model.add(Conv1D(32, 8, activation='relu', padding='same'))
+        model.add(Conv1D(32, 8, activation='relu', padding='same'))
+        model.add(Conv1D(32, 8, activation='relu', padding='same'))
+        model.add(MaxPooling1D(4))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
         model.add(MaxPooling1D(2))
-        model.add(Conv1D(num_filters, 7, activation='relu', padding='same'))
+        model.add(Conv1D(128, 8, activation='relu', padding='same'))
+        model.add(Conv1D(128, 8, activation='relu', padding='same'))
+        model.add(Conv1D(128, 8, activation='relu', padding='same'))
         model.add(GlobalMaxPooling1D())
         model.add(Dropout(0.5))
         model.add(Dense(32, activation='relu', kernel_regularizer=regularizers.l2(0.0004)))
         model.add(Dense(1, activation='sigmoid'))  #multi-label (k-hot encoding)
 
         adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
-        model.compile(loss='binary_crossentropy', optimizer=adam, metrics=['accuracy'])
+        
+        model.compile(loss='binary_crossentropy', optimizer=Adadelta(), metrics=['accuracy'])
         model.summary()
       
+
         filepath="trained_models/" + self._name + "-" + label + ".model"
 
         if load:
@@ -83,7 +92,7 @@ class cnn_emb(model):
 
         model.fit(self.data,
                 self.labels,
-                epochs=10,
+                epochs=20,
                 batch_size=32,
                 shuffle=True,
                 validation_data=(self.val_data, self.val_labels),
