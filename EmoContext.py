@@ -95,7 +95,7 @@ output_emocontext.remove("label")
 
 
 print(data_object.D.shape)
-model = embedding("embedding4")
+model = embedding("embedding00009")
 model.train(data_object.D,
             trainIdx,
             validationIdx,
