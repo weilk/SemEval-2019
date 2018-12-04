@@ -18,8 +18,10 @@ class embedding(model):
         emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
         emb2_input = np.array([np.array(x) for x in D['embedding_200_turn2'].values])
         emb3_input = np.array([np.array(x) for x in D['embedding_200_turn3'].values])
+        
+        D = D.drop(['turn1', 'turn2', 'turn3'], axis=1)
         D = D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
-        return self.model.predict([D,emb1_input,emb2_input,emb3_input])
+        return self.model.predict([D])
     
 
     def add_turn_layer(self, index):
@@ -55,28 +57,32 @@ class embedding(model):
         self.model = Sequential()
 
         features = Input(shape=(D.shape[1],), name="features_input")
-        featuresL = Dense(64, activation='relu')(features)
+        featuresL = Dense(512, activation='relu')(features)
+        featuresL = Dense(512, activation='relu')(featuresL)
+        featuresL = Dense(256, activation='relu')(featuresL)
+        featuresL = Dense(256, activation='relu')(featuresL)
+        featuresL = Dense(128, activation='relu')(featuresL)
+        featuresL = Dense(128, activation='relu')(featuresL)
         featuresL = Dense(64, activation='relu')(featuresL)
         featuresL = Dense(64, activation='relu')(featuresL)
-        featuresL = Dense(64, activation='relu')(featuresL)
-        featuresL = Dense(64, activation='relu')(featuresL)
-        featuresL = Dense(64, activation='relu')(featuresL)
-        featuresL = Dense(64, activation='relu')(featuresL)
-        featuresL = Dense(64, activation='relu')(featuresL)
+        featuresL = Dense(32, activation='relu')(featuresL)
+        featuresL = Dense(32, activation='relu')(featuresL)
         
         input_turn1, lstm1_out = self.add_turn_layer("1")
         input_turn2, lstm2_out = self.add_turn_layer("2")
         input_turn3, lstm3_out = self.add_turn_layer("3")
 
-        x = concatenate([featuresL, lstm1_out, lstm2_out, lstm3_out])
-        x = Dense(128, activation='relu')(x)
-        x = Dense(128, activation='relu')(x)
-        x = Dense(128, activation='relu')(x)
-        x = Dense(128, activation='relu')(x)
-        x = Dense(128, activation='relu')(x)
+        x = featuresL
+
+        #x = concatenate([featuresL, lstm1_out, lstm2_out, lstm3_out])
+        #x = Dense(128, activation='relu')(x)
+        #x = Dense(128, activation='relu')(x)
+        #x = Dense(128, activation='relu')(x)
+        #x = Dense(128, activation='relu')(x)
+        #x = Dense(128, activation='relu')(x)
 
         main_out = Dense(self.labels.shape[1], activation='softmax', name='output')(x)
-        self.model = Model(inputs=[features, input_turn1, input_turn2, input_turn3], outputs=[main_out])
+        self.model = Model(inputs=[features], outputs=[main_out])
         # self.model.add(SpatialDropout1D(0.2))
         # self.model.add(Bidirectional(CuDNNLSTM(128, return_sequences=True)))
         # self.model.add(Bidirectional(CuDNNLSTM(64)))
@@ -101,13 +107,13 @@ class embedding(model):
         tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
         if not loaded:
-            self.model.fit([D[trainIdx], emb1_input[trainIdx], emb2_input[trainIdx], emb3_input[trainIdx]],
+            self.model.fit([D[trainIdx]],
                             self.labels[trainIdx],
                             epochs=200,
-                            batch_size=32,
+                            batch_size=64,
                             #shuffle=True,
-                            validation_data=([D[validationIdx], emb1_input[validationIdx], emb2_input[validationIdx], emb3_input[validationIdx]],self.labels[validationIdx]),
-                            callbacks=[EarlyStopping(patience=3),
+                            validation_data=([D[validationIdx]],self.labels[validationIdx]),
+                            callbacks=[EarlyStopping(monitor='val_loss',patience=10),
                                 checkpoint,
                                 tensorboard
                             ])
