@@ -29,9 +29,8 @@ class model(ABC):
             os.makedirs(dir_path)
         fd = open("TAIP/SemEval-2019/trained_models/" + self._name + ".model", 'wb')
         pickle.dump(self.__dict__, fd)
-        fd.close() 
-    
-    
+        fd.close()     
+   
     def load(self):
         try:
             fd = open("TAIP/SemEval-2019/trained_models/" + self._name + ".model", 'rb')
