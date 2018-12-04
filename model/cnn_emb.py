@@ -74,7 +74,7 @@ class cnn_emb(model):
 
         if load:
             model.load_weights(filepath)
-            print("Loaded model")
+            print("Loaded model %s" % label)
             return model
 
         checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')

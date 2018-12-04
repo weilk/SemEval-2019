@@ -43,7 +43,7 @@ pp=[
     # (eliminate_stop_words,["turn1","turn2","turn3"]),
     # (replace_negation_words,["turn1","turn2","turn3"]),
     # (one_hot_encode,["label"]),
-    (spellingcheck,["turn1","turn2","turn3"]),
+    # (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
 
@@ -110,11 +110,35 @@ model.train(data_object.D,
 # data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
 # data_object.D = data_object.D.drop(["id"],axis=1)
 # predicted = model.forward_pass(data_object.D)
+print("predicting")
+decode = {"happy": 1, "sad":2, "angry":3, "others":4}
+decode = {0: "happy", 1:"sad", 2:"angry", 3:"others"}
+
+data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
 
 predicted = model.forward_pass(data_object.D)
+pred_labels = []
+predictions = []
+D = pd.DataFrame(data_object._raw)
+data_object.D = data_object.D.drop(["id"],axis=1)
+print(D.shape)
+print(D.columns)
+print(D)
+# import ipdb
+# ipdb.set_trace(context=10)
+for predict in predicted:
+    if np.argmax(predict) not in pred_labels:
+        pred_labels.append(np.argmax(predict))
+    predictions.append(decode[np.argmax(predict)])
+
+path="predicted_data/EmoContext/test.txt"
+# D = D.rename(columns={D.columns.values[-1]:variable})
+D['label'] = pd.Series(predictions, index=D.index)
+D.to_csv(path,index=False , sep="\t")
+
 print("predicted")  
-print(predicted)
-create_submision_file(data_object._raw,predicted)
+# print(predicted)
+# create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
 # docker run -it -p 8888:8888 -p 6006:6006  -v ${PWD}/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py -v ${PWD}:"/root/SemEval-2019" simi2525/ml-env:cpu
