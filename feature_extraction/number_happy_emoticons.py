@@ -15,7 +15,7 @@ class number_happy_emoticons(feature_extraction):
 
         for column in columns:
             tokenized_words = D[column].apply(word_tokenize)
-            self.saved_data['number_of_happy_emoticons_{}'.format(column)] = tokenized_words.apply(lambda x: (len([w for w in x if w in happy_emo_list]) > 0) )
+            self.saved_data['number_of_happy_emoticons_{}'.format(column)] = tokenized_words.apply(lambda x: (int(len([w for w in x if w in happy_emo_list]) > 0)) )
 
         self.save()
 

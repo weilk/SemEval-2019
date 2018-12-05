@@ -55,8 +55,8 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    (number_happy_emoticons,["turn1","turn2","turn3"]),
-    (number_sad_emoticons,["turn1","turn2","turn3"]),
+    #(number_happy_emoticons,["turn1","turn2","turn3"]),
+    #(number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
     (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
@@ -77,7 +77,7 @@ fs = [
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)
 data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
-print(data_object.D.intervals)
+
 trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
 aux = pd.DataFrame()
 for x in trimping:
@@ -95,8 +95,9 @@ output_emocontext.remove("label")
 
 
 
+print(data_object.D.columns)
 print(data_object.D.shape)
-model = simple_model("simple_model")
+model = simple_model("simple_model_2")
 model.train(data_object.D,
             trainIdx,
             validationIdx)
@@ -116,8 +117,8 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    (number_happy_emoticons,["turn1","turn2","turn3"]),
-    (number_sad_emoticons,["turn1","turn2","turn3"]),
+    #(number_happy_emoticons,["turn1","turn2","turn3"]),
+    #(number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
     (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
@@ -140,11 +141,35 @@ fs = [
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
 data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
 data_object.D = data_object.D.drop(["id"],axis=1)
-predicted = model.forward_pass(data_object.D)
 
+
+
+
+
+decode = {0: "happy", 1:"angry", 2:"sad", 3:"others"}
 predicted = model.forward_pass(data_object.D)
 print("predicted")  
-create_submision_file(data_object._raw,predicted)
+
+
+pred_labels = []
+predictions = []
+D = pd.DataFrame(data_object._raw)
+
+# import ipdb
+# ipdb.set_trace(context=10)
+for predict in predicted:
+    if np.argmax(predict) not in pred_labels:
+        pred_labels.append(np.argmax(predict))
+    predictions.append(decode[np.argmax(predict)])
+
+path="predicted_data/EmoContext/test.txt"
+# D = D.rename(columns={D.columns.values[-1]:variable})
+D['label'] = pd.Series(predictions, index=data_object.D.index)
+D.to_csv(path,index=False , sep="\t")
+
+print("predicted")  
+
+#create_submision_file(data_object._raw,predicted)
 
 # docker build -t simi2525/ml-env:cpu -f Dockerfile.cpu .
 # docker run -it -p 8888:8888 -p 6006:6006  -v ${PWD}/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py -v ${PWD}:"/root/SemEval-2019" simi2525/ml-env:cpu

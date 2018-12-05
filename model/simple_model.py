@@ -21,8 +21,9 @@ class simple_model(model):
     
     
     def train(self, D,trainIdx,validationIdx):
-        
+        print(D[output_emocontext].columns)
         self.labels = D[output_emocontext].values
+        print(output_emocontext)
         D = D.drop(output_emocontext,axis=1) # data 
         self.data = D
         
@@ -30,10 +31,15 @@ class simple_model(model):
 
         features = Input(shape=(D.shape[1],), name="features_input")
         featuresL = Dense(512, activation='relu')(features)
+        featuresL = Dropout(0.3)(featuresL)
         featuresL = Dense(512, activation='relu')(featuresL)
+        featuresL = Dropout(0.3)(featuresL)
         featuresL = Dense(256, activation='relu')(featuresL)
+        featuresL = Dropout(0.3)(featuresL)
         featuresL = Dense(256, activation='relu')(featuresL)
+        featuresL = Dropout(0.3)(featuresL)
         featuresL = Dense(128, activation='relu')(featuresL)
+        featuresL = Dropout(0.3)(featuresL)
         featuresL = Dense(128, activation='relu')(featuresL)
         
         x = featuresL
@@ -52,7 +58,7 @@ class simple_model(model):
         checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
         
 
-        adadelta = Adadelta(lr=1.0, rho=0.995, epsilon=None, decay=0.0)
+        adadelta = Adadelta(lr=1.0, rho=0.98, epsilon=None, decay=0.0)
 
         self.model.compile(loss='categorical_crossentropy', optimizer=adadelta, metrics = ['accuracy'])
         print(self.model.summary())
@@ -65,7 +71,7 @@ class simple_model(model):
                             batch_size=64,
                             #shuffle=True,
                             validation_data=([D[validationIdx]],self.labels[validationIdx]),
-                            callbacks=[EarlyStopping(monitor='val_loss',patience=10),
+                            callbacks=[EarlyStopping(monitor='val_loss',patience=2),
                                 checkpoint,
                                 tensorboard
                             ])
