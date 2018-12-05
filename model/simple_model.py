@@ -65,16 +65,19 @@ class simple_model(model):
         tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
         if not loaded:
-            self.model.fit([D[trainIdx]],
-                            self.labels[trainIdx],
-                            epochs=200,
-                            batch_size=64,
-                            #shuffle=True,
-                            validation_data=([D[validationIdx]],self.labels[validationIdx]),
-                            callbacks=[EarlyStopping(monitor='val_loss',patience=2),
-                                checkpoint,
-                                tensorboard
-                            ])
+            try:
+                self.model.fit([D[trainIdx]],
+                                self.labels[trainIdx],
+                                epochs=200,
+                                batch_size=64,
+                                #shuffle=True,
+                                validation_data=([D[validationIdx]],self.labels[validationIdx]),
+                                callbacks=[EarlyStopping(monitor='val_loss',patience=2),
+                                    checkpoint,
+                                    tensorboard
+                                ])
+            except KeyboardInterrupt:
+                print("stopped early")
             print("Done training")
 
     def test(self,D):

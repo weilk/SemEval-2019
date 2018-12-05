@@ -8,6 +8,8 @@ from model import *
 from utils import * 
 import numpy as np
 import pandas as pd
+import pickle
+import os
 import csv
 
 def get_train_test_inds(y,train_proportion=0.8):
@@ -18,6 +20,9 @@ def get_train_test_inds(y,train_proportion=0.8):
     testing sets are preserved (stratified sampling).
     '''
 
+
+    if os.path.exists("utils/validation_split.split"):
+        return pickle.load(open("utils/validation_split.split","rb"))
     y=np.array(y)
     train_inds = np.zeros(len(y),dtype=bool)
     test_inds = np.zeros(len(y),dtype=bool)
@@ -29,7 +34,7 @@ def get_train_test_inds(y,train_proportion=0.8):
 
         train_inds[value_inds[:n]]=True
         test_inds[value_inds[n:]]=True
-
+    pickle.dump((train_inds,test_inds),open("utils/validation_split.split","wb"))
     return train_inds,test_inds
 
 
@@ -97,7 +102,7 @@ output_emocontext.remove("label")
 
 print(data_object.D.columns)
 print(data_object.D.shape)
-model = simple_model("simple_model_2")
+model = simple_model("simple_model")
 model.train(data_object.D,
             trainIdx,
             validationIdx)
