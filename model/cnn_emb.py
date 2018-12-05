@@ -57,25 +57,25 @@ class cnn_emb(model):
         model = Sequential()
         model.add(Embedding(np.shape(embedding_matrix)[0], embedding_dim,
                   weights=[embedding_matrix], input_length=input_turn_length, trainable=True))
-        model.add(Conv1D(32, 8, activation='relu', padding='same'))
-        model.add(Conv1D(32, 8, activation='relu', padding='same'))
-        model.add(Conv1D(32, 8, activation='relu', padding='same'))
+        model.add(Conv1D(128, 10, activation='relu', padding='same'))
+        model.add(Conv1D(128, 10, activation='relu', padding='same'))
+        model.add(Conv1D(128, 10, activation='relu', padding='same'))
+        model.add(MaxPooling1D(5))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
+        model.add(Conv1D(64, 8, activation='relu', padding='same'))
         model.add(MaxPooling1D(4))
-        model.add(Conv1D(64, 8, activation='relu', padding='same'))
-        model.add(Conv1D(64, 8, activation='relu', padding='same'))
-        model.add(Conv1D(64, 8, activation='relu', padding='same'))
-        model.add(MaxPooling1D(2))
-        model.add(Conv1D(128, 8, activation='relu', padding='same'))
-        model.add(Conv1D(128, 8, activation='relu', padding='same'))
-        model.add(Conv1D(128, 8, activation='relu', padding='same'))
+        model.add(Conv1D(32, 4, activation='relu', padding='same'))
+        model.add(Conv1D(32, 4, activation='relu', padding='same'))
+        model.add(Conv1D(32, 4, activation='relu', padding='same'))
         model.add(GlobalMaxPooling1D())
-        model.add(Dropout(0.5))
-        model.add(Dense(32, activation='relu', kernel_regularizer=regularizers.l2(0.0004)))
-        model.add(Dense(1, activation='sigmoid'))  #multi-label (k-hot encoding)
+        model.add(Dropout(0.1))
+        model.add(Dense(16, activation='relu', kernel_regularizer=regularizers.l2(0.0004)))
+        model.add(Dense(1, activation='softmax'))  #multi-label (k-hot encoding)
 
         adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
         
-        model.compile(loss='binary_crossentropy', optimizer=Adadelta(), metrics=['accuracy'])
+        model.compile(loss='binary_crossentropy', optimizer=Adagrad(), metrics=['accuracy'])
         model.summary()
       
 
@@ -89,24 +89,30 @@ class cnn_emb(model):
         checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
         
         tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
-
+        
+        total = D[output_emocontext].shape[0]
+        total_per_label = len(np.where(self.labels==1)[0])
         model.fit(self.data,
                 self.labels,
                 epochs=20,
-                batch_size=32,
+                batch_size=64,
                 shuffle=True,
                 validation_data=(self.val_data, self.val_labels),
                 callbacks=[EarlyStopping(patience=3),
                     checkpoint,
                     tensorboard
-                ])
+                ], class_weight={
+                    0: total / (total-total_per_label),
+                    1: total / total_per_label
+                }
+                )
         return model
 
-    def train(self, D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200):
-        self.happy_model = self._train_model("happy",D,trainIdx,validationIdx, embedding_matrix, embedding_dim)
-        self.sad_model = self._train_model("sad",D,trainIdx,validationIdx, embedding_matrix, embedding_dim)
-        self.angry_model = self._train_model("angry",D,trainIdx,validationIdx, embedding_matrix, embedding_dim)
-        self.others_model = self._train_model("others",D,trainIdx,validationIdx, embedding_matrix, embedding_dim)
+    def train(self, D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200, load=False):
+        self.happy_model = self._train_model("happy",D,trainIdx,validationIdx, embedding_matrix, embedding_dim, load)
+        self.sad_model = self._train_model("sad",D,trainIdx,validationIdx, embedding_matrix, embedding_dim, load)
+        self.angry_model = self._train_model("angry",D,trainIdx,validationIdx, embedding_matrix, embedding_dim, load)
+        self.others_model = self._train_model("others",D,trainIdx,validationIdx, embedding_matrix, embedding_dim, load)
 
     def test(self,D):
         #TODO

@@ -40,14 +40,24 @@ emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithou
 features = []
 
 pp=[
-    # (eliminate_stop_words,["turn1","turn2","turn3"]),
-    # (replace_negation_words,["turn1","turn2","turn3"]),
+    (eliminate_stop_words,["turn1","turn2","turn3"]),
+    (replace_negation_words,["turn1","turn2","turn3"]),
     # (one_hot_encode,["label"]),
-    # (spellingcheck,["turn1","turn2","turn3"]),
+    (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
+    # TODO - remove punctuation
+    # TODO - remove emoticons
+    # TODO - words_not_found after spell checking
 ]
 
 fe=[
+    # TODO feature for punctuation
+    # TODO feature for interjections
+    # TODO feature for double/multiple vowels such as: "Woooooooooooooooow" or "greeeeeeeeeeeeat"
+    # TODO positive elongated words | use semantic detection API/ sentiment analysis (research)
+    # TODO negative elongated words |
+
+
     # (number_of_words,["turn1","turn2","turn3"]),
     # (number_of_capitalized_words,["turn1","turn2","turn3"]),
     # (number_of_elongated_words,["turn1","turn2","turn3"]),
@@ -104,7 +114,8 @@ model = cnn_emb("cnn_emb")
 model.train(data_object.D,
             trainIdx,
             validationIdx,
-            embedding_matrix().build_matrix(turns[trainIdx], ["turn1", "turn2", "turn3"]))
+            embedding_matrix().build_matrix(turns[trainIdx], ["turn1", "turn2", "turn3"]),
+            load=False)
 
 
 # data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
@@ -123,7 +134,7 @@ D = pd.DataFrame(data_object._raw)
 data_object.D = data_object.D.drop(["id"],axis=1)
 print(D.shape)
 print(D.columns)
-print(D)
+# print(D)
 # import ipdb
 # ipdb.set_trace(context=10)
 for predict in predicted:
@@ -131,7 +142,10 @@ for predict in predicted:
         pred_labels.append(np.argmax(predict))
     predictions.append(decode[np.argmax(predict)])
 
-path="predicted_data/EmoContext/test.txt"
+from collections import Counter
+print(Counter(predictions))
+
+path="predicted_data/EmoContext/softmaxdr01.txt"
 # D = D.rename(columns={D.columns.values[-1]:variable})
 D['label'] = pd.Series(predictions, index=D.index)
 D.to_csv(path,index=False , sep="\t")
