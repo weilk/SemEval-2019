@@ -68,7 +68,7 @@ fe=[
     (char_stats2,["turn1", "turn2", "turn3"]),
 ]
 postp=[
-    (normalize, None)
+    #(normalize, None)
 ]
 
 fs = [
@@ -76,8 +76,8 @@ fs = [
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)
-data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
-print(data_object.D.intervals)
+#data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
+#print(data_object.D.intervals)
 trimping = [("others",1.0),("angry",1.0),("happy",1.0),("sad",1.0)]
 aux = pd.DataFrame()
 for x in trimping:
@@ -96,10 +96,11 @@ output_emocontext.remove("label")
 
 
 print(data_object.D.shape)
-model = simple_model("simple_model")
+model = embedding("emb")
 model.train(data_object.D,
             trainIdx,
-            validationIdx)
+            validationIdx,
+            embedding_matrix().build_matrix(turns[trainIdx], ["turn1", "turn2", "turn3"]))
 
 pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
@@ -130,7 +131,7 @@ fe=[
 ]
 postp=[
     #(extract_redundant_words,["turn1", "turn2", "turn3"])
-    (normalize, None)
+    #(normalize, None)
 ]                      
 
 fs = [
@@ -138,7 +139,7 @@ fs = [
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
-data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
+#data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
 data_object.D = data_object.D.drop(["id"],axis=1)
 predicted = model.forward_pass(data_object.D)
 

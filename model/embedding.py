@@ -32,7 +32,11 @@ class embedding(model):
                             embeddings_initializer=Constant(self.embedding_matrix),
                             input_length=input_turn_length,
                             trainable=True)(input_turn)
-        return input_turn, LSTM(64, activation='relu')(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(LSTM(64, activation='relu',return_sequences=True)(emb))))
+        emb = LSTM(64, activation='tanh',return_sequences=True)(emb)
+        emb = LSTM(64, activation='tanh',return_sequences=True)(emb)
+        emb = LSTM(64, activation='tanh')(emb)
+
+        return input_turn, emb
 
     def _input_turn_embeddings(self, D):
         emb1_input = np.array([np.array(x) for x in D['embedding_200_turn1'].values])
@@ -56,23 +60,15 @@ class embedding(model):
 
         self.model = Sequential()
 
-        features = Input(shape=(D.shape[1],), name="features_input")
-        featuresL = Dense(512, activation='relu')(features)
-        featuresL = Dense(512, activation='relu')(featuresL)
-        featuresL = Dense(256, activation='relu')(featuresL)
-        featuresL = Dense(256, activation='relu')(featuresL)
-        featuresL = Dense(128, activation='relu')(featuresL)
-        featuresL = Dense(128, activation='relu')(featuresL)
-        # featuresL = Dense(64, activation='relu')(featuresL)
-        # featuresL = Dense(64, activation='relu')(featuresL)
-        # featuresL = Dense(32, activation='relu')(featuresL)
-        # featuresL = Dense(32, activation='relu')(featuresL)
-        
+       
         input_turn1, lstm1_out = self.add_turn_layer("1")
         input_turn2, lstm2_out = self.add_turn_layer("2")
         input_turn3, lstm3_out = self.add_turn_layer("3")
 
-        x = featuresL
+        x = concatenate([lstm1_out, lstm2_out, lstm3_out])
+        x = Dense(128, activation='tanh')(x)
+        x = Dense(128, activation='tanh')(x)
+        x = Dense(128, activation='tanh')(x)
 
         #x = concatenate([featuresL, lstm1_out, lstm2_out, lstm3_out])
         #x = Dense(128, activation='relu')(x)
@@ -82,7 +78,7 @@ class embedding(model):
         #x = Dense(128, activation='relu')(x)
 
         main_out = Dense(self.labels.shape[1], activation='softmax', name='output')(x)
-        self.model = Model(inputs=[features], outputs=[main_out])
+        self.model = Model(inputs=[input_turn1, input_turn2, input_turn3], outputs=[main_out])
         # self.model.add(SpatialDropout1D(0.2))
         # self.model.add(Bidirectional(CuDNNLSTM(128, return_sequences=True)))
         # self.model.add(Bidirectional(CuDNNLSTM(64)))
@@ -107,12 +103,12 @@ class embedding(model):
         tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
         if not loaded:
-            self.model.fit([D[trainIdx]],
+            self.model.fit([emb1_input[trainIdx], emb2_input[trainIdx], emb3_input[trainIdx]],
                             self.labels[trainIdx],
                             epochs=200,
                             batch_size=64,
                             #shuffle=True,
-                            validation_data=([D[validationIdx]],self.labels[validationIdx]),
+                            validation_data=([emb1_input[validationIdx], emb2_input[validationIdx], emb3_input[validationIdx]], self.labels[validationIdx]),
                             callbacks=[EarlyStopping(monitor='val_loss',patience=10),
                                 checkpoint,
                                 tensorboard
