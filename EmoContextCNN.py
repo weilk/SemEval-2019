@@ -158,3 +158,13 @@ print("predicted")
 # docker run -it -p 8888:8888 -p 6006:6006  -v ${PWD}/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py -v ${PWD}:"/root/SemEval-2019" simi2525/ml-env:cpu
 # cd SemEval-2019
 # jupyter notebook --allow-root
+
+
+
+# check output file format
+
+# TODO spellchecking
+# ordinea preprocesarilor si a feature extraction
+# emoji interpretor based on the training data <- statistical analysis
+# emoji lib - sentiment analysis
+# pre trained sentiment analysis model

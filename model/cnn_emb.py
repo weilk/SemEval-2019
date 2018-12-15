@@ -15,7 +15,8 @@ from utils import *
 class cnn_emb(model):
     
     def forward_pass(self,D):
-
+        print(D)
+        return
         self.data = np.array([np.concatenate((row['embedding_200_turn1'],row['embedding_200_turn2'],row['embedding_200_turn3']))
                             for index, row in D.iterrows()])
         happy = self.happy_model.predict(self.data)
@@ -94,7 +95,7 @@ class cnn_emb(model):
         total_per_label = len(np.where(self.labels==1)[0])
         model.fit(self.data,
                 self.labels,
-                epochs=20,
+                epochs=1,
                 batch_size=64,
                 shuffle=True,
                 validation_data=(self.val_data, self.val_labels),
@@ -106,6 +107,10 @@ class cnn_emb(model):
                     1: total / total_per_label
                 }
                 )
+        trained_matrix = model.layers[0].get_weights()[0]
+        print(trained_matrix)
+        print(trained_matrix.shape)
+        embedding_matrix().save(trained_matrix)
         return model
 
     def train(self, D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200, load=False):
