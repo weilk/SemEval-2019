@@ -34,32 +34,44 @@ class embedding_matrix():
         if path.isfile(cache_file):
             with open(cache_file, 'rb') as cf:
                 matrix = pickle.load(cf)
-                print("Loaded matrix")
+                print("Loaded matrix") #(17480, 200)
+                print(np.shape(matrix))
                 return np.array(matrix)
 
     def build_matrix(self, D, columns, save=False, load=False, embedding_dim=200, cache_file=CACHE_FILE):
+        print(D.shape)
+        print("build_matrix")
+        print("$$$$$$$$$$$$$$$$")
         if load:
-            return load_matrix(cache_file)
+            return self.load_matrix(cache_file)
         self.load_embeddings()
         print("Loaded %s embeddings" % str(len(self.embeddings.keys())))
 
         tokenizer = Tokenizer()
         self.max_words_per_turn = max_no_words.get_no_words()
+        embedding_matrix = np.zeros((0,EMBEDDING_DIM))
         for column in columns:
             tokenizer.fit_on_texts(D[column])
 
-        word_index = tokenizer.word_index
+            word_index = tokenizer.word_index
 
-        num_words = len(word_index)
-        print('Found %s unique tokens.' % num_words)
+            num_words = len(word_index)
+            print('Found %s unique tokens.' % num_words)
 
-        embedding_matrix = np.zeros((num_words + 1, EMBEDDING_DIM))
-        with open("words_not_found_after_spell_check", "w", encoding="utf8") as f:
-            print("words_not_found_after_spell_check")
-            for word, i in word_index.items():
-                if word not in self.embeddings:
-                    f.write(word + "\n")
-                embedding_matrix[i] = self.embeddings.get(word, np.random.randn(EMBEDDING_DIM))
+            embedding_matrix_temp = np.zeros((num_words + 1, EMBEDDING_DIM))
+            with open("words_not_found_after_spell_check", "w", encoding="utf8") as f:
+                print("words_not_found_after_spell_check")
+                for word, i in word_index.items():
+                    if i == 2:
+                        print("A WORD")
+                        print(word)
+                    if word not in self.embeddings:
+                        f.write(word + "\n")
+                    embedding_matrix_temp[i] = self.embeddings.get(word, np.random.randn(EMBEDDING_DIM))
+            print(np.shape(embedding_matrix_temp))
+            print(np.shape(embedding_matrix))
+            embedding_matrix = np.concatenate((embedding_matrix, embedding_matrix_temp), axis=0)
+        print(embedding_matrix)
         if save:
             self.save(embedding_matrix, cache_file)
         return np.array(embedding_matrix)

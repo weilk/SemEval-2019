@@ -109,12 +109,14 @@ print(data_object.D.columns)
 
 
 print(data_object.D.shape)
-print(trainIdx)
+print(len([x for x in trainIdx if x]))
 model = cnn_emb("cnn_emb")
 model.train(data_object.D,
             trainIdx,
             validationIdx,
-            embedding_matrix().build_matrix(turns[trainIdx], ["turn1", "turn2", "turn3"]),
+            embedding_matrix().build_matrix(turns[trainIdx],
+                    ["turn1", "turn2", "turn3"],
+                    load=False),#, cache_file="matrix"),
             load=False)
 
 
