@@ -28,6 +28,8 @@ class data(object):
         big_start = time.time()
         for idx,(p,c) in enumerate(self._pp):
             self._filename+="p"+str(p._id)
+            print("pp: %s" %  p._name)
+            print("file to load from: %s" % self._filename)
             if self.load() == True:
                 if p._name == "one_hot_encode":
                     utils.output_emocontext.extend(["label_happy","label_angry","label_sad","label_others"])

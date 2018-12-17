@@ -15,8 +15,6 @@ from utils import *
 class cnn_emb(model):
     
     def forward_pass(self,D):
-        print(D)
-        return
         self.data = np.array([np.concatenate((row['embedding_200_turn1'],row['embedding_200_turn2'],row['embedding_200_turn3']))
                             for index, row in D.iterrows()])
         happy = self.happy_model.predict(self.data)
@@ -25,7 +23,6 @@ class cnn_emb(model):
         others = self.others_model.predict(self.data)
         predictions = np.concatenate((happy, sad, angry, others), axis=1)
         print(np.shape(predictions))
-        print(predictions)
         return predictions
     
 
@@ -47,7 +44,7 @@ class cnn_emb(model):
                             for index, row in D[trainIdx].iterrows()])
         self.val_data = np.array([np.concatenate((row['embedding_200_turn1'],row['embedding_200_turn2'],row['embedding_200_turn3']))
                     for index, row in D[validationIdx].iterrows()])
-        self.labels = np.array(pd.DataFrame([0 if x[0]==label else 1 for x in D[output_emocontext].values])[trainIdx])
+        self.labels = np.array(pd.DataFrame([1 if x[0]==label else 0 for x in D[output_emocontext].values])[trainIdx])
         self.labels = np.reshape(self.labels, (np.shape(self.labels)[0],))
 
         self.val_labels = np.array(pd.DataFrame([0 if x[0]==label else 1 for x in D[output_emocontext].values])[validationIdx])
@@ -95,7 +92,7 @@ class cnn_emb(model):
         total_per_label = len(np.where(self.labels==1)[0])
         model.fit(self.data,
                 self.labels,
-                epochs=1,
+                epochs=10,
                 batch_size=64,
                 shuffle=True,
                 validation_data=(self.val_data, self.val_labels),
@@ -110,7 +107,7 @@ class cnn_emb(model):
         trained_matrix = model.layers[0].get_weights()[0]
         print(trained_matrix)
         print(trained_matrix.shape)
-        embedding_matrix().save(trained_matrix)
+        # embedding_matrix().save(trained_matrix)
         return model
 
     def train(self, D,trainIdx,validationIdx, embedding_matrix, embedding_dim=200, load=False):
