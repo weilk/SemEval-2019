@@ -53,8 +53,11 @@ class cnn_emb(model):
         input_turn_length = len(D['embedding_200_turn1'][0]) + len(D['embedding_200_turn2'][0]) + len(D['embedding_200_turn3'][0])
 
         model = Sequential()
+        # model.add(Embedding(np.shape(embedding_matrix)[0], embedding_dim,
         model.add(Embedding(np.shape(embedding_matrix)[0], embedding_dim,
-                  weights=[embedding_matrix], input_length=input_turn_length, trainable=True))
+                  # weights=[embedding_matrix],
+                  # trainable=True,
+                  input_length=input_turn_length))
         model.add(Conv1D(128, 10, activation='relu', padding='same'))
         model.add(Conv1D(128, 10, activation='relu', padding='same'))
         model.add(Conv1D(128, 10, activation='relu', padding='same'))
@@ -73,7 +76,8 @@ class cnn_emb(model):
 
         adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
         
-        model.compile(loss='binary_crossentropy', optimizer=Adagrad(), metrics=['accuracy'])
+        model.compile(loss='binary_crossentropy',
+                      optimizer=Adagrad(), metrics=['accuracy'])
         model.summary()
       
 

@@ -106,7 +106,8 @@ data_object.D = data_object.D.drop(['turn1','turn2','turn3', 'id'],axis=1)
 
 print(data_object.D.columns)
 
-
+data_object_test = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
+all_turns = turns.append(data_object_test.D[['turn1','turn2','turn3']])
 
 print(data_object.D.shape)
 print(len([x for x in trainIdx if x]))
@@ -114,9 +115,9 @@ model = cnn_emb("cnn_emb")
 model.train(data_object.D,
             trainIdx,
             validationIdx,
-            embedding_matrix().build_matrix(turns[trainIdx],
+            embedding_matrix().build_matrix(all_turns,
                     ["turn1", "turn2", "turn3"],
-                    load=False),#, cache_file="matrix"),
+                    load=False, save=True, cache_file="matrix_all_emb"),
             load=False)
 
 
