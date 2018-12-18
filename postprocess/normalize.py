@@ -39,5 +39,8 @@ class normalize(postprocess):
 
                 #D[column] = D[column].subtract(D.intervals[i][0])
                 #D[column] = D[column].divide(normalization_intervals[i][1] - normalization_intervals[i][0])
-
-        pickle.dump(normalization_intervals,open("processed_data/normalization_intervals",'wb'))
+        
+        fd = open("processed_data/normalization_intervals",'wb')
+        pickle.dump(normalization_intervals,fd)
+        fd.close()
+        

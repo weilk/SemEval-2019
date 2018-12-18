@@ -9,6 +9,7 @@ from utils import *
 import numpy as np
 import pandas as pd
 import pickle
+from collections import Counter
 import os
 import csv
 
@@ -22,6 +23,7 @@ def get_train_test_inds(y,train_proportion=0.8):
 
 
     if os.path.exists("utils/validation_split.split"):
+        print("\n\n\n\nLoaded train/validation split")
         return pickle.load(open("utils/validation_split.split","rb"))
     y=np.array(y)
     train_inds = np.zeros(len(y),dtype=bool)
@@ -48,7 +50,7 @@ pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
-    (spellingcheck,["turn1","turn2","turn3"]),
+    #(spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
 
@@ -60,17 +62,13 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    #(number_happy_emoticons,["turn1","turn2","turn3"]),
-    #(number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
     (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
-    (char_stats1,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
-    (char_stats2,["turn1", "turn2", "turn3"]),
 ]
 postp=[
     (normalize, None)
@@ -98,11 +96,8 @@ turns = data_object.D[['turn1','turn2','turn3']]
 data_object.D = data_object.D.drop(['turn1','turn2','turn3'],axis=1)
 output_emocontext.remove("label")
 
-
-
-print(data_object.D.columns)
 print(data_object.D.shape)
-model = simple_model("simple_model")
+model = simple_model("simple_model_kinda_deep")
 model.train(data_object.D,
             trainIdx,
             validationIdx)
@@ -110,7 +105,7 @@ model.train(data_object.D,
 pp=[
     (eliminate_stop_words,["turn1","turn2","turn3"]),
     (replace_negation_words,["turn1","turn2","turn3"]),
-    (spellingcheck,["turn1","turn2","turn3"]),
+    #(spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
 
@@ -122,56 +117,42 @@ fe=[
     (number_boosting_words,["turn1","turn2","turn3"]),
     (number_exclamation_marks,["turn1","turn2","turn3"]),
     (number_question_marks,["turn1","turn2","turn3"]),
-    #(number_happy_emoticons,["turn1","turn2","turn3"]),
-    #(number_sad_emoticons,["turn1","turn2","turn3"]),
     (number_happy_emoticons_count,["turn1","turn2","turn3"]),
     (number_sad_emoticons_count,["turn1","turn2","turn3"]),
     (number_of_punctuation_in_words,["turn1", "turn2", "turn3"]),
     (number_of_capitals_in_words,["turn1", "turn2", "turn3"]),
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
-    (char_stats1,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
-    (char_stats2,["turn1", "turn2", "turn3"]),
 ]
 postp=[
-    #(extract_redundant_words,["turn1", "turn2", "turn3"])
     (normalize, None)
 ]                      
 
 fs = [
-	#(information_gain,)
+	#(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
 ]
 
 data_object = data(raw=emocontext_DataFrame_Test,pp=pp,fe=fe,postp=postp,fs=fs,test=True)
 data_object.D = data_object.D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3'], axis=1)
 data_object.D = data_object.D.drop(["id"],axis=1)
 
-
-
-
-
 decode = {0: "happy", 1:"angry", 2:"sad", 3:"others"}
 predicted = model.forward_pass(data_object.D)
-print("predicted")  
 
-
-pred_labels = []
 predictions = []
 D = pd.DataFrame(data_object._raw)
 
 # import ipdb
 # ipdb.set_trace(context=10)
 for predict in predicted:
-    if np.argmax(predict) not in pred_labels:
-        pred_labels.append(np.argmax(predict))
     predictions.append(decode[np.argmax(predict)])
 
 path="predicted_data/EmoContext/test.txt"
 # D = D.rename(columns={D.columns.values[-1]:variable})
 D['label'] = pd.Series(predictions, index=data_object.D.index)
+print(np.unique(D["label"].values,return_counts=True))
 D.to_csv(path,index=False , sep="\t")
-
 print("predicted")  
 
 #create_submision_file(data_object._raw,predicted)
