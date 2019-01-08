@@ -21,6 +21,7 @@ class data(object):
         self._postp.sort(key=lambda x: x[0]._importance,reverse=True)
         self._fs.sort(key=lambda x: x[0]._importance,reverse=True) 
 
+        self.test = test
         self._filename = ""
         if test:
             self._filename+="t_"
@@ -33,7 +34,6 @@ class data(object):
                     utils.output_emocontext.extend(["label_happy","label_angry","label_sad","label_others"])
                 print("Loaded "+p._name+" from disk")
                 continue
-                
             changes = True           
             print("PP: {}, {}".format(p,c))
             start = time.time()
@@ -49,6 +49,7 @@ class data(object):
             print("FE: {}, {}".format(f,c))
             start = time.time()
             self.test = test
+            f.test = test
             result = f.run(self.D,c,changes)
             if result is not None:
                 self.D = pd.concat([self.D, result], axis=1, sort=False)
@@ -104,10 +105,10 @@ class data(object):
 
         filename = self._filename
         raw = deepcopy(self._raw)
-        pp = self._pp
-        fe = self._fe
-        postp = self._postp
-        fs = self._fs
+        pp = deepcopy(self._pp)
+        fe = deepcopy(self._fe)
+        postp = deepcopy(self._postp)
+        fs = deepcopy(self._fs)
 
         self.__dict__.clear()
         self.__dict__.update(tmp_dict)
