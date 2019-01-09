@@ -148,7 +148,7 @@ for predict in predicted:
 from collections import Counter
 print(Counter(predictions))
 
-path="predicted_data/EmoContext/softmaxdr01.txt"
+path="predicted_data/EmoContext/embcnnnottrainable.txt"
 # D = D.rename(columns={D.columns.values[-1]:variable})
 D['label'] = pd.Series(predictions, index=D.index)
 D.to_csv(path,index=False , sep="\t")
