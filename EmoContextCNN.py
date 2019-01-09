@@ -40,10 +40,10 @@ emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithou
 features = []
 
 pp=[
-    (eliminate_stop_words,["turn1","turn2","turn3"]),
-    (replace_negation_words,["turn1","turn2","turn3"]),
+    # (eliminate_stop_words,["turn1","turn2","turn3"]),
+    # (replace_negation_words,["turn1","turn2","turn3"]),
     # (one_hot_encode,["label"]),
-    (spellingcheck,["turn1","turn2","turn3"]),
+    # (spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
     # TODO - remove punctuation
     # TODO - remove emoticons
@@ -82,7 +82,7 @@ postp=[
 ]
 
 fs = [
-	#(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
+    #(information_gain,["embedding_200_turn1","embedding_200_turn2","embedding_200_turn3"])
 ]
 
 data_object = data(raw=emocontext_DataFrame,pp=pp,fe=fe,postp=postp,fs=fs)

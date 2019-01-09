@@ -96,8 +96,8 @@ class cnn_emb(model):
         total_per_label = len(np.where(self.labels==1)[0])
         model.fit(self.data,
                 self.labels,
-                epochs=10,
-                batch_size=64,
+                epochs=5,
+                batch_size=128,
                 shuffle=True,
                 validation_data=(self.val_data, self.val_labels),
                 callbacks=[EarlyStopping(patience=3),
