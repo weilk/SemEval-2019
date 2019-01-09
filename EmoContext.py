@@ -47,8 +47,8 @@ emocontext_DataFrame_Test = functions.parse_file(r"raw_data/EmoContext/devwithou
 features = []
 
 pp=[
-    (eliminate_stop_words,["turn1","turn2","turn3"]),
-    (replace_negation_words,["turn1","turn2","turn3"]),
+    #(eliminate_stop_words,["turn1","turn2","turn3"]),
+    #(replace_negation_words,["turn1","turn2","turn3"]),
     (one_hot_encode,["label"]),
     #(spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
@@ -69,7 +69,10 @@ fe=[
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
+    #(nltk_sentiment,["turn1", "turn2", "turn3"]),
+    (sent140,["turn1", "turn2", "turn3"]), 
 ]
+ 
 postp=[
     (normalize, None)
 ]
@@ -103,8 +106,8 @@ model.train(data_object.D,
             validationIdx)
 
 pp=[
-    (eliminate_stop_words,["turn1","turn2","turn3"]),
-    (replace_negation_words,["turn1","turn2","turn3"]),
+    #(eliminate_stop_words,["turn1","turn2","turn3"]),
+    #(replace_negation_words,["turn1","turn2","turn3"]),
     #(spellingcheck,["turn1","turn2","turn3"]),
     (embed_200, ["turn1","turn2","turn3"]),
 ]
@@ -124,6 +127,8 @@ fe=[
     (number_of_vowels_in_words,["turn1", "turn2", "turn3"]),
     (number_of_consonants_in_words,["turn1", "turn2", "turn3"]),
     (bad_words,["turn1", "turn2", "turn3"]),
+    #(nltk_sentiment,["turn1", "turn2", "turn3"]),
+    (sent140,["turn1", "turn2", "turn3"]), 
 ]
 postp=[
     (normalize, None)

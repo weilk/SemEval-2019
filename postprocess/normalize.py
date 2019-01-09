@@ -16,9 +16,9 @@ class normalize(postprocess):
             normalization_intervals = pickle.load(fd)
 
         if columns == None:
-            if len(normalization_intervals) == 0:
+            try:           
                 columns = D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3','id', 'label', 'turn1','turn2','turn3'],axis=1).columns
-            else: 
+            except: 
                 columns = D.drop(['embedding_200_turn1', 'embedding_200_turn2', 'embedding_200_turn3','id','turn1','turn2','turn3'],axis=1).columns
 
         

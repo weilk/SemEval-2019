@@ -19,6 +19,7 @@ from feature_extraction.number_of_capitals_in_words import *
 from feature_extraction.char_stats1 import *
 from feature_extraction.char_stats2 import *
 from feature_extraction.nltk_sentiment import *
+from feature_extraction.sent140 import *
 
 number_of_words = number_of_words(5,"number_of_words",1)
 number_of_capitalized_words = number_of_capitalized_words(5, "number_of_capitalized_words",2)
@@ -40,4 +41,5 @@ number_happy_emoticons = number_happy_emoticons(0, "number_happy_emoticons",18)
 number_sad_emoticons = number_sad_emoticons(0, "number_sad_emoticons",19)
 number_happy_emoticons_count = number_happy_emoticons_count(0, "number_happy_emoticons_count",20)
 number_sad_emoticons_count = number_sad_emoticons_count(0, "number_sad_emoticons_count",21)
-nltk_sentiment = nltk_sentiment(0, "nltk_sentiment", 21)
+nltk_sentiment = nltk_sentiment(0, "nltk_sentiment", 24)
+sent140 = sent140(0, "sent140", 25)
