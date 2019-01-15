@@ -44,44 +44,6 @@ def parse_file(file_path, file_type):
 	return pd.DataFrame(output_dict)	
 
 
-def create_submision_file(D,predictions,path="predicted_data/EmoContext/test.txt"):
-	predictions = pd.DataFrame(data=predictions,columns=encoded_output)
-
-	i = 0
-	prevColumn = ""
-	while True:
-		variable = encoded_output[i].split("_")[0]
-		if prevColumn != variable:
-			prevColumn = variable
-			columns = []
-			while True:		
-				variable = encoded_output[i].split("_")[0]
-				i+=1
-				if variable == prevColumn and i<len(encoded_output):
-					columns.append(encoded_output[i])
-				else:
-					newColumn = predictions[columns].idxmax(axis=1)
-					print(Counter(newColumn.values))
-					D = pd.concat([D,newColumn],axis=1)
-					D = D.rename(columns={D.columns.values[-1]:variable})
-					D[variable] = D[variable].apply(lambda x: x.split("_")[1])
-					break
-		if i>=len(encoded_output):
-			break
-
-	D.to_csv(path,index=False , sep="\t")
-
-def sensitivity(y_true, y_pred):
-    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
-    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
-    return true_positives / (possible_positives + K.epsilon())
-
-def specificity(y_true, y_pred):
-    true_negatives = K.sum(K.round(K.clip((1-y_true) * (1-y_pred), 0, 1)))
-    possible_negatives = K.sum(K.round(K.clip(1-y_true, 0, 1)))
-    return true_negatives / (possible_negatives + K.epsilon())
-
-
 if __name__ == "__main__":
 	emocontext_DataFrame = parse_file(r"raw_data\\EmoContext\\train.txt", "EmoContext")
 	offenseval_DataFrame = parse_file(r"raw_data\\OffensEval\\offenseval-trial.txt", "OffensEval")
