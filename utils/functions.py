@@ -35,3 +35,57 @@ def parse_file(file_path, file_type):
 				output_dict[output_names[i]].append(row[i])
 
 	return pd.DataFrame(output_dict)	
+
+
+import os
+from keras.models import model_from_json
+import numpy
+from keras.models import Sequential, Model
+from keras.layers import Concatenate, concatenate, Dense
+
+models_dir = "models"
+
+def save_model(model):
+	model_json = model.to_json()
+	if not os.path.exists(models_dir):
+		os.makedirs(models_dir)
+	model_path = os.path.join(models_dir, "{}_model".format(model.name))
+	models_json_path = model_path + ".json"
+	with open(model_json_path, "w") as json_file:
+		json_file.write(model_json)
+
+	models_weights_path = model_path + ".weights"
+	model.save_weights(models_weights_path)
+
+
+def load_models():
+	models = os.listdir(models_dir)
+	models_jsons = [x for x in models if ".json" in x]
+	models_jsons = [os.path.join(models_dir, x) for x in models_jsons]
+	models_weights = [x.split(".json")[0].strip() + ".weights" for x in models_jsons]
+	final_loaded_models = []
+	for model_json in models_jsons:
+		# load json and create model
+		json_file = open(model_json, 'r')
+		loaded_model_json = json_file.read()
+		json_file.close()
+		loaded_model = model_from_json(loaded_model_json)
+		# load weights into new model
+		weights_name = model_json.split(".json")[0].strip() + ".weights"
+		loaded_model.load_weights(weights_name)
+		for i, layer in enumerate(loaded_model.layers):
+			loaded_model.layers[i].name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name)
+		#loaded_model.get_layer("embedding_1_input").name = model_json.rsplit("\\", 1)[1].strip() + "embedding_1_input"
+			#print("{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name))
+		#loaded_model.input.name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.input.name)
+		print("Loaded model {} from disk".format(model_json))
+		final_loaded_models.append(loaded_model)
+
+	return final_loaded_models
+
+def create_final_layers(final_loaded_models):
+	models_layers = [model.layers[-1].output for model in final_loaded_models]
+	input_layers = [model.input for model in final_loaded_models]
+	merged_layer = concatenate(models_layers)
+	return merged_layer, input_layers
+
