@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np 
 import pandas as pd 
 
@@ -17,8 +11,6 @@ from sklearn.model_selection import train_test_split
 from keras.utils.np_utils import to_categorical
 from keras import optimizers
 import tensorflow as tf
-
-
 import keras.backend as K
 
 
@@ -154,10 +146,18 @@ from sklearn.model_selection import KFold
 kfold = KFold(n_splits=6)
 Y_train = np.array(Y_train)
 # enumerate splits
+
+
 for train, validation in kfold.split(X_train):
     history = model.fit(X_train[train], Y_train[train],
                     validation_data=(X_train[validation], Y_train[validation]),
-                    epochs=2, verbose=1, batch_size=batch_size)
+                    epochs=2, verbose=1, batch_size=batch_size,
+                    class_weight={
+                        0: total / len(np.where(Y_train[train][:,0]==1.0)[0]),
+                        1: total / len(np.where(Y_train[train][:,1]==1.0)[0]),
+                        2: total / len(np.where(Y_train[train][:,2]==1.0)[0]),
+                        3: total / len(np.where(Y_train[train][:,3]==1.0)[0]),
+})
 
 
 # #### Evaluation

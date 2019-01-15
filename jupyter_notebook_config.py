@@ -8,4 +8,4 @@ c.NotebookApp.open_browser = False
 from IPython.lib import passwd
 password = passwd("2525")
 c.NotebookApp.password = password
-c.MultiKernelManager.default_kernel_name = 'python3'
+c.MultiKernelManager.default_kernel_name = 'python36'
