@@ -3,6 +3,25 @@ import numpy as np
 import csv
 from keras import backend as K
 from collections import Counter
+import numpy as np 
+import pandas as pd 
+
+from sklearn.feature_extraction.text import CountVectorizer
+from keras.layers import Dropout
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.models import Sequential,clone_model
+from keras.layers import Dense, Embedding, LSTM
+from sklearn.model_selection import train_test_split
+from keras.utils.np_utils import to_categorical
+from keras import optimizers
+from keras.callbacks import ModelCheckpoint
+import tensorflow as tf
+
+import keras.backend as K
+
+from utils import *
+
 
 list_boosting = []
 
@@ -51,7 +70,7 @@ def save_model(model):
 		os.makedirs(models_dir)
 	model_path = os.path.join(models_dir, "{}_model".format(model.name))
 	models_json_path = model_path + ".json"
-	with open(model_json_path, "w") as json_file:
+	with open(models_json_path, "w") as json_file:
 		json_file.write(model_json)
 
 	models_weights_path = model_path + ".weights"
@@ -75,6 +94,7 @@ def load_models():
 		loaded_model.load_weights(weights_name)
 		for i, layer in enumerate(loaded_model.layers):
 			loaded_model.layers[i].name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name)
+			loaded_model.layers[i].trainable = False
 		#loaded_model.get_layer("embedding_1_input").name = model_json.rsplit("\\", 1)[1].strip() + "embedding_1_input"
 			#print("{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name))
 		#loaded_model.input.name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.input.name)
@@ -89,3 +109,16 @@ def create_final_layers(final_loaded_models):
 	merged_layer = concatenate(models_layers)
 	return merged_layer, input_layers
 
+def f1(y_true, y_pred):
+    y_pred = K.round(y_pred)
+    tp = K.sum(K.cast(y_true*y_pred, 'float'), axis=0)
+    tn = K.sum(K.cast((1-y_true)*(1-y_pred), 'float'), axis=0)
+    fp = K.sum(K.cast((1-y_true)*y_pred, 'float'), axis=0)
+    fn = K.sum(K.cast(y_true*(1-y_pred), 'float'), axis=0)
+
+    p = tp / (tp + fp + K.epsilon())
+    r = tp / (tp + fn + K.epsilon())
+
+    f1 = 2*p*r / (p+r+K.epsilon())
+    f1 = tf.where(tf.is_nan(f1), tf.zeros_like(f1), f1)
+    return K.mean(f1)
