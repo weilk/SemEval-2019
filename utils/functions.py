@@ -106,8 +106,16 @@ def load_models():
 def create_final_layers(final_loaded_models):
 	models_layers = [model.layers[-1].output for model in final_loaded_models]
 	input_layers = [model.input for model in final_loaded_models]
+	new_input = []
+	for inp in input_layers:
+		try:
+			ceva = len(inp)
+			for i in inp:
+				new_input.append(i)
+		except:
+			new_input.append(inp)
 	merged_layer = concatenate(models_layers)
-	return merged_layer, input_layers
+	return merged_layer, new_input
 
 def f1(y_true, y_pred):
     y_pred = K.round(y_pred)
