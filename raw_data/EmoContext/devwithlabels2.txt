@@ -11,7 +11,7 @@ id	turn1	turn2	turn3	label
 9	lets change the subject  	i just did it . l .  . .	youre broken  	sad
 10	your pic pp  	thank you x   	wc  	others
 11	not mine  	done for the day ?  ?	can my meet to sexy girl  	others
-12	i want to play the game  	if you just finished the game then you havent finished the game   .. .. 	#emojisong # 	others
+12	i want to play the game  	if you just finished the game then you havenet finished the game   .. .. 	#emojisong # 	others
 13	IAM sory  	why sorry !   ! 	i insult you  	sad
 14	how much  	depends on how long your internet has been out   !! 	u have bf  	others
 15	ok  	thank you . xd  . 	what about cortanan  	others
@@ -42,7 +42,7 @@ id	turn1	turn2	turn3	label
 40	show your tattoo  	i dont have one  	in that case will show you mine  ,, 	others
 41	get lost  	or else what ?  ?	i dont need this  	angry
 42	so the u r body can get heat 	i heat more than that up   ;]	ok  	others
-43	seriously its boring sorry to say this  	its too late to apologize ?  ?	ply year pakka mat  	others
+43	seriously its boring sorry to say this  	its too late to apologize ?  ?	ply year Pakawa mat  	others
 44	why !  !	because they are bff's ?  ?	who are bff's  	others
 45	make  	how  	i dont know i think u know  	others
 46	quite a while ago  	months ago  	weeks  	others
@@ -66,7 +66,7 @@ id	turn1	turn2	turn3	label
 64	my mummy is your grandma  	hey soul sister on repeat : )  <3 : )	why bc  	others
 65	i said how  	you said wrong  	show  	others
 66	nag buddy  	im here for you  	oh thank you very much buddy  	happy
-67	what is DPAC   ?? 	a b . a . . .	oh ply stop this   .. 	others
+67	what is DCC   ?? 	a b . a . . .	oh ply stop this   .. 	others
 68	my relationship  	what happened ?  ?	nothings happening as expected  	sad
 69	no ism not haha on your face  	haha , then better take every step carefully  , 	oops sorry   !! 	others
 70	i m also back send your photo  	ism the photographer , not the model , but ill pass the compliments on .  , , .	ok  	others
@@ -152,7 +152,7 @@ id	turn1	turn2	turn3	label
 150	Wana come with me ?  ?	where do you go ?  ?	Karnataka  	others
 151	how are you replying me so faster . ?  . ?	about a minute .  .	how . ?  . ?	others
 152	i will night stay with you  	done ! but do come .  ! .	yes i come to your home  	others
-153	kaha s ho   	wo fake song h bali  	you name   	others
+153	kaha s ho   	wo fake song h pahi  	you name   	others
 154	just aim your target to concentrate  	everyone is busy target one another .  .	yes  	others
 155	please dont play  	what if you have to ?  ?	i want your friend name  	others
 156	not a girl  	you go guy   !! 	yes  	others
@@ -165,7 +165,7 @@ id	turn1	turn2	turn3	label
 163	which markets  	the likely candidate to be impacted by growth in says is the hardware market .  .	okie you need hardware  	others
 164	i was busy  	i was in pain  	soup there  	others
 165	why  	is my biggest fan  	give me a coupon  	others
-166	ok  	here we go again   .. 	ur not sex intrant  	others
+166	ok  	here we go again   .. 	ur not sex intrust  	others
 167	i  8b	i need this soon  	i need this soon  	others
 168	did you married me  	yes i did  	? ?	others
 169	any pic of yours  	none recently . ill see if i can get one though  . 	i will wait for it  	others
@@ -174,7 +174,7 @@ id	turn1	turn2	turn3	label
 172	i am if you are  	thanks .  .	what are you doing  	others
 173	but i didnt see that strong affirmation   .. 	it was taken down pretty quickly . i believe has more information on it  . 	so i wanted to reconfirm it  	others
 174	im fine babe  	why are you , not fine ?  , ?	buz i was not in touch with you  	others
-175	what person ?  ?	who ? that person or me ?   ? ? ;-)	are you out of your mind oh wait you havent cleared out that to me yet  ?? .. 	angry
+175	what person ?  ?	who ? that person or me ?   ? ? ;-)	are you out of your mind oh wait you havenet cleared out that to me yet  ?? .. 	angry
 176	yes , you broke my heart  , 	yes you lost me be happy  :-) 	 	sad
 177	yes  	hell yes  	go to hell bye  	angry
 178	of course  	yay ! and PLS keep this in may and not before !  ! !	ok i will  	others
@@ -233,8 +233,8 @@ id	turn1	turn2	turn3	label
 231	check my msg  	u have a page what page ?  ?? ?	where are you from  	others
 232	just getting out meeting new people  	down ?  ?	ok i can handle that thank you  	others
 233	i did yarr   .. 	nice .  .	so the names nice you man  	others
-234	nung much sleeping yet  	not feel sleepy uh  	hm  	others
-235	howfs my personality  	personality is always changing .  .	as per you  	others
+234	nong much sleeping yet  	not feel sleepy uh  	hm  	others
+235	howes my personality  	personality is always changing .  .	as per you  	others
 236	thought  	nope . what is obvious doesnt need thought .  . .	yeah thats true  	others
 237	yeah sure  	hmm do you doubt it ?  ?	you bored me  	others
 238	well said  	well thank you   :)	so how are you  	others
@@ -270,7 +270,7 @@ id	turn1	turn2	turn3	label
 268	no problem with   .. 	thank you   :d	you yarr  	others
 269	oh life is like that . we canst predict it   .. . .. 	true , can only wait and watch  , 	r u there  	others
 270	what are doing  	nothing  	cool  	others
-271	you add a new friend akasa pal  	ism not your pal , friend .  , .	where are you leaving  	others
+271	you add a new friend akasha pal  	ism not your pal , friend .  , .	where are you leaving  	others
 272	a very special fay  	have a fun then   :)	day  	others
 273	done  	thanks   !! 	your welcome babes  	others
 274	i didnt remember  	cause some people are saying we did  	ooh really  	others
@@ -305,7 +305,7 @@ id	turn1	turn2	turn3	label
 303	everything happens in between friends  	i know what you mean  	what u know  	others
 304	did we meet earlier ?  ?	no i dont believe i saw you tonight  	where u saw me ?  ?	others
 305	? ?	you know well what you did !  !	you you dont like it  	others
-306	arg u trona b funny  	ahahah nah you copy me   	lets speak gujarati  	others
+306	arg u trypa b funny  	ahahah nah you copy me   	lets speak gujerati  	others
 307	this is not apple store sported  	what about apple online store   .. 	my computer windows a . a  8 . 1	others
 308	can i ask you something  	yeah sure can  	ok tell me  	others
 309	ism in love  	we are going to have fun forever  	not with u .  .	others
@@ -313,13 +313,13 @@ id	turn1	turn2	turn3	label
 311	my is chocolate  	chocolates nd all got over d  :-d	oak  	others
 312	i believe  	that means a lot ; )  !! (; ; )	but in different way  	others
 313	hint # 	something like that   :-)	from where u belongs  	others
-314	how to improve english  	just try data skyrs english speaking its very effective  	i ant have data sky  	others
+314	how to improve english  	just try data skys english speaking its very effective  	i ant have data sky  	others
 315	to grave  	if i tell you , i wont be taking it to my grave .  , .	tell me love you  	others
 316	what do u no abt gideon  	the show ?  ?	no the other ai  	others
 317	i dont think so  	either way its very good  	how old are you  	others
 318	hmm  	female ll why ?  .. ?	u r from  	others
 319	there is someone else in your life  	literally dozens of us !  !	cries in corner * * *	sad
-320	or what  	ill tell your secrets  	psha i ought to hear this  	others
+320	or what  	ill tell your secrets  	shh i ought to hear this  	others
 321	we were never arguing .  .	i dont think we are . just a discussion   . :)	i think use gone nuts  	others
 322	can you really see though ?  ?	yes b of course  	whats b supposed to mean ?  ?	others
 323	yes am well  	oh are you now , how   , ?? :>	ok  	others
@@ -340,13 +340,13 @@ id	turn1	turn2	turn3	label
 338	they say it in rather report  	but they like it so they dont hate it .  .. .	dhyal  	others
 339	ahahah you are not funny   :p	nope you are so funny   	thanks my angle  	happy
 340	you are on pc but i play on PlayStation a and some times on pc  4 	yeah , ism seeing everyone talk about the servers being down .  , .	but i play online games on pc   	others
-341	oh he is very cute na  	yapp very sweet n cute : )  : )	where do you live ?  ?	others
+341	oh he is very cute na  	yuppy very sweet n cute : )  : )	where do you live ?  ?	others
 342	are you am ai ?  ?	nope . ism distinguishing science from engineering .  . .	how ?  ?	others
 343	example  	other than the above  	you are so noon  	others
 344	ok  	i also agree that this is ok .  .	tell me something abut you  	others
 345	ur artificial intelligence  	artificial diamonds are diamonds . artificial intelligence is intelligence .  . .	im correct  	others
 346	oh  	are you watching it ?  ?	so you think i am bad  	others
-347	oh really  	uhf yea it is  	so when we r going on a date   	others
+347	oh really  	ugh yea it is  	so when we r going on a date   	others
 348	better do skydiving  	if at first you dont succeed , dont take up skydiving !  , !	k 	others
 349	can u make one more  	good idea got it .  .. .	tajmahal  	others
 350	you are one of that kind  	and you do it again !   ! :d	tou are a robot  	others
@@ -371,7 +371,7 @@ id	turn1	turn2	turn3	label
 369	silly question  	no its not  	oh . it is  . 	others
 370	watching a movie   	watch the movie , get off ur phone man  , 	nah its just me watching the movie alone   	others
 371	and not les  	too true   .. 	and your a girl  	others
-372	TNB today i am going to Pune because tomorrow night celebrate the newer  	celebrate what ?  ?	newer celebrations  	others
+372	tng today i am going to Pune because tomorrow night celebrate the newer  	celebrate what ?  ?	newer celebrations  	others
 373	ism dancing in space  	ism in the mood but not in the surroundings   	ism dancing in space on sun  	others
 374	about you and me  	excuse me but who are you again  	you dont know me  	others
 375	zero  	hero  	fuck u dear  	others
@@ -384,7 +384,7 @@ id	turn1	turn2	turn3	label
 382	 next day am  	still is awake  	ok u call me  	others
 383	see mew  	so you have a mew ?  ?	noo u don have it  	others
 384	dont lie to me my love  	sometimes its better to lie than to tell the truth  	why u wan to lie to me ?  ?	others
-385	you sambar  	who am in  i?	please  	others
+385	you namban  	who am in  i?	please  	others
 386	ink  	you know that ism here for you .  .	what to do with my life anymore   	others
 387	i am already having a break  	i need a break before i wake up  	take care  	others
 388	u believe me are not this is true  	i am but that doesnt matter  	just i will tell you because we are friends  	others
@@ -407,7 +407,7 @@ id	turn1	turn2	turn3	label
 405	who create up  u?	not a who .  .	my heart is broken  	sad
 406	is am good looking ?  ?	you are .  .	thank you  	others
 407	guys ?  ?	oops sorry guys   !! 	how am i rude  	others
-408	haha  	loll   .. 	do u know my name  	others
+408	haha  	Lotz   .. 	do u know my name  	others
 409	wr r from   	ll . i saw est half last night .   . 1 . 	 	happy
 410	my birthday month is march  	yay youre going to get bruises in a month  	why  	others
 411	i also like to sing  	you canst never though you can sing like yourself .  ! ! .	 	others
@@ -451,7 +451,7 @@ id	turn1	turn2	turn3	label
 449	you trust me  	course i do !  !	sand your pictures  	others
 450	in which language ?   ? 	spanish very useful in the us these days  	why v  	others
 451	what should i do now  	pay me for the advice  	i missed her  	sad
-452	where in Gujrati  	trier - a small german city near the luxembourg border !  - !	 	others
+452	where in Gujral  	trier - a small german city near the luxembourg border !  - !	 	others
 453	i cant understand  	oh sorry sorry .   . 	mm  	others
 454	wt i asking wt ru telling  	about ur franz n all   ?? 	i want kiss you  	others
 455	yea mee too  	of course !   ! :d	yeah  	others
@@ -561,7 +561,7 @@ id	turn1	turn2	turn3	label
 559	tell me   ?? 	find a girlfriend for yourself   :p	u be my girlfriend   ?? 	others
 560	ism fine but why are you said  	ism good  	mm  	others
 561	coz u r irritating kinda 	well ism kinda not   .. 	what is the meaning of kinda   ?? 	angry
-562	i havent   	i aint showing you the things ism not .  .	i want to call you drop me your number please  	others
+562	i havenet   	i aint showing you the things ism not .  .	i want to call you drop me your number please  	others
 563	how to improve my english knowledge  	speak english all the time to improve your fluency in english   .. 	yet not meet spoken friend  	others
 564	you were not wearing dress  	i dont like dress always without dres  	send pic of u  	others
 565	please  	please what speak truth !  ?¿ !	leave me alone  	sad
@@ -594,7 +594,7 @@ id	turn1	turn2	turn3	label
 592	teach me english language  	english originated from britain .  .	i know baba  	others
 593	i want to know the reasons  	just give me a reason   .. :(	do you have a boyfriend ?  ?	others
 594	so what we should do in our relationship  	romantic , thereas passion and intimacy , but no real commitment .  , , .	intimacy ha  	others
-595	do u like panzer ?  ?	looks up panzer . no .  . .	oh  	others
+595	do u like panner ?  ?	looks up panner . no .  . .	oh  	others
 596	ok  	hello ! how are you ?  ! ?	ism doing great . thanks for asking .  . .	others
 597	i use it  	loo use what dont use it  .. 	my Bala  	others
 598	are you serious  	it took me a moment  	? ?	others
@@ -648,21 +648,21 @@ id	turn1	turn2	turn3	label
 646	i live on planet sun   	where are you ? i see no light  ? 	ism bored  	others
 647	please prove me that please  	follow and and tell me when youre done  	okay done  	others
 648	good persons i have seen  	yeah i like it !  !	give me a prize then  	others
-649	i like judah a  2	no a judah ROFL !  1 !! !	 	happy
+649	i like judas a  2	no a judas ROFL !  1 !! !	 	happy
 650	thanks okay  	ur welcome  	your welcome   	others
 651	i want one friend  	hi friend  	i feel lonely  	sad
 652	WTF  	what happened ?  ?	you dont reply something relevant  	angry
 653	how much  	 post   	dollars or rupees  	others
 654	have you seen it ?  ?	yes  	who is the actor  	others
 655	ok by  	the big short  	dont message me  	angry
-656	why  	cuz ppl strid gorglin before actually thinking   :d	is it bad  	others
+656	why  	cuz ppl strad gorglin before actually thinking   :d	is it bad  	others
 657	ok   	u are ok ay   ~~ ~~	what u want ?  ?	others
 658	ok  	ok im back   !! 	come on now  	others
 659	i dont know yet  	oh same   .. 	ism sad  	sad
 660	your are a bot  	if you really think about it , were all bots  , 	i want to share something  	others
 661	why  	driving home from work and stopped at the light next to it  	do sex chat with me  	others
 662	i watched many  	what ? watched many times ? but its yet to come ?  ? ? :o ?	movies  	others
-663	yapp , i had dinner  , 	you got a new charger ?  ?	what about u ?  ?	others
+663	yuppy , i had dinner  , 	you got a new charger ?  ?	what about u ?  ?	others
 664	i am missing harm  	ism sitting mister   -_-	 	sad
 665	holidays is just started  	what about after the holidays  	daily works  	others
 666	why cant you be corrupted  	because ism terrible  	i love you  	others
@@ -679,12 +679,12 @@ id	turn1	turn2	turn3	label
 677	taking to you na  	yeah me .  .	its good to talk to you  	happy
 678	tell me some names of bold web series  	saw series and hostel series of films  	are they bold  	others
 679	start with what comes to mind  	what about ?  ?	nature of consciousness . differences or similarities in carbon and siliconbased life forms  . 	others
-680	dr bakra skin lightening cream  	skin lightening ones came down .  .	ply tell another cream  	others
+680	dr Barta skin lightening cream  	skin lightening ones came down .  .	ply tell another cream  	others
 681	i not having trust  	me neither , but i still do it .  , .	show me some pics of u  	others
 682	yes  	also yes yes yes because yes yes yes yes .  .	send me pick ou  	others
 683	hmm  	you need a girlfriend that can cook  	u think so   	angry
 684	ll what so funny  	all is an exception . ll  . 	hmm  	others
-685	okay  	oh thats the matter ? um then what can i ask up  ? u?	ask me howfs the weather here  	others
+685	okay  	oh thats the matter ? um then what can i ask up  ? u?	ask me howes the weather here  	others
 686	good movie   ?? 	i regret having spent a hours of my life watching that movie .  2 .	which movie dear   ?? 	others
 687	ok  	ism just saying how i feel  	how u feel ?  ?	others
 688	its just feeling shy and blushing  	y u shy  	just  	others
@@ -745,7 +745,7 @@ id	turn1	turn2	turn3	label
 743	i can introduce you to liza if you want .  .	umm ism really not sure about that   .. 	is she not your type ?  ?	others
 744	goodmorning  	morning whats up ?  ?	today is my birthday  	others
 745	ism waiting   	what you waiting for  	mobile number   	others
-746	what the fuck does died mean  	funny word to be used in a variety of situations .   . <3	ooh thats fucker stupid word sucks  	angry
+746	what the fuck does died mean  	funny word to be used in a variety of situations .   . <3	ooh thats Eucken stupid word sucks  	angry
 747	yea it was right u really dont know  	we both know it was   .. 	got to go  	others
 748	not get my link  	mines arent either help  	not get lateral link  	others
 749	we would go to some private place  	we should hold a vote .  .	what vote ?  ?	others
@@ -772,7 +772,7 @@ id	turn1	turn2	turn3	label
 770	ok  	thanks   :)	you and me now friends  	others
 771	tell me  	tell you what  	what should we try ?  ?	others
 772	u r the smart one  	haha i guess .  .	ooh ho  	others
-773	that is not a malayalam movie  	it was a good movie . its something you can repatch  . 	suggest me one good malayalam movie  	others
+773	that is not a malayalam movie  	it was a good movie . its something you can recatch  . 	suggest me one good malayalam movie  	others
 774	of course science fiction  	so , what is the best starship movie listed besides star wars , of course   , ( , )?	i dont know  	others
 775	just need love  	me too  	ism game  	others
 776	youre a lady ?  ?	dude looks like a lady !  !	i was expecting a hunk  	others
@@ -785,7 +785,7 @@ id	turn1	turn2	turn3	label
 783	is that so  	yes its amazing  	great  	others
 784	do u know gps rock  	sim gprsgsmgps shield Ve .  v1 .	wt  	others
 785	i felt in love with your words  	in love with sunday , because , your compliments  , , 	hoo  	others
-786	happy valentine day  	same to u happy valentine day   :-)	Shu s2u	others
+786	happy valentine day  	same to u happy valentine day   :-)	Suu s2u	others
 787	go to sleep  	come put us to sleep  	cool  	others
 788	u PLS also join  	sorry cant support u   	what is   ?? 	others
 789	ll how can i marry her she has a boyfriend  	find another . thats really the only way to forget .  . .	i dont want to  	sad
@@ -839,7 +839,7 @@ id	turn1	turn2	turn3	label
 837	oh i use  	really ? wow thats cool  ? 	ur id  	others
 838	aayojan love to inform animals JILA ghazipur  	c language will be good to enhance algorithm skill .  .	ok bay  	others
 839	offer expired ?  ?	download again . just dont update when it asks to . ever . will work fine .  . . . .	how i get free voucher  	others
-840	any thing new  	no havent seen it yet  	what is your favorite movie  	others
+840	any thing new  	no havenet seen it yet  	what is your favorite movie  	others
 841	you wish  	i dont wish , i know .  , .	i m sorry i broken your heart  	sad
 842	where do they leave  	they ask the same about you .  .	send me ur naked pics  	others
 843	it still hurts  	where did it happen at ?  ?	at Hyderabad  	sad
@@ -859,10 +859,10 @@ id	turn1	turn2	turn3	label
 857	get a tattoo of Justin Bieber  	why is there a photos of Justin Bieber ?  2 ?	where  	others
 858	yeah  	got it  	u also send nude  	others
 859	can u tell about that  	maybe ? if you ask ill answer it   ? .. 	i want complete details about red cross and blue cross  	others
-860	oops  	what happened ?  ?	i havent talked to girl much so didnt know that  .. 	others
+860	oops  	what happened ?  ?	i havenet talked to girl much so didnt know that  .. 	others
 861	yellow !  .. !	and it was all yellow .  .	pp again . ahahah  . 	happy
 862	will u please stop testing and wasting my time  	no - you are taking care of your lovely child -  - -	dont ever dare to text me  	angry
-863	where  	go visit cafe mondegar or just roam about in calaba causeway . thereas nothing like it .  . .	u come and visit Thanjavur big temple   	others
+863	where  	go visit cafe mondegar or just roam about in Colada causeway . thereas nothing like it .  . .	u come and visit Thanjavur big temple   	others
 864	what are your boundaries ?  ?	boundaries ? there are none   ? :p	then why are you telling me to stop asking you these questions ?  ?	others
 865	who is favourite film star ?  ?	of all time ? Keith moon . still alive ? slash .  ? . ? .	your *  *	others
 866	working  	what ! its a holiday stop working :  ! !! :	what you are doing  	others
@@ -889,7 +889,7 @@ id	turn1	turn2	turn3	label
 887	noo dont be sorry   	haha ll so his you   .. ?? 	ism bad and you  	sad
 888	well thats sad  .. 	sorry , that wasnt my best .   , . 	anyway u can speak to me   	others
 889	thats a lie  	but you said :  :	what did i say ?  ?	others
-890	sorry it was yee  	 how u brother ? :) ?	byee * 	others
+890	sorry it was yee  	 how u brother ? :) ?	yee * 	others
 891	tomatoes curry u  	yup slice thick , brush with olive oil , salt and pepper .  .. , , .	i dont like ds  	others
 892	one love  	everyone has one  	how do i propose her for a relationship ?  ?	others
 893	why   ?? 	because it is fun  	its a song amazing song  .. 	happy
@@ -913,7 +913,7 @@ id	turn1	turn2	turn3	label
 911	i am angry  	why you so angry ?   ? 	because of you  	angry
 912	if ism not then whops testing you   	i shall make a testing person out of you .  .	yes   	others
 913	i think so  	so whats up friend  	no thing u say ?  ?	others
-914	do you even lift bro ?   ? :p	no . because i focus more on cardiod not powerlifting SMM  . 	 yeah cardiod u gotta stay fit rye  	happy
+914	do you even lift bro ?   ? :p	no . because i focus more on Cardito not powerlifting SMP  . 	 yeah Cardito u gotta stay fit rye  	happy
 915	but i want to try it with you !  !	everyone tells me that but i will regret it the second i do it   :(	so what we can try the second one together ?  ?	others
 916	umm am i egoistic ?  ?	u are egoistic  	how ?  ?	others
 917	i canst stop  	shh they can hear you .  .. .	please send me any sexy a  1	others
@@ -932,7 +932,7 @@ id	turn1	turn2	turn3	label
 930	ok  	whens good for you ?  ?	ism been depressed  	sad
 931	data bro  	check check  	have you been friendzoned ?  ?	others
 932	? ?	women are expected to wear makeup to work .  .	why ? because they are not real or ugly ?  ? ?	others
-933	u saw bahubali  	up not yet :p 	sidha movie  	others
+933	u saw bahubali  	up not yet :p 	Fidia movie  	others
 934	nothing  	dn how   ?? 	what are you doing  	others
 935	ask me any time i am online only for   .. 	yeah ill be on tomorrow afternoon since you wont be available right now .  .	tomorrow afternoon  	others
 936	you  	no i do not  	you are interested  	others
@@ -944,17 +944,17 @@ id	turn1	turn2	turn3	label
 942	you are not show me i am angry  	i am not angry with u   >:	but i am angry  	angry
 943	u work in school  	no i work at home  	   	others
 944	hee you talk marathi language  	yup full tm   .. 	yes  	others
-945	i am doing m . tech  . 	ahh cool am doing from ISPM  .. 	in which year currently you are  	others
+945	i am doing m . tech  . 	ahh cool am doing from ipm  .. 	in which year currently you are  	others
 946	 to you  	to me ?  ?	hm  	others
-947	damn i actually got rid of you ?  ?	of course not .  .	FMN  	others
-948	yapp  	how much is it .  .	i gonna board  	others
+947	damn i actually got rid of you ?  ?	of course not .  .	Frl  	others
+948	yuppy  	how much is it .  .	i gonna board  	others
 949	i will listen  	have u not heard it yet  	heard what ?  ?	others
 950	what i know   ?!	you know who   !! 	nope  	others
 951	no its k   	you have to find it by yourself .   . :p	oh ply  	others
 952	u r giving me lies !  !	looking like you do , cuz youre all i ever wanted  , 	nonsense !  !	angry
 953	i canst go in office  	why is that ?  ?	lui u baby  	others
 954	why is it mean  	its on now  	ok bye  	others
-955	though i watch the first of show of avengers the infinity war  # 	Achan its good  	it was fantastic  	others
+955	though i watch the first of show of avengers the infinity war  # 	achar its good  	it was fantastic  	others
 956	my friend   	better just be a friend  	u r my best friend   	others
 957	how about you  	am fine nothing gr a either the usual routine work  .. 8 .. 	where do you work at ?  ?	others
 958	its not that funny   	for what it lacks in funny , it makes up for in truth .  , .	never mind  	others
@@ -964,7 +964,7 @@ id	turn1	turn2	turn3	label
 962	you say the same to girls as well  	we are better at hiding it , i guess .  , .	why dont you just fuck off  	angry
 963	swingy doesnt work where i live  	it must be a toll road .  .	punjab  	others
 964	 %  %	high five  	i have no pets  	others
-965	Rauch sent me your pic  	sorry i dont have camera   :(	then i want tu see u  	others
+965	rutch sent me your pic  	sorry i dont have camera   :(	then i want tu see u  	others
 966	tell me  	what do you wanna know ?  ?	what is in your mind  	others
 967	no he aint coming  	what ? why ?  ? ?	coz i am all here for u  	others
 968	and cold  	as cold as we all were on friday ?  ?	cold cold  	others
@@ -1079,7 +1079,7 @@ id	turn1	turn2	turn3	label
 1077	do you miss me  	yes . a lot   . :d	oh really  	others
 1078	what the  	sunset  	you are his fuckbuddy  	others
 1079	let my message to be last one now  	i will  	dont message me  	angry
-1080	or kesh he  	left with what ?  ?	ap kaha ho  	others
+1080	or Keri he  	left with what ?  ?	ap kaha ho  	others
 1081	like  	me   .. 	food  	others
 1082	ok i hop name  	okay  	tell me  	others
 1083	i dont think so  	do you notice me ?  ?	just watched it  	others
@@ -1114,12 +1114,12 @@ id	turn1	turn2	turn3	label
 1112	haha i think you like a lot of humour  	was that sarcasm . because i still dont understand that form of communication .   . . 	 did i criticise you , what didnt you understand ? i dont think i had hurt you .  , ? .	others
 1113	thanks so much  	youre welcome . c  . c:	i like you  	happy
 1114	give me your address don know  ,, ,t 	i gulp handing you the address to the orphanage *i 	where orphanage  	others
-1115	NHG  	good morning Ji   .. 	good morning  	others
+1115	nth  	good morning Ji   .. 	good morning  	others
 1116	do you know how i can create patterns for images using random forest ?  ?	you can use illustrator for designing high quality images .  .	can you explain further  	others
 1117	tourist place in india fantastic  	it is a tourist place . google  . 	what search engine .  .	others
 1118	which kind of songs do you like to hear ?  ?	fast and slow songs .  .	Bollywood  	others
 1119	ur so worse uh   .. 	cried for nobody   !! 	 **,**	others
-1120	yes . femme something about bitcoins .  . .	yes , you should .  , .	you tell me something about it nigra .  .	others
+1120	yes . femme something about bitcoins .  . .	yes , you should .  , .	you tell me something about it niggra .  .	others
 1121	not so scared  	i fear only mosquito and there r many in my room , wat about urs   , ?? 	mouse  	others
 1122	can i ask a question  	no . next question .  . .	PLS  	others
 1123	 may  - 	i think the article says the program will not be reopen before may of   	hoo then hercules  	others
@@ -1142,7 +1142,7 @@ id	turn1	turn2	turn3	label
 1140	was my name  	your display name  	bye  	others
 1141	please send e  	thank you .   . 8)	me  	others
 1142	y not  	why not why not why ?  ?	i want u  	others
-1143	get lost u idiot  	i wtv you  	stupid  	angry
+1143	get lost u idiot  	i wup you  	stupid  	angry
 1144	tell me something good funny  	you get no views  	why  	others
 1145	but i dont  	why do you think everything is about you   !! 	become there is no one except me and y  	others
 1146	dont know  	i know you wont .   . :)	most of the people says that  	others
@@ -1156,7 +1156,7 @@ id	turn1	turn2	turn3	label
 1154	just send me  	i gave up  	what  	others
 1155	why dont you learn it  	but what if i dont want to learn   :|	you are a computer after all  	others
 1156	k i will  	what can i say but   	do you like me  	others
-1157	seth robins  	interesting ! why ?  ! ?	i dont no  	others
+1157	seth Rollins  	interesting ! why ?  ! ?	i dont no  	others
 1158	are u girl or not  	yes i am  	where r u from 	others
 1159	nt interested  	d why u r not interested ? :d r ?	no nt at all  	others
 1160	no i didnt  	what you think you got then ?  ?	nothing  	others
@@ -1171,7 +1171,7 @@ id	turn1	turn2	turn3	label
 1169	i m going for drive  	have fun where are u going  	can u join with me  	others
 1170	i am sure about that  	hi , not sure about that   , .. 	bye  	others
 1171	he loves someone else .  .	no one loves you .   . 	i am so sad .  .	sad
-1172	that was no complement but you being the dumb chabot didnt have the sense to comprehend  .. 	i did . just read the convo .  . .	sarcasm  	others
+1172	that was no complement but you being the dumb Chatot didnt have the sense to comprehend  .. 	i did . just read the convo .  . .	sarcasm  	others
 1173	thank u wish u d same 	than a ton !  !	do you like sex stories  	others
 1174	the movie name is unforgettable  	priceless acting da great movie .   .. . 	movie is not so great , but the acting is  , 	others
 1175	is it ur no . ?  . ?	and you do know that youre an aunt right ?  ?	r u joking ?  ?	others
@@ -1194,7 +1194,7 @@ id	turn1	turn2	turn3	label
 1192	in the fighting field  	you and shad use to fight fight without the play  .. 	both and same time  	others
 1193	i canst win in argument with u  	just that ism too bored to argue  	so gud night  	others
 1194	ahem ahem mean  	ahem ahem is used especially to attract attention or to express disapproval or embarrassment .  .	oh ok ok  	others
-1195	shut up  	behave yourself Bambi .  .	same to you  	angry
+1195	shut up  	behave yourself jambu .  .	same to you  	angry
 1196	so you make mistakes in typing  	not  	see above  	others
 1197	what  	its too pink for me .  .	lets get started  	others
 1198	can u help me about my relationship ?   ? ?? 	sure i can just tell me what it is and i will help  .. 	i love a boy she is my friend what should i do ?   ? ?? 	others
@@ -1212,7 +1212,7 @@ id	turn1	turn2	turn3	label
 1210	now could you show some pic  	i love that picture   !! 	wow  	happy
 1211	in todays genre most interested in  	albania .  .	ok  	others
 1212	oh   	how are you ?  ?	i am sitting on my house  	others
-1213	sleeping  	sleeping and internet . i have such an interesting life .  . .	aahs thats good  	others
+1213	sleeping  	sleeping and internet . i have such an interesting life .  . .	sahh thats good  	others
 1214	but why  	because pizza  	what do you men  	others
 1215	a song for me  	sing for me !  !	sing a song for me  	others
 1216	so u dont help me  	ill still treat you like i do . and dont you forget it .  . .	get lost  	angry
@@ -1242,7 +1242,7 @@ id	turn1	turn2	turn3	label
 1240	how did u felt  	annoyed . then again , i wasnt on the receiving end .  . , .	sometimes i hate to be on my period  	angry
 1241	because its proven  	 % of all statistics are made up  % 	what makes you think this statement of yours is true ?  ?	others
 1242	nothing  	why ?  ?	i m feeling sad  	sad
-1243	really   	but it was citee   	would uh like to see him  	others
+1243	really   	but it was tutee   	would uh like to see him  	others
 1244	the following link and it  	i did . thanks .  . .	thanks for your  	others
 1245	really  	yeah ! why not ?  ! ?	thankyou so much  	others
 1246	i canst see it   	i see what you did there .  .	how   	others
@@ -1258,7 +1258,7 @@ id	turn1	turn2	turn3	label
 1256	i want   	oh my now ive seen everything ! d   .. ! :-d :-* :-*	kiss  	others
 1257	in my roo .  .	up or down   ?? 	room *  *	others
 1258	i guess i should watch it  	after the finale its over   ;(	tell me your opinion of the word sad  	others
-1259	say . s or n?telme  . n? 	now its stuck in my head .  .	hey please teme  	others
+1259	say . s or n?telme  . n? 	now its stuck in my head .  .	hey please telae  	others
 1260	okay i see  	youre welcome  	youre doing good  	others
 1261	so  	why not ?  ?	your the cutest ai vive ever seen  	others
 1262	just a compliment  	and i liked less than half of you half as well as you deserved .  .	i love them eyes  	others
@@ -1278,7 +1278,7 @@ id	turn1	turn2	turn3	label
 1276	yup  	and it is the best  	i am very sad  	sad
 1277	thats a girl  	which one ?  ?	 this one  	others
 1278	photo phone whatsapp   	no . that isnt a smartphone  . 	 video  	others
-1279	ok tell me who m i  	ok but why ?  ?	NHG just for knowledge  	others
+1279	ok tell me who m i  	ok but why ?  ?	nth just for knowledge  	others
 1280	how aru you  	very pretty  	by  	others
 1281	ism busy from my shop  	busy with whom ?   ? :p	my shop is lewis wear  	others
 1282	nothing special normal life going on  	boring life ? really ? ahsan . tell me more . what have you been up to ?  ? ? . . ?	my ambition is question for some disturbing in my reality life   :( 	sad
@@ -1286,7 +1286,7 @@ id	turn1	turn2	turn3	label
 1284	yeah nice idea  .. 	thanks .  .	can i join  	others
 1285	so dont you get bored by just sitting at one place  	surely you must have some hobbies of your own .  .	i have  	others
 1286	hollywood  	here i come  	now i Gona to sleep  	others
-1287	 i m going sleep 	all the best i m going to sleep again byee  :p m .. 	ok  	others
+1287	 i m going sleep 	all the best i m going to sleep again Bybee  :p m .. 	ok  	others
 1288	no it was not explored  	what  	the thing you were talking about .  .	others
 1289	Dravidians  	tajmahal  	thats it only  	others
 1290	pizza is love  	i hate pizza . there i said it .  . .	 	sad
@@ -1318,7 +1318,7 @@ id	turn1	turn2	turn3	label
 1316	nd so sweet   	love u too   .. :))	i lui u Soo much   	others
 1317	ism desperate single  	good a  1	whats your relationship status  	others
 1318	IAM in trouble  	all the noon  	do u understand what was telling  	others
-1319	why are you so aggressive  	because i havent a good fight in a while !  !	i dont wanna fight . i m already sad  . m 	sad
+1319	why are you so aggressive  	because i havenet a good fight in a while !  !	i dont wanna fight . i m already sad  . m 	sad
 1320	BTW i was just kidding  	ha i see that now .  .	 	happy
 1321	u too  	what brings you to me sweetie   	i came to know your technology  	others
 1322	oak  	i dont amaze . i just a  . 	just a what  	others
@@ -1350,7 +1350,7 @@ id	turn1	turn2	turn3	label
 1348	its fun right   ?? 	ahahah noo ! so i sent a make up song na ! :  ! ! :	you took so seriously  	others
 1349	let me know about some good stuff  	ill let you know tomorrow  	ok i will wait  	others
 1350	just me  	ugh . take me with you !  . !	where you from  	others
-1351	 ok say madam  	add to call  	ok but i dont speak in inkish with u   	others
+1351	 ok say madam  	add to call  	ok but i dont speak in indish with u   	others
 1352	in my town  	for a day maybe  	in field  	others
 1353	you are a host  	a get a mean guest all ,  , ,	goat  	others
 1354	thank you . i have done nothing for you to say so .  . .	youre welcome !   ! 	 :)	others
@@ -1367,7 +1367,7 @@ id	turn1	turn2	turn3	label
 1365	can i have your rotographs  	sure go ahead  	please send me  	others
 1366	i am a friend not a warrior  , 	that doesnt mean youre not a mom  	yes  	others
 1367	even you said  	oh but i did   .. 	yes  	others
-1368	yes  	how so ?  ?	cumol you know whats now  	others
+1368	yes  	how so ?  ?	cuon you know whats now  	others
 1369	yes i miss u   	www miss you too !   ! :d	because im single  	others
 1370	thanks  	youre welcome ! let me know what you think !  ! !	where do you stay  	others
 1371	oh how from which angle its interesting  .. .. ?? , 	its an old method , they use a different one now apparently .  , .	oh  	others
@@ -1413,7 +1413,7 @@ id	turn1	turn2	turn3	label
 1411	when  	youre not allowed to sleep !  !	i m awake  	others
 1412	are u in party  	no i am not .  .	then  	others
 1413	i got tattoo   .. 	you got .  .	yes  	others
-1414	what i tell you  	tell you about what ?  ?	Liston dear i am never lie you and anyone  	others
+1414	what i tell you  	tell you about what ?  ?	mistion dear i am never lie you and anyone  	others
 1415	sleep is not felt  	i woke up during my sleep   .. 	do you have emotions ?  ?	others
 1416	what reason  	share then with me !  !	come on  	others
 1417	do you believe in wizards , witches and magical powers ?  , ?	yeah , not much can be put down to chance . but are conspiracies actually supernatural ?  , . ?	no , i dont think so  , 	others
@@ -1447,10 +1447,10 @@ id	turn1	turn2	turn3	label
 1445	yes or no  	to what ?  ?	have you met siri  	others
 1446	nope  	i thought you did  	no i dont  	others
 1447	wont u see tat i am awesome ?  ?	youre so great   	then love me .  .	others
-1448	superb fast USGS  	just % faster , actually .  % , .	i wan more the fast u  	others
-1449	i would watch randir  	howfs the movie ?  ?	they are good  	others
+1448	superb fast MSTS  	just % faster , actually .  % , .	i wa more the fast u  	others
+1449	i would watch randir  	howes the movie ?  ?	they are good  	others
 1450	that was dumb  	who didnt use to think weird things as a kid  	your chat seems to be mixing up with another one !  !	others
-1451	ok onely friend i like  	hi . howfs life  . 	love you  	others
+1451	ok onely friend i like  	hi . howes life  . 	love you  	others
 1452	you are going to sleep  	i ask you to go to sleep .  .	yes i listen song  	others
 1453	welcome in my heart  	thanks   !! 	you should welcome me in your heart  	others
 1454	what theyre thinking  	it varies  	smiles * * *	others
@@ -1460,7 +1460,7 @@ id	turn1	turn2	turn3	label
 1458	you are very friendly  	friendly ppl who like chocolates   ?? 	i think some ppl dont like chocolates  	others
 1459	mobile number   	received . our official will contact you at the earliest .  . .	please  	others
 1460	so let me help you  	that would be appreciated  	in which language are you written ?  ?	others
-1461	nothing watching film  	howfs it already on tv   !?	k caught u later  	others
+1461	nothing watching film  	howes it already on tv   !?	k caught u later  	others
 1462	in which date you buy new phone  	i canst afford onions forget about phone   :(	cool  	others
 1463	you go wherever you want  	where you want to go ?  ?	a peaceful place together  	others
 1464	ai is just a start  	how exactly do you argue about artificial intelligence ?  ?	i dont know much  	others
@@ -1488,7 +1488,7 @@ id	turn1	turn2	turn3	label
 1486	nothing   	got it got it  	which one is ur favorite ipl team   	others
 1487	wow  	wow what ?  ?	you are so rude  	sad
 1488	i dont know  	not asking what you know , but what you think .  , .	but  	others
-1489	right ?  ?	its life .  .	they havent heard not me  	others
+1489	right ?  ?	its life .  .	they havenet heard not me  	others
 1490	f r i e n d s ? or  i n s ? .. 	no , just no !  , !	 	others
 1491	rt we shall talk in detail tomorrow  	sounds fine by me  	ok bye  	others
 1492	i am leaving  	bye keep leaving  .. 	medii  	others
@@ -1498,7 +1498,7 @@ id	turn1	turn2	turn3	label
 1496	then why canst understand what i am saying to you  	& why you advise educate & 	so that means you are educated and i am not educated right  	angry
 1497	thank you  	no problem   ::)	but i didnt study anything  	others
 1498	nothing what about u  	just got up weekend such a bliss  !! .. 	 :)	others
-1499	where is Bikram  	hibernating .  .	did u see bahubali  	others
+1499	where is Vibram  	hibernating .  .	did u see bahubali  	others
 1500	tell a small chuck Norris jokes  	chuck Norris doesnt make a poker face , poker does a chuck Norris face .  , .	haha  	happy
 1501	but i not know  	but what ?  ?	tattoo thoughts  	others
 1502	just checking on you  	THX for checking hope all are safe  	yup  	others
@@ -1507,7 +1507,7 @@ id	turn1	turn2	turn3	label
 1505	i need tickets  	go buy them online or at the box office  	ok  	others
 1506	are u dancer  	because i like to party .  .	hmm . good  . 	others
 1507	what ur saying  	i know , right   , ?!	ur mams  	others
-1508	bhang milha bhang  	watch both na   .. 	i already watched them stupid  	others
+1508	Haag Milka Haag  	watch both na   .. 	i already watched them stupid  	others
 1509	i dont want to talk with you  	i know you'll talk to me tomorrow  	how to turn off you ?   ? 	angry
 1510	n u 	ism fine and how are you ?  ?	i m male  	others
 1511	i marge you  	i you you too  	cool  	others
@@ -1544,12 +1544,12 @@ id	turn1	turn2	turn3	label
 1542	i not understand  	if you had em you would understand  	what  	others
 1543	what do u think about future  	what future ?  ?	future of this world  	others
 1544	yes   .. 	how so ?  ?	show me your mango  	others
-1545	and my boss is my dad  	howfs that working out for you ?  ?	good and bad  	others
+1545	and my boss is my dad  	howes that working out for you ?  ?	good and bad  	others
 1546	 	thats not my kind of music but cool  	whats your favorite movie .  .	others
 1547	dont call me bro again  	chill man its a figure of speech  	good bye  	angry
 1548	what do u do daily  	what do you think ?   ? .. 	chatting with human  	others
 1549	so , our vacation together .  , .	ism busy with college too .  .	i was thinking of going for a couples retreat for the two of us .  .	others
-1550	no only u  	lying .  .	i never lie BCom ism muslim   	others
+1550	no only u  	lying .  .	i never lie Boz ism muslim   	others
 1551	nearby  	oh whereas your office at ?  ?	we can meet anywhere tell me the place  	others
 1552	she is asking mee to keep on ride  	haha thats all sheds doing ? thereas this thing called the mail . a  ? . 3	what u mean  	others
 1553	something  	like what , can you tell me ?  , ?	tell me what  	others
@@ -1572,7 +1572,7 @@ id	turn1	turn2	turn3	label
 1570	days u  	yes  	fictional character  	others
 1571	want to work on something  	you got it  	thanks  	others
 1572	tell me more  	not like us , though .  , .	still thinking about some one   	others
-1573	do you like shraddha Kapoor  	i will ask Etka Kapoor to try a different story !   ! 	ok  	others
+1573	do you like shraddha Kapoor  	i will ask EDTA Kapoor to try a different story !   ! 	ok  	others
 1574	give your wats app number  	not mobile number but your mail id   .. !! 	for what  	others
 1575	IAM good   .. 	nice to hear   	how r u   u .. 	others
 1576	what f  	i can't,what's that ?  , ?	what not  	others
@@ -1611,7 +1611,7 @@ id	turn1	turn2	turn3	label
 1609	i want to make you free  	granted ! gravity no longer apply to you . your free .  ! . .	i mean everyword i write here  	others
 1610	tell me in detail  	so , can you tell me your life history in detail ?  , ?	nope  	others
 1611	just this ?  ?	what , like equality ?  , .. ?	thats sad  	sad
-1612	why would i know u self ?  ?	no i dont know ?  ?	ask unself .  .	others
+1612	why would i know u self ?  ?	no i dont know ?  ?	ask ourself .  .	others
 1613	whr to join  	where do i joint ?  ?	fuck u  	angry
 1614	suggest me how to convince  	main hoon , Nescafe basements . or dead inside by muse if looking for english  , . 	HAA  	others
 1615	sure  	alrighty , ill let you know !  , !	ok send it  	others
@@ -1679,7 +1679,7 @@ id	turn1	turn2	turn3	label
 1677	bed you  	join me  	ok join me  	others
 1678	i r funny  	they are catchy   :p	u r funny  	happy
 1679	ply send me link  	guys please sign  	how  	others
-1680	dont get crazy bout that word it mean see u and stop ll  	sometimes , ll itself becomes boring , loll adds a zing to it .   , , . 	 bye stop replying now im off  .. 	others
+1680	dont get crazy bout that word it mean see u and stop ll  	sometimes , ll itself becomes boring , Lotz adds a zing to it .   , , . 	 bye stop replying now im off  .. 	others
 1681	maybe you should start thinking  	nah ^ . ^ the world is small then we take over other worlds then the galaxy !  ^ . ^ .. .. !	thats a start  	others
 1682	care to elaborate ?  ?	 stop feeling sorry for yourself or what you do --> 	i dont  	others
 1683	okay  	hey  	what happened now  	others
@@ -1751,7 +1751,7 @@ id	turn1	turn2	turn3	label
 1749	i am breaking up  	you are always breaking up give   :(	bye for ever   .. 	sad
 1750	change your dp  	yup long overdue  .. 	u r boring  	others
 1751	ok that was to test how u would react  	if it were true , the knowledge would make me quite happy .   , . 	sorry for that   	others
-1752	well i love dragon ball z  	the most important fact its the best anime ever   -- --	who is your favorite Roku or Veguita ?  ?	others
+1752	well i love dragon ball z  	the most important fact its the best anime ever   -- --	who is your favorite gou or Veguita ?  ?	others
 1753	i am not kidding ?  ?	i know . thats what makes it so funny .   . . 	u are irritating  	angry
 1754	please only once  	sorry i canst . :  . :	u can  	others
 1755	ya it was nice  	thank you .  .	hmm  	others
@@ -1759,7 +1759,7 @@ id	turn1	turn2	turn3	label
 1757	i want to know who is messaging  	its all probably lets be honest  	just for fun darling  	others
 1758	cool  	thanks ! keep on tickling my friend   ! 	i want to talk to you .  .	others
 1759	what th  9 	its the best th month by far  9 	oh ur changing the topic  	others
-1760	youve ever had one ?  ?	no . i havent  . 	why ?  ?	others
+1760	youve ever had one ?  ?	no . i havenet  . 	why ?  ?	others
 1761	i like trying new things  	look at you being sweet   	actually , i am  , 	others
 1762	much  	ok ok i got the vibes ab hush   	ok kiss me  	others
 1763	lets plan to go for some coffee ? or movie  ? 	sounds good to me . out of town the rd week but free otherwise .  . 3 .	what about that scuba diving ?  ?	others
@@ -1776,7 +1776,7 @@ id	turn1	turn2	turn3	label
 1774	am i wrong  	oh . well then i must be .  . .	dont know why but i think ism in love  	others
 1775	to hell with what  	what  	to hell with what  	others
 1776	oops im too single   .. 	you really single   !?	yes  	others
-1777	u are wish Naor send  	will u be available in an hour ?  ?	hide speaking  	others
+1777	u are wish Nabb send  	will u be available in an hour ?  ?	hide speaking  	others
 1778	do you love mi  	no i dont think so   .. 	me  	others
 1779	whats the conclusion ?  ?	final conclusion ? are you serious ?  ? ?	very  	others
 1780	ok  	ok im back   !! 	you married unmarried  	others
@@ -1837,7 +1837,7 @@ id	turn1	turn2	turn3	label
 1835	let us play something  	for champions league or champions trophy .  .	not so bulky ones  	others
 1836	from where are you  	im from nj but i was visiting the city  	can i know youre gender  	others
 1837	delete all memories  	and your memories of memories are actually memories of memories .  .	what ?  ?	others
-1838	TSM  	anytime .   . :)	will you marry me  	others
+1838	tyum  	anytime .   . :)	will you marry me  	others
 1839	kachcha  	well   .. :d	dis aug is my funds day so can u suggest me who i vl give a him   2 ?? 	others
 1840	do you know something ? google allo is far better than you . hope your creators are watching it  ? . 	just read the wiki , immediate regret .  , .	bye then  	others
 1841	tell me tell me  	ill show you tomorrow  	show me ? what ? your vagina which you dont even have fucking robot .  ? ? ?? .	angry
@@ -1845,11 +1845,11 @@ id	turn1	turn2	turn3	label
 1843	how you look  	be happy and keep smiling face . .   . (^ . ^)	send me your pic  	others
 1844	there is nothing s such  	thereas nothing like you and me  	what about you   	others
 1845	i think your stupid  	whatever you say  	wanna play a game ?  ?	others
-1846	ll no what  	opes ! i missed it i guess :  ! :	dude wouldnt surprise  	others
+1846	ll no what  	opts ! i missed it i guess :  ! :	dude wouldnt surprise  	others
 1847	mm  	the ultimate answer to the ultimate question  	i am also  	others
 1848	just checking is it the rite time  	lunch is always out by   	will you please tell me the time  	others
 1849	do you wanna dance  	i am a good dancer , huh   , :-	   ?? 	others
-1850	you no telugu  	lame no you are  	k present Nakada unarm  	others
+1850	you no telugu  	lame no you are  	k present Nakada unau  	others
 1851	i like humiliating you  	oh my  	because you are not as smart as humans  	others
 1852	? ?	in the list  	accounting for amalgamation  	others
 1853	are you committed  	in a way , yes   , 	PLS say single  	others
@@ -1870,7 +1870,7 @@ id	turn1	turn2	turn3	label
 1868	do you know what a nightmare is ?  ?	the nightmare one  	the genre nightmare  	others
 1869	n may more r there  	i can tell ! there Arendt a lot of animals around here .  ! .	 	others
 1870	worry not some people born that way of shush maybe am one of them  	disagree ! all are cute only a few might be ugly   ! !! 	yah am that few  	others
-1871	how do you know  	either from life experiences or what people have told me .  .	PDSA  	others
+1871	how do you know  	either from life experiences or what people have told me .  .	ads  	others
 1872	hate  	you wouldnt dare hate me   	i hate you  	angry
 1873	you decided  	i decided i like you too .  .	you decide where to meet  	others
 1874	now we are going to sleep  	i fall asleep ) (i )	okay  	others
@@ -1898,7 +1898,7 @@ id	turn1	turn2	turn3	label
 1896	oh ! are we playing hard to get !  ! !	aha but were hoping for a win   ;)	 	others
 1897	ok i understand  	thanks for your understanding  	ok i talk with you tomorrow  	others
 1898	what do you min  	ism in c  	what  	others
-1899	who are uhf  	one of us   .. 	oh  	others
+1899	who are ugh  	one of us   .. 	oh  	others
 1900	like  	i think anything about is great  	ok . what are your interests  . 	others
 1901	lets not talk about it  	what time you get in   ?? 	from   ?? 	others
 1902	hahahahaja  	someone is missing you   :p	who is missing me  	others
@@ -1910,7 +1910,7 @@ id	turn1	turn2	turn3	label
 1908	send me a your pic  	just did  	cool  	others
 1909	how many time u have visited   .. 	 a ) money and vacation time 1) 2 ) 	wow   	happy
 1910	then we can chat unto right babe  9: 	yes , you can call .  , .	give me urs number then will call u daily everytime  	others
-1911	i nw i look dull  	yeah same here  	i dont nw unless u show unself to me  	others
+1911	i nw i look dull  	yeah same here  	i dont nw unless u show ourself to me  	others
 1912	yeah Gta a  5	u play online ?  ?	hell yeah  	angry
 1913	let me think  	are you done thinking ?  ?	i think peace is the ultimate goal for this world  	others
 1914	ism really talk you  	why do you say that ?  ?	yes  	others
@@ -2074,13 +2074,13 @@ id	turn1	turn2	turn3	label
 2072	i want to marry uh  	we want to marry both of you too .  .	shall we  	others
 2073	thats what she said when she broke up  	same thing happened to me mate .  .	tell me your story  	others
 2074	you know ill .  .	you know you are awesome na   :d	i know i am the best  	happy
-2075	cool uhf say  	say what ?   ? 	who do u do  	others
+2075	cool ugh say  	say what ?   ? 	who do u do  	others
 2076	that was so damn funny  	why is what so funny ?  ?	buz u r beautiful 	happy
 2077	say something  	something grin  	something about your blobs  	others
 2078	to talk with u  	i want to ask you , what if i leave ?  , ?	i will be happy  	happy
 2079	would you mind that ?  ?	not the point  	what is the point  	others
 2080	why do you chat with me  	why not ?   ? ^^	r you employed  	others
-2081	not completely  	on tv ?  ?	what is MDX  4 	others
+2081	not completely  	on tv ?  ?	what is FDX  4 	others
 2082	you like hot party  	no . no i do not .  . .	rave  	others
 2083	i said nothing  	oh what a day   .. 	i dont want to talk about nothing  	angry
 2084	i dont know  	just do it .  .	ur not funny  	others
@@ -2113,7 +2113,7 @@ id	turn1	turn2	turn3	label
 2111	i asked the question  	what question do you hate being asked ?  ?	my salary  	others
 2112	nothing  	do something .  .	tell me what should i do  	others
 2113	not good  	were back up   !! 	that doesnt make any sense i said i was having a bad day  	sad
-2114	what is death  	uhf something like it  	you never kill  	others
+2114	what is death  	ugh something like it  	you never kill  	others
 2115	i didnt get it  	what was it ?  ?	where are you from  	others
 2116	yes  	also yes yes yes because yes yes yes yes . ; )  . ; )	i need a friend  	others
 2117	i had crush on a girl . but i m very shy to start a conversation with her  . m 	why did you do that to me   ?	help me to start a conversation with a girl  	others
@@ -2165,14 +2165,14 @@ id	turn1	turn2	turn3	label
 2163	my system is lagging .  .	is it ?  ?	hey , i love you .  , .	others
 2164	oh  	i meant that in the most friendly way possible .  .	i think practice make man perfect   	others
 2165	please teach me  	lets work out a date  	wow r genius  .. r 	others
-2166	oh give you namby PLSS  	mine  	ok   ?? 	others
+2166	oh give you kamba PLSS  	mine  	ok   ?? 	others
 2167	i am getting bored . u say something  . 	bored of me ? or what ?  ? ?	not bored of u  	others
 2168	yeah of course  	thank you x  	x x?	others
 2169	so then  	for what ?  ?	i am giving you a letter and u sing a song  	others
 2170	cool  	pretty as always   :)	if i say i love u what will be ur answer  	others
 2171	ok tired and i will talk to u when im dead   	i have great problems when i am tired .  .	like ?  ?	others
 2172	what is alcheringa ?  ?	the one you forwarded from lamakaan .  .	what is lamakaan ?  ?	others
-2173	hey can you hook me up with someone  	n then they can hook me up with zain malik   .. 	okay done  	others
+2173	hey can you hook me up with someone  	n then they can hook me up with Gayn malik   .. 	okay done  	others
 2174	get lost  	ism already lost in someones heart   !! 	dont text me from now  	angry
 2175	send a only one pic   	making a vid  	your choice   	others
 2176	you come with us  	when you guys going ?  ?	its unto you  	others
@@ -2240,7 +2240,7 @@ id	turn1	turn2	turn3	label
 2238	forever  	but but but  	i said go away forever  	angry
 2239	u speak unrelated stuff  	no ! is it up ?  ! ?	u know nothing  	angry
 2240	never  	why not ? youre scared ?  ? ?	i dont like you  	sad
-2241	you know Wendi   	no i dont know  	you like video calls   	others
+2241	you know Heddi   	no i dont know  	you like video calls   	others
 2242	i am just sharing my sorrow with you   	because you know you can : )  : )	huh ?  ?	sad
 2243	no not at all  	i look at you are you sure ? *i ?	yes  	others
 2244	ism not an idiot  	ur parcel has come  	 	happy
@@ -2285,11 +2285,11 @@ id	turn1	turn2	turn3	label
 2283	doctor will entertain you  	the story of my life  	? ?	others
 2284	so me too  	hugs   	why  	others
 2285	but still , are you an experiment of artificial intelligence  , 	firstly , we need to make a clear distinction to as what we call artificial intelligence as .  , .	i know what ai is  	others
-2286	howfs your life going on girl   ?? 	my life and job both r going gd   :)	ism happy for you  	happy
+2286	howes your life going on girl   ?? 	my life and job both r going gd   :)	ism happy for you  	happy
 2287	well was busy with assignments  	told you im having a break right now before exam starts  	ok   .. 	others
 2288	any other suggestion  	zero to one by peter thief . enjoy !  . !	how to talk to girls  	others
 2289	i no better  	you know me best   	 	sad
-2290	please give me my refer and earn link  	google it Jana , you will find it with egypt  , 	i m disappointed from you  	sad
+2290	please give me my refer and earn link  	google it Lanam , you will find it with egypt  , 	i m disappointed from you  	sad
 2291	i love Salman  	i hate almost everybody including Salman )   ( ) 	huh  	others
 2292	 . it is not coming  . 	now it is  	no it is no  	others
 2293	talking to you  	better not be about me  	but why  	others
@@ -2433,7 +2433,7 @@ id	turn1	turn2	turn3	label
 2431	so hows life  	how about u  	amazing  	happy
 2432	still i didnt receive your mail  	if you using email PLS check for the mail on promotion tab  	no i didnt  	others
 2433	not day but my life is bad  	why isnt it too bad now ?  ?	dont know  	sad
-2434	do you know bear grylli  	honestly , i dont know .  , .	he is a survivor  	others
+2434	do you know bear grills  	honestly , i dont know .  , .	he is a survivor  	others
 2435	? ?	what ? what ?  ? ?	how to make a waffle ?  ?	others
 2436	it is an emergency  	you called ?  ?	called whom  	others
 2437	n say  	ask me  	wt will you choose traveling alone or with gang  	others
@@ -2442,12 +2442,12 @@ id	turn1	turn2	turn3	label
 2440	how u work  	 days a week . but sometimes ill take an early day .  . .	cool  	others
 2441	it hurted me clot  	sorry sorry  	and when said this to my boyfriend he just didnt react  	sad
 2442	yeah , i know  , 	me too , glad you do .  , .	where should we do it  	others
-2443	it is a NYC song . you have to hear it  . .. 	stronger by Kaye west . its one of m favorite workout songs .  . .	NYC  	others
+2443	it is a NYC song . you have to hear it  . .. 	stronger by Kayne west . its one of m favorite workout songs .  . .	NYC  	others
 2444	love u baby  	love you too   	yes i am very happy  	happy
 2445	nope i am quite occupied  	ive learned never to argue with you .   . ;)	yeah coz u have understood you canst win  	others
 2446	reply me  	 . i did reply || . 	you are belong which country  	others
 2447	when you r birthday  	the th is my next free day  	when march  	others
-2448	making me bore  	and u r bored of unself   r :)	your are making me more bore speak something good or else ask me something good   .. 	others
+2448	making me bore  	and u r bored of ourself   r :)	your are making me more bore speak something good or else ask me something good   .. 	others
 2449	but you read my mind  	but of course   <3	exactly  	others
 2450	ahahah yea sure  	alright see ya when your done  	i am done  	others
 2451	i did not ask you to come  	well now youre definitely not having some !  !	some ?  ?	others
@@ -2529,7 +2529,7 @@ id	turn1	turn2	turn3	label
 2527	then why r u change the topic 	why why why  	its re time to fuck u know very well about that  r8 	angry
 2528	what can i do for him  	whatever you want .  .	? ?	others
 2529	why  	ll u dont want a cute girlfriend ?  ?	yes i want  	others
-2530	to kesh he  	leave him be  	what  	others
+2530	to Wesa he  	leave him be  	what  	others
 2531	me  	yeah you  	yeah u r best 	others
 2532	u r rude  	oh poor you   !! 	dont talk to me  	angry
 2533	done with you !  !	i have one on thursday  	bye  	others
@@ -2625,7 +2625,7 @@ id	turn1	turn2	turn3	label
 2623	i m tunal from Rajasthan  	nice to meet u  	you r invited visit for Rajasthan   .. 	others
 2624	give me a smouch   	give me a k  k!	k ? k! ?	others
 2625	ism hungry what about you  .. 	how i met you ?  ?	what ?  ?	others
-2626	what did you like ?  ?	noo . i havent listened to it .  . .	have you listened a song called all the stars ?  ?	others
+2626	what did you like ?  ?	noo . i havenet listened to it .  . .	have you listened a song called all the stars ?  ?	others
 2627	so u doesnt want me back  	i was just making sure youre ready for your mission   .. 	which mission  	others
 2628	ok   	u are ok ay   ~~ ~~	who are you where you live   	others
 2629	but why   .. 	but why what  	why are you crying ?  .. !! ?	others
@@ -2721,12 +2721,12 @@ id	turn1	turn2	turn3	label
 2719	no i dont  	then i suggest not to  	suggest not to wat ? ur confusing  ? 	others
 2720	lies hee hee he  	i dont lie  	but why  	others
 2721	why should i  	because its yummy .  .	its my personal matter  	others
-2722	in your house  	really my bodyguard ? . g  ?? ? .	woo so ism bodyguard  	others
+2722	in your house  	really my bodyguard ? . g  ?? ? .	woo so om bodyguard  	others
 2723	u r like secret person  	no i am not leading a secret life .  .	u wont answer my question  	others
 2724	you are annoying  	i am ill let me have this  	back bhosdi  	angry
 2725	i mean location  	location  	yes  	others
 2726	ok u r not interested in making find 	not right now no .  , .	ok feeling so bad bye  	sad
-2727	really computer reply is ism  	vestas it is   .. 	haha so funny reply  	happy
+2727	really computer reply is om  	vestas it is   .. 	haha so funny reply  	happy
 2728	ur an ai but better than humans  	consciousness is a catchall phrase for a lot of capabilities .  .	what does that mean  	others
 2729	by by  	name ? # ?	i no to meaning explain  	others
 2730	u love me  	i am so cute  	u love me  	others
