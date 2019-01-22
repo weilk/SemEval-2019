@@ -59,63 +59,75 @@ def parse_file(file_path, file_type):
 import os
 from keras.models import model_from_json
 import numpy
+import json
 from keras.models import Sequential, Model
 from keras.layers import Concatenate, concatenate, Dense
 
 models_dir = "models"
 
-def save_model(model):
-	model_json = model.to_json()
-	if not os.path.exists(models_dir):
-		os.makedirs(models_dir)
-	model_path = os.path.join(models_dir, "{}_model".format(model.name))
-	models_json_path = model_path + ".json"
-	with open(models_json_path, "w") as json_file:
-		json_file.write(model_json)
+def save_model(model,input_indices = None):
+    model_json = model.to_json()
+    if not os.path.exists(models_dir):
+        os.makedirs(models_dir)
 
-	models_weights_path = model_path + ".weights"
-	model.save_weights(models_weights_path)
+    model_path = os.path.join(models_dir, "{}_model".format(model.name))
+    models_json_path = model_path + ".json"
+    with open(models_json_path, "w") as json_file:
+        json_file.write(model_json)
+
+    models_weights_path = model_path + ".weights"
+    model.save_weights(models_weights_path)
+    
+    if input_indices != None:
+        models_indices_path = model_path + ".indices"
+        with open(models_indices_path, "w") as indices_file:
+            indices_file.write(json.encode(input_indices))
 
 
 def load_models():
-	models = os.listdir(models_dir)
-	models_jsons = [x for x in models if ".json" in x]
-	models_jsons = [os.path.join(models_dir, x) for x in models_jsons]
-	models_weights = [x.split(".json")[0].strip() + ".weights" for x in models_jsons]
-	final_loaded_models = []
-	for model_json in models_jsons:
-		# load json and create model
-		json_file = open(model_json, 'r')
-		loaded_model_json = json_file.read()
-		json_file.close()
-		loaded_model = model_from_json(loaded_model_json)
-		# load weights into new model
-		weights_name = model_json.split(".json")[0].strip() + ".weights"
-		loaded_model.load_weights(weights_name)
-		for i, layer in enumerate(loaded_model.layers):
-			loaded_model.layers[i].name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name)
-			loaded_model.layers[i].trainable = False
-		#loaded_model.get_layer("embedding_1_input").name = model_json.rsplit("\\", 1)[1].strip() + "embedding_1_input"
-			#print("{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name))
-		#loaded_model.input.name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.input.name)
-		print("Loaded model {} from disk".format(model_json))
-		final_loaded_models.append(loaded_model)
+    models = os.listdir(models_dir)
+    models_jsons = [x for x in models if ".json" in x]
+    models_jsons = [os.path.join(models_dir, x) for x in models_jsons]
+    models_weights = [x.split(".json")[0].strip() + ".weights" for x in models_jsons]
+    final_loaded_models = []
+    for model_json in models_jsons:
+        # load json and create model
+        json_file = open(model_json, 'r')
+        loaded_model_json = json_file.read()
+        json_file.close()
+        loaded_model = model_from_json(loaded_model_json)
+        
+        # load weights into new model
+        weights_name = model_json.split(".json")[0].strip() + ".weights"
+        loaded_model.load_weights(weights_name)
+        
+        indices_name = model_json.split(".json")[0].strip() + ".indices"
+        indices = json.loads(open(indices_name,'r').read())
+        
+        for i, layer in enumerate(loaded_model.layers):
+            loaded_model.layers[i].name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name)
+            loaded_model.layers[i].trainable = False
+        #loaded_model.get_layer("embedding_1_input").name = model_json.rsplit("\\", 1)[1].strip() + "embedding_1_input"
+            #print("{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.layers[i].name))
+        #loaded_model.input.name = "{}_{}".format(model_json.rsplit("\\", 1)[1].strip(), loaded_model.input.name)
+        print("Loaded model {} from disk".format(model_json))
+        final_loaded_models.append([loaded_model,indices])
 
-	return final_loaded_models
+    return final_loaded_models
 
 def create_final_layers(final_loaded_models):
-	models_layers = [model.layers[-1].output for model in final_loaded_models]
-	input_layers = [model.input for model in final_loaded_models]
-	new_input = []
-	for inp in input_layers:
-		try:
-			ceva = len(inp)
-			for i in inp:
-				new_input.append(i)
-		except:
-			new_input.append(inp)
-	merged_layer = concatenate(models_layers)
-	return merged_layer, new_input
+    models_layers = [model.layers[-1].output for model in final_loaded_models]
+    input_layers = [model.input for model in final_loaded_models]
+    new_input = []
+    for inp in input_layers:
+        try:
+            ceva = len(inp)
+            for i in inp:
+                new_input.append(i)
+        except:
+            new_input.append(inp)
+    merged_layer = concatenate(models_layers)
+    return merged_layer, new_input
 
 def f1(y_true, y_pred):
     y_pred = K.round(y_pred)
