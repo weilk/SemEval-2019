@@ -65,7 +65,7 @@ from keras.layers import Concatenate, concatenate, Dense
 
 models_dir = "models"
 
-def save_model(model,input_indices = None):
+def save_model(model,indices = None):
     model_json = model.to_json()
     if not os.path.exists(models_dir):
         os.makedirs(models_dir)
@@ -78,10 +78,10 @@ def save_model(model,input_indices = None):
     models_weights_path = model_path + ".weights"
     model.save_weights(models_weights_path)
     
-    if input_indices != None:
+    if indices != None:
         models_indices_path = model_path + ".indices"
         with open(models_indices_path, "w") as indices_file:
-            indices_file.write(json.encode(input_indices))
+            indices_file.write(json.dump(indices))
 
 
 def load_models():
